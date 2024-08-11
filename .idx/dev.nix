@@ -10,6 +10,7 @@
     # pkgs.python311
     # pkgs.python311Packages.pip
     # pkgs.nodePackages.nodemon
+    pkgs.gitlab-runner
   ];
 
   # Sets environment variables in the workspace
@@ -48,6 +49,7 @@
       onStart = {
         # Example: start a background task to watch and re-build backend code
         # watch-backend = "npm run watch-backend";
+         gitlab-runner = "gitlab-runner run";
       };
     };
   };
