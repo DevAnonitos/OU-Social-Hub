@@ -19,6 +19,21 @@
 stages:          # List of stages for jobs, and their order of execution
   - triggers
 
+backend-trigger:
+  stage: triggers
+  trigger:
+    include:
+      - gitlab/backend.yml
+    strategy: depend
+  rules:
+    - if: "$CI_COMMIT_REF_NAME == 'dev'"  
+    - if: "$CI_COMMIT_REF_NAME == 'main'"
+    - if: $CI_COMMIT_BEFORE_SHA == "0000000000000000000000000000000000000000"
+      when: never
+    - changes:
+      - "backend/**/*"
+
+
 frontend-trigger:
   stage: triggers
   trigger:
@@ -39,7 +54,7 @@ dev-trigger:
     include:
       - gitlab/dev.yml
     strategy: depend
-  needs: [frontend-trigger]
+  needs: [backend-trigger, frontend-trigger]
   rules: 
     - if: "$CI_COMMIT_REF_NAME == 'dev'"
 
