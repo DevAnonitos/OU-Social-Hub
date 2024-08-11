@@ -20,7 +20,7 @@ stages:          # List of stages for jobs, and their order of execution
   - triggers
 
 frontend-trigger:
-  stages: triggers
+  stage: triggers
   trigger:
     include:
       - gitlab/frontend.yml
