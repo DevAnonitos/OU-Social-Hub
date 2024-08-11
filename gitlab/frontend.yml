@@ -1,0 +1,24 @@
+stages:
+  - build
+  - test
+
+include:
+  - gitlab/base-line.yml
+
+.frontend:
+  extends: 
+    - .base-line
+  
+build-job:
+  stage: build
+  extends: 
+    - .frontend
+  script:
+    - echo "build phase"
+
+test-job:
+  stage: test
+  extends: 
+    - .frontend
+  script:
+    - echo "test phase"
