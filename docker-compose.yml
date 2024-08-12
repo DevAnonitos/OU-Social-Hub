@@ -1,0 +1,5 @@
+services:
+  client:
+    build: frontend/
+    ports:
+      - "3003:3003"
