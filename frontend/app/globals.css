@@ -67,3 +67,19 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+
+  .left_sidebar {
+
+  }
+
+  .right_sidebar {
+
+  }
+
+  .navbar {
+    
+  }
+
+}
