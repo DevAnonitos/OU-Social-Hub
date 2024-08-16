@@ -4,6 +4,7 @@ import "./globals.css";
 
 import LeftSideBar from "@/components/LeftSideBar/LeftSideBar";
 import RightSideBar from "@/components/RightSideBar/RightSideBar";
+import NavBar from "@/components/NavBar/NavBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <LeftSideBar />
+          <NavBar />
           {children}
         <RightSideBar />
       </body>
