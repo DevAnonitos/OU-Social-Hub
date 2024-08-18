@@ -20,11 +20,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <LeftSideBar />
-          <NavBar />
-          {children}
-        <RightSideBar />
+      <body className={`${inter.className}`}>
+        <NavBar />
+        <div className="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-12 h-full">
+          {/* Left Sidebar */}
+          <div className="hidden sm:block sm:col-span-1 lg:col-span-2">
+            <LeftSideBar />
+          </div>
+
+          {/* Main Content */}
+          <div className="col-span-1 sm:col-span-3 lg:col-span-8">
+            {children}
+          </div>
+
+          {/* Right Sidebar */}
+          <div className="hidden lg:block lg:col-span-2">
+            <RightSideBar />
+          </div>
+        </div>
       </body>
     </html>
   );

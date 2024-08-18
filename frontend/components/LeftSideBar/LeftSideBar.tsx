@@ -2,7 +2,7 @@ import React from 'react';
 
 const LeftSideBar = () => {
   return (
-    <div>LeftSideBar</div>
+    <div className='left_sidebar'>LeftSideBar</div>
   );
 };
 

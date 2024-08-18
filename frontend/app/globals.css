@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+/* @layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
@@ -66,20 +66,20 @@
   body {
     @apply bg-background text-foreground;
   }
-}
+} */
 
 @layer utilities {
 
   .left_sidebar {
-
+    @apply bg-green-400 ;
   }
 
   .right_sidebar {
-
+    @apply bg-slate-400 ;
   }
 
   .navbar {
-    
+    @apply bg-blue-400 w-full h-20;
   }
 
 }
