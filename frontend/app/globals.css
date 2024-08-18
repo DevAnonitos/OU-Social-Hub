@@ -77,11 +77,11 @@
 @layer utilities {
 
   .left_sidebar {
-    @apply fixed flex flex-col left-0 top-20 inset-y-0 h-[calc(100vh-5rem)] w-[calc(100%/6)] min-h-screen border-r-[1px] border-slate-300;
+    @apply fixed flex flex-col left-0 top-20 inset-y-0 h-[calc(100vh-5rem)] w-[calc(100%/6)] min-h-screen border-r-[1px] border-slate-300 overflow-y-auto;
   }
 
   .right_sidebar {
-    @apply fixed flex flex-col right-0 top-20 inset-y-0 h-[calc(100vh-5rem)] w-[calc(100%/6)] min-h-screen border-l-[1px] border-slate-300;
+    @apply fixed flex flex-col right-0 top-20 inset-y-0 h-[calc(100vh-5rem)] w-[calc(100%/6)] min-h-screen border-l-[1px] border-slate-300 overflow-y-auto;
   }
 
   .navbar {
