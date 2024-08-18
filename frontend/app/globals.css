@@ -8,7 +8,7 @@
   box-sizing: border-box;
 }
 
-/* @layer base {
+@layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
@@ -72,20 +72,20 @@
   body {
     @apply bg-background text-foreground;
   }
-} */
+}
 
 @layer utilities {
 
   .left_sidebar {
-    @apply bg-green-400 fixed flex flex-col left-0 top-20  inset-y-0 h-[calc(100vh-5rem)] w-[calc(100%/6)] min-h-screen;
+    @apply fixed flex flex-col left-0 top-20 inset-y-0 h-[calc(100vh-5rem)] w-[calc(100%/6)] min-h-screen border-r-[1px] border-slate-300;
   }
 
   .right_sidebar {
-    @apply bg-slate-400 fixed flex flex-col right-0 top-20  inset-y-0 h-[calc(100vh-5rem)] w-[calc(100%/6)] min-h-screen;
+    @apply fixed flex flex-col right-0 top-20 inset-y-0 h-[calc(100vh-5rem)] w-[calc(100%/6)] min-h-screen border-l-[1px] border-slate-300;
   }
 
   .navbar {
-    @apply bg-blue-400 fixed inset-y-0 w-full h-20;
+    @apply fixed flex items-center justify-between flex-wrap p-4 gap-x-4 inset-y-0 w-full h-20 border-b-[1px] border-slate-300;
   }
 
 }
