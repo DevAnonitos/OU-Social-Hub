@@ -5,6 +5,7 @@ import "./globals.css";
 import LeftSideBar from "@/components/LeftSideBar/LeftSideBar";
 import RightSideBar from "@/components/RightSideBar/RightSideBar";
 import NavBar from "@/components/NavBar/NavBar";
+import BottomBar from "@/components/BottomBar/BottomBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -38,6 +39,7 @@ export default function RootLayout({
             <RightSideBar />
           </div>
         </div>
+        <BottomBar />
       </body>
     </html>
   );
