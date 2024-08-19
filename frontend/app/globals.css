@@ -91,4 +91,12 @@
   .searchbar {
     
   }
+
+  .left_sidebar-link {
+    @apply hidden lg:flex px-4 py-3 items-center border-[1px] border-slate-400 mx-4 my-3 rounded-lg;
+  }
+
+  .left_sidebar-mobilelink {
+    @apply flex lg:hidden px-4 py-3 items-center justify-center border-[1px] border-slate-400 mx-4 my-3 rounded-full;
+  }
 }

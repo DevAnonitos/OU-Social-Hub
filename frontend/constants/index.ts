@@ -1,15 +1,3 @@
-import { 
-    HomeIcon, 
-    Pencil2Icon, 
-    MagnifyingGlassIcon, 
-    CubeIcon, 
-    RocketIcon, 
-    ChatBubbleIcon, 
-    HeartFilledIcon, 
-    GearIcon, 
-    PersonIcon 
-} from "@radix-ui/react-icons"
-
 export const leftSideBarLinks = [
     {
         id: 1,
