@@ -8,7 +8,7 @@ const RightSideBar = () => {
         <h3>
           Up Coming Event!
         </h3>
-        <div className='w-full h-[185px] border border-black mt-3'>
+        <div className='w-full h-[225px] border border-black mt-3 rounded-lg'>
           
         </div>
       </section>
@@ -17,46 +17,31 @@ const RightSideBar = () => {
           Top Content Creator
         </h3>
         <div className='flex flex-col mt-1'>
-          <div className='flex cursor-pointer justify-between border-[1px] w-full border-slate-400 h-9 rounded-sm my-2'>
+          <div className='flex cursor-pointer justify-between border-[1px] w-full border-slate-400 h-14 rounded-sm my-2'>
             
           </div>
-          <div className='flex cursor-pointer justify-between border-[1px] w-full border-slate-400 h-9 rounded-sm my-2'>
+          <div className='flex cursor-pointer justify-between border-[1px] w-full border-slate-400 h-14 rounded-sm my-2'>
             
           </div>
-          <div className='flex cursor-pointer justify-between border-[1px] w-full border-slate-400 h-9 rounded-sm my-2'>
+          <div className='flex cursor-pointer justify-between border-[1px] w-full border-slate-400 h-14 rounded-sm my-2'>
             
           </div>
-          <div className='flex cursor-pointer justify-between border-[1px] w-full border-slate-400 h-9 rounded-sm my-2'>
+          <div className='flex cursor-pointer justify-between border-[1px] w-full border-slate-400 h-14 rounded-sm my-2'>
             
           </div>
-          <div className='flex cursor-pointer justify-between border-[1px] w-full border-slate-400 h-9 rounded-sm my-2'>
+          <div className='flex cursor-pointer justify-between border-[1px] w-full border-slate-400 h-14 rounded-sm my-2'>
             
           </div>
-          <div className='flex cursor-pointer justify-between border-[1px] w-full border-slate-400 h-9 rounded-sm my-2'>
+          <div className='flex cursor-pointer justify-between border-[1px] w-full border-slate-400 h-14 rounded-sm my-2'>
             
           </div>
-          <div className='flex cursor-pointer justify-between border-[1px] w-full border-slate-400 h-9 rounded-sm my-2'>
+          <div className='flex cursor-pointer justify-between border-[1px] w-full border-slate-400 h-14 rounded-sm my-2'>
             
           </div>
-          <div className='flex cursor-pointer justify-between border-[1px] w-full border-slate-400 h-9 rounded-sm my-2'>
+          <div className='flex cursor-pointer justify-between border-[1px] w-full border-slate-400 h-14 rounded-sm my-2'>
             
           </div>
-          <div className='flex cursor-pointer justify-between border-[1px] w-full border-slate-400 h-9 rounded-sm my-2'>
-            
-          </div>
-          <div className='flex cursor-pointer justify-between border-[1px] w-full border-slate-400 h-9 rounded-sm my-2'>
-            
-          </div>
-          <div className='flex cursor-pointer justify-between border-[1px] w-full border-slate-400 h-9 rounded-sm my-2'>
-            
-          </div>
-          <div className='flex cursor-pointer justify-between border-[1px] w-full border-slate-400 h-9 rounded-sm my-2'>
-            
-          </div>
-          <div className='flex cursor-pointer justify-between border-[1px] w-full border-slate-400 h-9 rounded-sm my-2'>
-            
-          </div>
-          
+        
         </div>
       </section>
     </div>
