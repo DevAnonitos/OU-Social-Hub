@@ -55,7 +55,36 @@ export const leftSideBarLinks = [
     },
 ];
 
-export const rightSideBarLinks = [
-
+export const bottomBarLinks = [
+    {
+        id: 1,
+        icon: "/assets/icons/home.svg",
+        route: "/",
+        label: "Home",
+    },
+    {
+        id: 2,
+        icon: "/assets/icons/search.svg",
+        route: "/search",
+        label: "Search",
+    },
+    {
+        id: 3,
+        icon: "/assets/icons/add.svg",
+        route: "/create-event",
+        label: "Create Event",
+    },
+    {
+        id: 4,
+        icon: "/assets/icons/explore.svg",
+        route: "/explore",
+        label: "Explore",
+    },
+    {
+        id: 5,
+        icon: "/assets/icons/profile.svg",
+        route: "/profile",
+        label: "Profile",
+    },
 ];
 
