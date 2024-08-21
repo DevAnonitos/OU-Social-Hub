@@ -88,8 +88,8 @@
     @apply fixed flex items-center justify-between flex-wrap p-4 gap-x-4 inset-y-0 w-full h-20 border-b-[1px] border-slate-300;
   }
 
-  .searchbar {
-    
+  .searchbar-input {
+    @apply flex w-[600px] rounded-full border-[1px] border-slate-300 outline-offset-0 ;
   }
 
   .left_sidebar-link {
