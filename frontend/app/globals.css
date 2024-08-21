@@ -85,7 +85,7 @@
   }
 
   .navbar {
-    @apply fixed flex items-center justify-between flex-wrap p-4 gap-x-4 inset-y-0 w-full h-20 border-b-[1px] border-slate-300;
+    @apply bg-slate-50 fixed z-50 flex items-center justify-between flex-wrap p-4 gap-x-4 inset-y-0 w-full h-20 border-b-[1px] border-slate-300;
   }
 
   .searchbar-input {

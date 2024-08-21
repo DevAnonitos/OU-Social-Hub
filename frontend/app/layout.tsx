@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className}`}>
         <NavBar />
-        <div className="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-12 h-full">
+        <div className="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-12 h-full w-full">
           {/* Left Sidebar */}
           <div className="hidden sm:block sm:col-span-1 lg:col-span-2">
             <LeftSideBar />
