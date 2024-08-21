@@ -9,7 +9,7 @@ const NavBar = () => {
       NavBar
       <SearchBar />
       <div className='flex items-center'>
-        {/* <BellIcon width={25} height={25} className='mx-4 cursor-pointer' /> */}
+        <BellIcon width={25} height={25} className='mx-4 cursor-pointer' />
         {/* Auth Button */}
         <Button>
           Sign In
