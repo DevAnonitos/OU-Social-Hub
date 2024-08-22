@@ -8,6 +8,7 @@ import useEmblaCarousel from 'embla-carousel-react'
 import { EmblaOptionsType, EmblaCarouselType } from 'embla-carousel';
 
 import LoaderSpinner from '../Share/LoaderSpinner';
+import DotButton from './DotButton';
 
 const EventCarousel = () => {
 
@@ -33,8 +34,11 @@ const EventCarousel = () => {
           </div>
         </figure>
       </div>
-      <div className='flex justify-center gap-2'>
-
+      <div className='flex items-center justify-center gap-2'>
+        <DotButton />
+        <DotButton />
+        <DotButton />
+        <DotButton />
       </div>
     </section>
   );

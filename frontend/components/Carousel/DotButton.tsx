@@ -17,7 +17,7 @@ const DotButton = () => {
   return (
     <>
       <button
-        className={cn(`size-2.5 bg-white cursor-pointer train duration-500 rounded-full`)}
+        className={cn(`size-2.5 bg-black cursor-pointer train duration-500 rounded-full`)}
       />
     </>
   );
