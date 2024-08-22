@@ -99,4 +99,8 @@
   .left_sidebar-mobilelink {
     @apply flex lg:hidden px-4 py-3 items-center justify-center border-[1px] border-slate-400 mx-4 my-3 rounded-full;
   }
+
+  .event-carousel {
+    @apply relative flex h-fit aspect-square w-full cursor-pointer flex-col justify-end rounded-xl border-none;
+  }
 }

@@ -10,7 +10,7 @@ import {
 
 const Home = () => {
   return (
-    <main className='flex flex-grow max-w-screen mx-auto w-full h-full min-h-screen'>
+    <main className='flex max-w-screen mx-auto w-full h-full min-h-screen'>
         <div className='p-6 space-y-4'>
 
           <div className='flex items-center border border-slate-400 w-full h-[300px] rounded-2xl'>
