@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { 
+  PropsWithChildren, 
+  useCallback, 
+  useEffect, 
+  useState 
+} from 'react';
+import { cn } from '@/lib/utils'
+import { EmblaCarouselType } from 'embla-carousel'
+
+import { DotButtonProps, useDotButtonType } from '@/types';
+
+export const useDotButton = () => {
+
+};
 
 const DotButton = () => {
   return (
-    <div>DotButton</div>
+    <>
+      <button
+        className={cn(`size-2.5 bg-white cursor-pointer train duration-500 rounded-full`)}
+      />
+    </>
   );
 };
 

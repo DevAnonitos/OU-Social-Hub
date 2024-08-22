@@ -23,6 +23,14 @@ const EventCarousel = () => {
             fill
             className="absolute size-full rounded-xl border-none"
           />
+          <div className='glassmorphism-black relative z-10 flex flex-col rounded-b-xl p-4'>
+            <h2 className="text-14 font-semibold text-white">
+              Đào tạo đặc biệt
+            </h2>
+            <p className="text-12 font-normal text-white">
+              OU
+            </p>
+          </div>
         </figure>
       </div>
       <div className='flex justify-center gap-2'>

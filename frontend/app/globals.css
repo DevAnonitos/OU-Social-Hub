@@ -104,3 +104,16 @@
     @apply relative flex h-fit aspect-square w-full cursor-pointer flex-col justify-end rounded-xl border-none;
   }
 }
+
+/* ===== custom classes ===== */
+.glassmorphism-auth {
+  background: rgba(6, 3, 3, 0.711);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.glassmorphism-black {
+  background: rgba(18, 18, 18, 0.64);
+  backdrop-filter: blur(37px);
+  -webkit-backdrop-filter: blur(37px);
+}
