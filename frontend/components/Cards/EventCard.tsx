@@ -43,7 +43,7 @@ const EventCard = () => {
           </p>
           <p className='p-medium-14 md:p-medium-16 text-grey-600 flex items-center'>
             10,5k 
-            <BookmarkFilledIcon className='ml-2' />
+            <BookmarkFilledIcon className='ml-2 w-5 h-5' />
           </p>
         </div>
       </div>
