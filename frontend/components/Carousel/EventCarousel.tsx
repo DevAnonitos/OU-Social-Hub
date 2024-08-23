@@ -22,7 +22,9 @@ const EventCarousel = () => {
             src={"/assets/images/dtdb.jpg"}
             alt="card"
             fill
-            className="absolute size-full rounded-xl border-none"
+            loading='lazy'
+            decoding='async'
+            className="absolute size-full rounded-xl border-none duration-700 ease-in-out scale-100 blur-0 grayscale-0 object-cover"
           />
           <div className='glassmorphism-black relative z-10 flex flex-col rounded-b-xl p-4'>
             <h2 className="text-14 font-semibold text-white">

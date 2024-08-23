@@ -1,18 +1,24 @@
+"use client"
+
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Card } from '../ui/card';
+import { motion } from "framer-motion"
 import { DotsVerticalIcon, BookmarkFilledIcon } from '@radix-ui/react-icons';
+
 
 const EventCard = () => {
   return (
     <Card 
       className='group relative flex min-h-[250px] w-full flex-col overflow-hidden rounded-xl bg-white shadow-sm transition-all hover:shadow-md md:min-h-[345px] border border-slate-400 cursor-pointer'
     >
+
       <Link href={"/events"} 
         className='flex-center flex-grow bg-gray-50 bg-cover bg-center text-grey-500' 
         style={{ backgroundImage: `url(/assets/images/dtdb.jpg)` }}
       />
+      
 
       <div className='absolute right-2 top-2 flex flex-col rounded-xl bg-white p-3 shadow-sm transition-all'>
         <DotsVerticalIcon className='w-5 h-5' />
