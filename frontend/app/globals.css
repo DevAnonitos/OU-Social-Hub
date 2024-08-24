@@ -89,7 +89,15 @@
   }
 
   .bottombar {
-    @apply flex bg-slate-50 items-center  bottom-0 fixed lg:hidden md:hidden backdrop-blur-lg w-full h-20 z-50 border-t-[1px] p-4 border-slate-400 flex-wrap;
+    @apply flex flex-row bg-slate-50 items-center  bottom-0 fixed lg:hidden md:hidden backdrop-blur-lg w-full h-20 z-50 border-t-[1px] p-4 border-slate-400 flex-wrap;
+  }
+
+  /* .bottombar_container {
+    @apply flex items-center justify-between gap-3 xs:gap-5;
+  } */
+
+  .bottombar_link {
+    @apply relative flex flex-col items-center gap-2 rounded-full p-3 sm:flex-1 sm:px-2 sm:py-2.5;
   }
 
   .searchbar-input {

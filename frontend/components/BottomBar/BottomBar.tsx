@@ -1,9 +1,10 @@
 import React from 'react';
+import BottomItems from './BottomItems';
 
 const BottomBar = () => {
   return (
     <div className='bottombar'>
-      BottomBar
+      <BottomItems />
     </div>
   );
 };
