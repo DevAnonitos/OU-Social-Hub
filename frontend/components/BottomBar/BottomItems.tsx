@@ -6,7 +6,9 @@ import { usePathname } from 'next/navigation';
 
 const BottomItems = () => {
   return (
-    <div>BottomItems</div>
+    <div>
+      {}
+    </div>
   );
 };
 

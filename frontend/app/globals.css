@@ -88,8 +88,12 @@
     @apply bg-slate-50 fixed z-50 flex items-center justify-between flex-wrap p-4 gap-x-4 inset-y-0 w-full h-20 border-b-[1px] border-slate-300;
   }
 
+  .bottombar {
+    @apply flex bg-slate-50 items-center  bottom-0 fixed lg:hidden md:hidden backdrop-blur-lg w-full h-20 z-50 border-t-[1px] p-4 border-slate-400 flex-wrap;
+  }
+
   .searchbar-input {
-    @apply flex px-4 py-2 w-[600px] rounded-full border-[1px] border-slate-300 outline-offset-0 ;
+    @apply flex px-4 py-2 w-[600px] rounded-full border-[1px] border-slate-300  outline-offset-0 ;
   }
 
   .left_sidebar-link {
