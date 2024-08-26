@@ -3,6 +3,7 @@
 import React from 'react';
 import { Button } from '../ui/button';
 import LeftSideBarItems from './LeftSideBarItems';
+import { Separator } from '../ui/separator';
 
 const LeftSideBar = () => {
   
