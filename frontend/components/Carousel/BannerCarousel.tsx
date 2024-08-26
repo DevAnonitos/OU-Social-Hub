@@ -5,6 +5,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 import Image from 'next/image';
 import { EmblaOptionsType } from 'embla-carousel'
 import Autoplay from 'embla-carousel-autoplay';
+import { Button } from '../ui/button';
 
 const banners = [
   {
@@ -63,7 +64,9 @@ export default function BannerCarousel() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent "></div>
                 <div className="absolute bottom-8 left-8 text-white space-y-4">
                   <h2 className="text-4xl font-bold">{banner.title}</h2>
-                  <p className="text-lg max-w-md">{banner.description}</p>
+                  <Button>
+                    View Page
+                  </Button>
                 </div>
               </div>
             </div>
