@@ -1,5 +1,11 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+
 # dependencies
 /node_modules
 /.pnp
@@ -9,29 +15,50 @@
 # testing
 /coverage
 
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
 # misc
 .DS_Store
 *.pem
 
 # debug
+logs/
+# *.log
+# *.log.*
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
 # local env files
+.env
 .env*.local
-
-# vercel
-.vercel
+.env*testing
+.env*production
 
 # typescript
+dist/
+build/
+out/
 *.tsbuildinfo
 next-env.d.ts
+
+# Socket.io
+socket.io/
+
+# Redis
+dump.rdb
+redis.conf
+*.rdb
+*.aof
+
+# ELK Stack
+elasticsearch/
+logstash/
+kibana/
+*.data
+
+# Winston logs
+logs/
+*.log
+
+# Prisma
+prisma/.env
 
