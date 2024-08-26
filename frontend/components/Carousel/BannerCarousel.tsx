@@ -57,11 +57,10 @@ export default function BannerCarousel() {
                   alt={banner.title}
                   layout="fill"
                   loading='lazy'
-                  objectFit="cover"
                   quality={100}
-                  className="rounded-2xl"
+                  className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent rounded-2xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent "></div>
                 <div className="absolute bottom-8 left-8 text-white space-y-4">
                   <h2 className="text-4xl font-bold">{banner.title}</h2>
                   <p className="text-lg max-w-md">{banner.description}</p>
