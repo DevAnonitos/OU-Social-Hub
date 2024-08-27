@@ -2,7 +2,9 @@ import React from 'react'
 
 const AdminNavBar = () => {
   return (
-    <div>AdminNavBar</div>
+    <div className='admin-nav'>
+      AdminNavBar
+    </div>
   )
 }
 

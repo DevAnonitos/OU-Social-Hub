@@ -3,7 +3,7 @@ import AdminSideBarItems from './AdminSideBarItems';
 
 const AdminSideBar = () => {
   return (
-    <div>
+    <div className='admin-left_sidebar'>
       AdminSideBar
       <AdminSideBarItems />
     </div>
