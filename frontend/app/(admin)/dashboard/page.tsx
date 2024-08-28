@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 const DashBoard = () => {
   return (
-    <div>DashBoard</div>
-  )
-}
+    <div className='flex flex-col max-w-screen mx-auto w-full h-full min-h-screen'>
+      DashBoard
+    </div>
+  );
+};
 
-export default DashBoard
+export default DashBoard;
