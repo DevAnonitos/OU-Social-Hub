@@ -1,9 +1,22 @@
-import React from 'react'
+"use client";
+
+import React from 'react';
+import SearchBar from '../SearchBar/SearchBar';
+import SignInModal from '../Modals/SignInModal';
+import { BellIcon } from "@radix-ui/react-icons";
 
 const AdminNavBar = () => {
   return (
     <div className='admin-nav'>
-      AdminNavBar
+      <h1 className='hidden md:flex'>
+        AdminDashBoard
+      </h1>
+      <SearchBar />
+      <div className='flex items-center'>
+        <BellIcon width={25} height={25} className='mx-4 cursor-pointer' />
+        {/* Auth Button */}
+        <SignInModal />
+      </div>
     </div>
   )
 }

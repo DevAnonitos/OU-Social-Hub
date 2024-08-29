@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import { Button } from '../ui/button';
-import { BellIcon } from "@radix-ui/react-icons"
+import { BellIcon } from "@radix-ui/react-icons";
 import MobileNav from './MobileNav';
 import SignInModal from '../Modals/SignInModal';
 
