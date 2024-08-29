@@ -14,7 +14,7 @@ const LeftSideBarItems = () => {
                 const isActive =
                     (pathName.includes(link.route) && link.route.length > 1)
                     || pathName === link.route;
-  
+
                 return (
                     <Link 
                         key={link.id}

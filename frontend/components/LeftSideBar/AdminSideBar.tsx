@@ -4,8 +4,9 @@ import AdminSideBarItems from './AdminSideBarItems';
 const AdminSideBar = () => {
   return (
     <div className='admin-left_sidebar'>
-      AdminSideBar
-      <AdminSideBarItems />
+      <div className='mt-2'>
+        <AdminSideBarItems />
+      </div>
     </div>
   );
 };
