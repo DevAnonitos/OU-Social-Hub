@@ -30,6 +30,7 @@ const AdminSideBarItems = () => {
                             alt={link.label}
                             width={26}
                             height={26}
+                            priority
                             className={``}
                         />
                         <h3 className='mx-4'>
