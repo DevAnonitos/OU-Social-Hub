@@ -98,37 +98,37 @@ export const adminSideBar = [
     {
         id: 2,
         icon: "/assets/icons/profile.svg",
-        route: "/manage-users",
+        route: "/dashboard/manage-users",
         label: "Manage Users",
     },
     {
         id: 3,
         icon: "/assets/icons/post.svg",
-        route: "/manage-events",
+        route: "/dashboard/manage-events",
         label: "Manage Events",
     },
     {
         id: 4,
         icon: "/assets/icons/anlys.svg",
-        route: "/anlys",
+        route: "/dashboard/anlys",
         label: "Data Visualization",
     },
     {
         id: 5,
         icon: "/assets/icons/report.svg",
-        route: "/reports",
+        route: "/dashboard/reports",
         label: "Report",
     },
     {
         id: 6,
         icon: "/assets/icons/chat.svg",
-        route: "/messages",
+        route: "/dashboard/messages",
         label: "Messages",
     },
     {
         id: 7,
         icon: "/assets/icons/setting.svg",
-        route: "/admin-setting",
+        route: "/dashboard/admin-setting",
         label: "Setting",
     },
 ];
