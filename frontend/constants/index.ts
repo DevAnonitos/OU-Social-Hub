@@ -128,7 +128,7 @@ export const adminSideBar = [
     {
         id: 7,
         icon: "/assets/icons/setting.svg",
-        route: "/setting",
+        route: "/admin-setting",
         label: "Setting",
     },
 ];
