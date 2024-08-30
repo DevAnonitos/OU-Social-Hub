@@ -115,6 +115,18 @@ export const adminSideBar = [
     },
     {
         id: 5,
+        icon: "/assets/icons/report.svg",
+        route: "/reports",
+        label: "Report",
+    },
+    {
+        id: 6,
+        icon: "/assets/icons/chat.svg",
+        route: "/messages",
+        label: "Messages",
+    },
+    {
+        id: 7,
         icon: "/assets/icons/setting.svg",
         route: "/setting",
         label: "Setting",
