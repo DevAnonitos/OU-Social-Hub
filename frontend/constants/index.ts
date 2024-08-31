@@ -88,3 +88,48 @@ export const bottomBarLinks = [
     },
 ];
 
+export const adminSideBar = [
+    {
+        id: 1,
+        icon: "/assets/icons/dashboard.svg",
+        route: "/dashboard",
+        label: "Dashboard",
+    },
+    {
+        id: 2,
+        icon: "/assets/icons/profile.svg",
+        route: "/dashboard/manage-users",
+        label: "Manage Users",
+    },
+    {
+        id: 3,
+        icon: "/assets/icons/post.svg",
+        route: "/dashboard/manage-events",
+        label: "Manage Events",
+    },
+    {
+        id: 4,
+        icon: "/assets/icons/anlys.svg",
+        route: "/dashboard/anlys",
+        label: "Data Visualization",
+    },
+    {
+        id: 5,
+        icon: "/assets/icons/report.svg",
+        route: "/dashboard/reports",
+        label: "Report",
+    },
+    {
+        id: 6,
+        icon: "/assets/icons/chat.svg",
+        route: "/dashboard/messages",
+        label: "Messages",
+    },
+    {
+        id: 7,
+        icon: "/assets/icons/setting.svg",
+        route: "/dashboard/admin-setting",
+        label: "Setting",
+    },
+];
+
