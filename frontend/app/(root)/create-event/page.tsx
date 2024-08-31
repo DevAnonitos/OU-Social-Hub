@@ -1,8 +1,12 @@
 import React from 'react';
+import EventForm from '@/components/Forms/EventForm';
 
 const CreateEvent = () => {
   return (
-    <div>CreateEvent</div>
+    <div>
+      CreateEvent
+      <EventForm />
+    </div>
   );
 };
 
