@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import GroupStats from '@/components/Share/GroupStats';
 import EventsDataTable from '@/components/Table/EventsDataTable';
+import UpComingEvent from '@/components/Share/UpComingEvent';
+import EventChart from '@/components/Charts/EventChart';
 
 // const DynamicGroupStats = dynamic(() => import("@/components/Share/GroupStats"), {
 //   loading: () => <p>Loading...</p>
@@ -21,6 +23,14 @@ const DashBoard = () => {
           </p>
         </section>
         <GroupStats />
+        <div className='flex flex-col sm:flex-row xl:gap-6 w-full justify-between gap-2'>
+          <section className='w-full'>
+            <UpComingEvent />
+          </section>
+          <section className='w-full'>
+            <EventChart />
+          </section>
+        </div>
         <EventsDataTable />
       </main>
     </div>

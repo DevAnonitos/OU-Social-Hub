@@ -4,7 +4,7 @@ import StatCard from '../Cards/StatCard';
 const GroupStats = () => {
   return (
     <div>
-      <section className='flex flex-col sm:flex-row xl:gap-10 w-full justify-between gap-5'>
+      <section className='flex flex-col sm:flex-row xl:gap-6 w-full justify-between gap-2'>
           <StatCard />
           <StatCard />
           <StatCard />
