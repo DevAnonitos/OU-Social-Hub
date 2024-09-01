@@ -29,7 +29,7 @@ const EventForm = () => {
 
   return (
     <Form {...form}>
-      <form className='flex flex-col'>
+      <form className='flex flex-col gap-5'>
         <div className='flex flex-col gap-5 md:flex-row'>
           <FormField
             control={form.control}
@@ -64,6 +64,29 @@ const EventForm = () => {
             )}
           />
         </div>
+
+        <div className='flex flex-col gap-5 md:flex-row'>
+          <FormField
+            control={form.control}
+            name="title"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <FormControl className='h-72'>
+                  <Textarea 
+                    placeholder="Description" 
+                    {...field} 
+                    className="textarea rounded-2xl" 
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+        
+        <Button type='submit' className='col-span-2 w-full text-lg font-bold rounded-full h-[54px]'>
+          Submitting
+        </Button>
       </form>
     </Form>
   );
