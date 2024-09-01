@@ -40,7 +40,7 @@ const EventForm = () => {
                   <Input 
                     placeholder="Event title" 
                     {...field} 
-                    className="" 
+                    className="border-[1px] border-slate-400" 
                   />
                 </FormControl>
                 <FormMessage />
@@ -56,7 +56,7 @@ const EventForm = () => {
                   <Input 
                     placeholder="Event title" 
                     {...field} 
-                    className="" 
+                    className="border-[1px] border-slate-400" 
                   />
                 </FormControl>
                 <FormMessage />
@@ -68,14 +68,14 @@ const EventForm = () => {
         <div className='flex flex-col gap-5 md:flex-row'>
           <FormField
             control={form.control}
-            name="title"
+            name="description"
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl className='h-72'>
                   <Textarea 
                     placeholder="Description" 
                     {...field} 
-                    className="textarea rounded-2xl" 
+                    className="textarea rounded-2xl border-[1px] border-slate-400" 
                   />
                 </FormControl>
                 <FormMessage />
@@ -85,7 +85,7 @@ const EventForm = () => {
         </div>
         
         <Button type='submit' className='col-span-2 w-full text-lg font-bold rounded-full h-[54px]'>
-          Submitting
+          Submit Event Form
         </Button>
       </form>
     </Form>
