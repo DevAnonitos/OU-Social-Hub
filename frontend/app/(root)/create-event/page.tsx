@@ -3,10 +3,11 @@ import EventForm from '@/components/Forms/EventForm';
 
 const CreateEvent = () => {
   return (
-    <div>
-      CreateEvent
-      <EventForm />
-    </div>
+    <main className='flex flex-col max-w-screen mx-auto w-full h-full min-h-screen'>
+      <div className='p-6 space-y-6 w-full h-full'>
+        <EventForm />
+      </div>
+    </main>
   );
 };
 
