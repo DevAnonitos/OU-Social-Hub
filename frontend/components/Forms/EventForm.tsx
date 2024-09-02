@@ -40,7 +40,7 @@ const EventForm = () => {
                   <Input 
                     placeholder="Event title" 
                     {...field} 
-                    className="border-[1px] border-slate-400" 
+                    className="border-[1px] border-slate-400 focus-visible:ring-transparent focus-visible:ring-offset-0" 
                   />
                 </FormControl>
                 <FormMessage />
@@ -56,7 +56,7 @@ const EventForm = () => {
                   <Input 
                     placeholder="Event title" 
                     {...field} 
-                    className="border-[1px] border-slate-400" 
+                    className="border-[1px] border-slate-400 focus-visible:ring-transparent focus-visible:ring-offset-0" 
                   />
                 </FormControl>
                 <FormMessage />
@@ -75,9 +75,109 @@ const EventForm = () => {
                   <Textarea 
                     placeholder="Description" 
                     {...field} 
-                    className="textarea rounded-2xl border-[1px] border-slate-400" 
+                    className="textarea rounded-2xl border-[1px] border-slate-400 focus-visible:ring-transparent focus-visible:ring-offset-0" 
                   />
                 </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+        
+        <div className='flex flex-col gap-5 md:flex-row'>
+          <FormField
+            control={form.control}
+            name="description"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <div className='flex items-center h-[54px] w-full overflow-hidden rounded-full px-4 py-2 border-[1px] border-slate-400'>
+                  <Image
+                    src="/assets/icons/location.svg"
+                    alt="calendar"
+                    width={24}
+                    height={24}
+                  />
+                  <Input
+                    className='h-[54px] focus-visible:ring-offset-0 placeholder:text-grey-500 rounded-full p-regular-16 px-4 py-3 border-none focus-visible:ring-transparent'
+                    {...field}
+                    placeholder='Event location or Online'
+                  />
+                </div>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+
+        <div className='flex flex-col gap-5 md:flex-row'>
+          {/* Calendar */}
+          <FormField
+            control={form.control}
+            name="description"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <div className='flex items-center h-[54px] w-full overflow-hidden rounded-full px-4 py-2 border-[1px] border-slate-400'>
+                  <Image
+                    src="/assets/icons/calendar.svg"
+                    alt="calendar"
+                    width={24}
+                    height={24}
+                  />
+                  <Input
+                    className='h-[54px] focus-visible:ring-offset-0 placeholder:text-grey-500 rounded-full p-regular-16 px-4 py-3 border-none focus-visible:ring-transparent'
+                    {...field}
+                    placeholder='Event location or Online'
+                  />
+                </div>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          {/* Calendar */}
+          <FormField
+            control={form.control}
+            name="description"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <div className='flex items-center h-[54px] w-full overflow-hidden rounded-full px-4 py-2 border-[1px] border-slate-400'>
+                  <Image
+                    src="/assets/icons/calendar.svg"
+                    alt="calendar"
+                    width={24}
+                    height={24}
+                  />
+                  <Input
+                    className='h-[54px] focus-visible:ring-offset-0 placeholder:text-grey-500 rounded-full p-regular-16 px-4 py-3 border-none focus-visible:ring-transparent'
+                    {...field}
+                    placeholder='Event location or Online'
+                  />
+                </div>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+
+        <div className='flex flex-col gap-5 md:flex-row'>
+        <FormField
+            control={form.control}
+            name="description"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <div className='flex items-center h-[54px] w-full overflow-hidden rounded-full px-4 py-2 border-[1px] border-slate-400'>
+                  <Image
+                    src="/assets/icons/url.svg"
+                    alt="calendar"
+                    width={24}
+                    height={24}
+                  />
+                  <Input
+                    className='h-[54px] focus-visible:ring-offset-0 placeholder:text-grey-500 rounded-full p-regular-16 px-4 py-3 border-none focus-visible:ring-transparent'
+                    {...field}
+                    placeholder='Link URL'
+                  />
+                </div>
                 <FormMessage />
               </FormItem>
             )}
