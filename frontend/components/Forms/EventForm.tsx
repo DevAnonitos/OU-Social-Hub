@@ -8,6 +8,8 @@ import { eventFormSchema } from '@/lib/validator';
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+import DropDown from '../Shared/DropDown';
+
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import { Textarea } from '../ui/textarea';
@@ -40,7 +42,7 @@ const EventForm = () => {
                   <Input 
                     placeholder="Event title" 
                     {...field} 
-                    className="border-[1px] border-slate-400 focus-visible:ring-transparent focus-visible:ring-offset-0" 
+                    className="w-full h-[54px] placeholder:text-grey-500 rounded-full p-regular-16 px-5 py-3 border-[1px] border-slate-400 focus-visible:ring-transparent focus:ring-transparent" 
                   />
                 </FormControl>
                 <FormMessage />
@@ -53,11 +55,7 @@ const EventForm = () => {
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl>
-                  <Input 
-                    placeholder="Event title" 
-                    {...field} 
-                    className="border-[1px] border-slate-400 focus-visible:ring-transparent focus-visible:ring-offset-0" 
-                  />
+                  <DropDown />
                 </FormControl>
                 <FormMessage />
               </FormItem>
