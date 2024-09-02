@@ -22,6 +22,7 @@ import {
   FormMessage, 
   FormItem, 
 } from '../ui/form';
+import FileUploader from '../Shared/FileUploader';
 
 const EventForm = () => {
 
@@ -75,6 +76,21 @@ const EventForm = () => {
                     {...field} 
                     className="textarea rounded-2xl border-[1px] border-slate-400 focus-visible:ring-transparent focus-visible:ring-offset-0" 
                   />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+
+        <div className='flex flex-col gap-5 md:flex-row'>
+          <FormField
+            control={form.control}
+            name="description"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <FormControl className='h-72'>
+                  <FileUploader />
                 </FormControl>
                 <FormMessage />
               </FormItem>
