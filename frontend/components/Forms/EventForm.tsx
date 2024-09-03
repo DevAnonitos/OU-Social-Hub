@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import * as z from 'zod';
@@ -10,6 +10,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import DropDown from '../Shared/DropDown';
 
+import { Calendar } from '../ui/calendar';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import { Textarea } from '../ui/textarea';
@@ -23,8 +24,11 @@ import {
   FormItem, 
 } from '../ui/form';
 import FileUploader from '../Shared/FileUploader';
+import DatePicker from '../Shared/DatePicker';
 
 const EventForm = () => {
+
+  const [date, setDate] = React.useState<Date | undefined>(new Date())
 
   const form = useForm<z.infer<typeof eventFormSchema>>({
     resolver: zodResolver(eventFormSchema),
@@ -137,11 +141,8 @@ const EventForm = () => {
                     width={24}
                     height={24}
                   />
-                  <Input
-                    className='h-[54px] focus-visible:ring-offset-0 placeholder:text-grey-500 rounded-full p-regular-16 px-4 py-3 border-none focus-visible:ring-transparent'
-                    {...field}
-                    placeholder='Event location or Online'
-                  />
+                  <p className="ml-3 whitespace-nowrap text-grey-600">Start Date:</p>
+                  <DatePicker />
                 </div>
                 <FormMessage />
               </FormItem>
@@ -161,11 +162,8 @@ const EventForm = () => {
                     width={24}
                     height={24}
                   />
-                  <Input
-                    className='h-[54px] focus-visible:ring-offset-0 placeholder:text-grey-500 rounded-full p-regular-16 px-4 py-3 border-none focus-visible:ring-transparent'
-                    {...field}
-                    placeholder='Event location or Online'
-                  />
+                  <p className="ml-3 whitespace-nowrap text-grey-600">End Date:</p>
+                  <DatePicker />
                 </div>
                 <FormMessage />
               </FormItem>
@@ -174,7 +172,7 @@ const EventForm = () => {
         </div>
 
         <div className='flex flex-col gap-5 md:flex-row'>
-        <FormField
+          <FormField
             control={form.control}
             name="description"
             render={({ field }) => (
