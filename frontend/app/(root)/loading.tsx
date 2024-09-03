@@ -1,5 +1,5 @@
 import React from 'react';
-import LoaderSpinner from '@/components/Share/LoaderSpinner';
+import LoaderSpinner from '@/components/Shared/LoaderSpinner';
 
 const Loading = () => {
   return (

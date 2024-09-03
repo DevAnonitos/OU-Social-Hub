@@ -7,7 +7,7 @@ import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from 'embla-carousel-react'
 import { EmblaOptionsType, EmblaCarouselType } from 'embla-carousel';
 
-import LoaderSpinner from '../Share/LoaderSpinner';
+import LoaderSpinner from '../Shared/LoaderSpinner';
 import DotButton from './DotButton';
 
 const EventCarousel = () => {

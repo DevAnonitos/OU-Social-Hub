@@ -2,9 +2,9 @@
 
 import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
-import GroupStats from '@/components/Share/GroupStats';
+import GroupStats from '@/components/Shared/GroupStats';
 import EventsDataTable from '@/components/Table/EventsDataTable';
-import UpComingEvent from '@/components/Share/UpComingEvent';
+import UpComingEvent from '@/components/Shared/UpComingEvent';
 import EventChart from '@/components/Charts/EventChart';
 
 // const DynamicGroupStats = dynamic(() => import("@/components/Share/GroupStats"), {
