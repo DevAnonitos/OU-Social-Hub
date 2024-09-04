@@ -7,7 +7,7 @@ const EventDetailCard = () => {
       <section className='flex justify-center bg-grey-50 bg-dotted-pattern bg-contain'>
           <div className='grid grid-cols-1 md:grid-cols-2 2xl:max-w-7xl'>
             <Image 
-              src={"/assets/images/dtdb.jpg"}
+              src={"/assets/images/da.jpg"}
               alt="hero image"
               width={1000}
               height={1000}
