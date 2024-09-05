@@ -1,6 +1,6 @@
 import React from 'react';
-
 import EventDetailCard from '@/components/Cards/EventDetailCard';
+import EventComment from '@/components/Comment/EventComment';
 
 const EventsDetail = () => {
   return (
@@ -8,7 +8,7 @@ const EventsDetail = () => {
       <div className='p-6 space-y-6 w-full h-full'>
         <EventDetailCard />
         <div>
-          Comment
+          <EventComment />
         </div>
       </div>
     </main>
