@@ -23,6 +23,7 @@ const EventComment = () => {
       </div>
       <CommentInput />
       <EventCommentItems />
+      <EventCommentItems />
     </div>
   );
 };
