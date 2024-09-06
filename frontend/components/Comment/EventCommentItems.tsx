@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const EventCommentItems = () => {
   return (
-    <div className='flex items-center w-full space-x-2'>
+    <div className='flex items-start w-full space-x-2'>
       <Image 
         src={"/assets/images/dtdb.jpg"}
         alt="hero image"
@@ -27,7 +27,10 @@ const EventCommentItems = () => {
               Xin chào tôi là dev đây, hiện tại tôi đang phát triễn dự án này. Cảm ơn mọi người ủng hộ dự án này, để thành công dự án trong vòng thời gian sớm nhất. 
             </p>
           </div>
-          <div className='flex items-center justify-end'>
+          <div className='flex items-center justify-end space-x-2'>
+            <p className='text-sm text-gray-700 font-medium cursor-pointer'>
+              Like
+            </p>
             <p className='text-sm text-gray-700 font-medium cursor-pointer'>
               Reply
             </p>
