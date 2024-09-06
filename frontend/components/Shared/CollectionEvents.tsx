@@ -12,7 +12,7 @@ const CollectionEvents = () => {
     // Simulate a delay to showcase loading (e.g., fetching data)
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000); // Adjust this duration as needed for your use case
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -26,7 +26,7 @@ const CollectionEvents = () => {
             ))
           : Array.from({ length: 12 }).map((_, index) => (
               <EventCard key={index} />
-            ))}
+        ))}
       </div>
     </div>
   );
