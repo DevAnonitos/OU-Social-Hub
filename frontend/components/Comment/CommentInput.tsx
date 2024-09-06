@@ -53,6 +53,7 @@ const CommentInput = () => {
                     />
                   </div>
                 </FormControl>
+                <FormMessage />
               </FormItem>
             )}
           />
