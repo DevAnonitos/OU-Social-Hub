@@ -1,9 +1,18 @@
-import React from 'react'
+import React from 'react';
+import EventDetailCard from '@/components/Cards/EventDetailCard';
+import EventComment from '@/components/Comment/EventComment';
 
-const Events = () => {
+const EventsDetail = () => {
   return (
-    <div>Events</div>
-  )
-}
+    <main className='flex flex-col max-w-screen mx-auto w-full h-full min-h-screen'>
+      <div className='p-6 space-y-6 w-full'>
+        <EventDetailCard />
+        <div>
+          <EventComment />
+        </div>
+      </div>
+    </main>
+  );
+};
 
-export default Events
+export default EventsDetail;

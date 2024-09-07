@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import CollectionEvents from '@/components/Shared/CollectionEvents';
+import CustomPagination from '@/components/Shared/CustomPagination';
 
 const Profile = () => {
   return (
@@ -20,6 +21,9 @@ const Profile = () => {
 
         <section className="wrapper my-8">
           <CollectionEvents />
+          <div className='mt-4'>
+            <CustomPagination />
+          </div>
         </section>
 
 
