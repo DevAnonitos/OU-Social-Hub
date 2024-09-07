@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import { Button } from '../ui/button';
+import Link from 'next/link';
 import { BellIcon } from "@radix-ui/react-icons";
 import MobileNav from './MobileNav';
 import SignInModal from '../Modals/SignInModal';
@@ -19,7 +20,11 @@ const NavBar = () => {
       <div className='flex items-center'>
         <NotificationDropDown />
         {/* Auth Button */}
-        <SignInModal />
+        <Button className='flex items-center justify-center font-semibold'>
+          <Link href={"/sign-in"}>
+            Sign In
+          </Link>
+        </Button>
       </div>
     </div>
   );
