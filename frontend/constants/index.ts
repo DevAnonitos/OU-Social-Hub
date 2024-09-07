@@ -110,7 +110,7 @@ export const adminSideBar = [
     {
         id: 4,
         icon: "/assets/icons/anlys.svg",
-        route: "/dashboard/anlys",
+        route: "/dashboard/analytics",
         label: "Data Visualization",
     },
     {

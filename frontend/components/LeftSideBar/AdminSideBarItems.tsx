@@ -16,7 +16,7 @@ const AdminSideBarItems = () => {
     <div>
       {adminSideBar.map((link) => {
                 const isActive =
-                    (pathName.includes(link.route) && link.route.length > 1)
+                    (pathName.includes(link.route) && link.route.length > 2)
                     || pathName === link.route;
 
                 return (
