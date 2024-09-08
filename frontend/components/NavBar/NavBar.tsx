@@ -21,7 +21,11 @@ const NavBar = () => {
         <NotificationDropDown />
         {/* Auth Button */}
         <Button className='flex items-center justify-center font-semibold'>
-          <Link href={"/sign-in"}>
+          <Link 
+            href={"/sign-in"} 
+            prefetch={true}
+            scroll={true}
+          >
             Sign In
           </Link>
         </Button>
