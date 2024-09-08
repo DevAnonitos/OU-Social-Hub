@@ -1,8 +1,12 @@
 import React from 'react';
+import SignForm from "@/components/Forms/SignInForm";
 
 const SignIn = () => {
   return (
-    <div>SignIn</div>
+    <div className=''>
+      SignIn
+      <SignForm />
+    </div>
   );
 };
 
