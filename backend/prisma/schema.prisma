@@ -3,9 +3,58 @@
 
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["tracing"]
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
+}
+
+// USER SCHEMA MODEL
+
+model User {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  username String @unique
+  email String @unique
+  password String?
+  googleId String? @unique
+  role Role @default(USER)
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+  events Events[]
+}
+
+// model Profile {
+  
+// }
+
+model Events {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  eventTitle String
+  eventDescription String?
+  eventLocation String?
+  imageUrl String
+  linkUrl String
+  startDateTime DateTime
+  endDateTime DateTime
+  organizerId String @db.ObjectId
+  organizer User @relation(fields: [organizerId], references: [id], onDelete: Cascade)
+}
+
+// model Comments {
+
+// }
+
+// model Notifications {
+
+// }
+
+// ADMIN SCHEMA MODEL
+
+enum Role {
+  USER
+  ADMIN
 }
