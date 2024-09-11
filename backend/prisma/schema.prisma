@@ -11,6 +11,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// Type of data source
+enum Roles {
+  USER
+  ADMIN
+}
+
 // USER SCHEMA MODEL
 
 model User {
@@ -19,15 +25,20 @@ model User {
   email String @unique
   password String?
   googleId String? @unique
-  role Role @default(USER)
+  role Roles @default(USER)
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
+  profile Profile?
+  admin Admin?
   events Events[]
 }
 
-// model Profile {
-  
-// }
+model Profile {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  bio String?
+  users User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String @unique @db.ObjectId
+}
 
 model Events {
   id String @id @default(auto()) @map("_id") @db.ObjectId
@@ -53,8 +64,7 @@ model Events {
 // }
 
 // ADMIN SCHEMA MODEL
-
-enum Role {
-  USER
-  ADMIN
+model Admin {
+  id String @id @db.ObjectId @map("_id")
+  user User @relation(fields: [id], references: [id], onDelete: Cascade)
 }
