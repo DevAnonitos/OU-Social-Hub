@@ -21,19 +21,21 @@ enum Roles {
 
 model User {
   id String @id @default(auto()) @map("_id") @db.ObjectId
-  username String @unique
+  username String @unique 
   email String @unique
   password String?
   googleId String? @unique
   role Roles @default(USER)
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
-  
+
   profile Profile?
   admin Admin?
 
   events Events[]
   comments Comments[]
+
+  @@index([username, createAt])
 }
 
 model Profile {
@@ -59,16 +61,21 @@ model Events {
 
   commentsEvent Comments[]
   notifications Notifications[]
+
+  @@index([eventTitle, createdAt])
 }
 
 model Comments {
   id String @id @default(auto()) @map("_id") @db.ObjectId
+  content String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   userId String @db.ObjectId
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   eventId String @db.ObjectId
   events Events @relation(fields: [eventId], references: [id], onDelete: Cascade)
+
+  @@index([content])
 }
 
 model Notifications {
