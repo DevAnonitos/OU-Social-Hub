@@ -8,6 +8,8 @@ import { setupSwagger } from "./configs/swagger.config";
 import morganMiddleware from "./configs/morgan.config";
 import logger from "./loggers/winston.log";
 
+import prisma from "./configs/prisma.config";
+
 import routes from "./routes";
 
 const app: Express = express();
@@ -25,9 +27,17 @@ app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 // API ROUTES
 app.use(routes);
 
-app.get("/", (req: Request, res: Response) => {
-  logger.debug("This is Debug Log");
-  res.json({ message: "Hello API" });
+app.get("/", async (req: Request, res: Response) => {
+  try {
+    logger.debug('This is a Debug Log');
+
+    await prisma
+
+    res.json({ message: 'Hello API, MongoDB connection is active!' });
+  } catch (error) {
+    console.error('Error with MongoDB connection:', error);
+    res.status(500).json({ error: 'Error with MongoDB connection' });
+  }
 });
 
 setupSwagger(app);

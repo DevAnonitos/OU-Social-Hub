@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 
-const prisma = PrismaClient();
+const prisma = new PrismaClient();
 
 // Handle Connection
 prisma.$connect()
