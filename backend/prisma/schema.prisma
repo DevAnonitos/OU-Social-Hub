@@ -35,7 +35,7 @@ model User {
   events Events[]
   comments Comments[]
 
-  @@index([username, createAt])
+  @@index([username, email])
 }
 
 model Profile {
@@ -62,7 +62,7 @@ model Events {
   commentsEvent Comments[]
   notifications Notifications[]
 
-  @@index([eventTitle, createdAt])
+  @@index([eventTitle, eventLocation])
 }
 
 model Comments {
