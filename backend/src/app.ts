@@ -8,6 +8,8 @@ import { setupSwagger } from "./configs/swagger.config";
 import morganMiddleware from "./configs/morgan.config";
 import logger from "./loggers/winston.log";
 
+import routes from "./routes";
+
 const app: Express = express();
 
 // App Config 
@@ -19,6 +21,9 @@ app.use(morganMiddleware);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
+
+// API ROUTES
+app.use(routes);
 
 app.get("/", (req: Request, res: Response) => {
   logger.debug("This is Debug Log");
