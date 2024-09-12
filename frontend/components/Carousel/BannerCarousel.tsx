@@ -57,8 +57,8 @@ export default function BannerCarousel() {
                   src={banner.imageUrl}
                   alt={banner.title}
                   layout="fill"
-                  loading='lazy'
-                  quality={100}
+                  quality={85}
+                  priority
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent "></div>

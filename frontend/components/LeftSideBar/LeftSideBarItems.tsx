@@ -9,7 +9,7 @@ const LeftSideBarItems = () => {
     const pathName = usePathname();
 
     return (
-        <div>
+        <>
             {leftSideBarLinks.map((link) => {
                 const isActive =
                     (pathName.includes(link.route) && link.route.length > 1)
@@ -29,6 +29,7 @@ const LeftSideBarItems = () => {
                             width={26}
                             height={26}
                             priority
+                            quality={85}
                             className={``}
                         />
                         <h3 className='mx-4'>
@@ -41,15 +42,15 @@ const LeftSideBarItems = () => {
             {leftSideBarLinks.map((mobileLink) => (
                 <Link href={mobileLink.route} key={mobileLink.id} className='left_sidebar-mobilelink'>
                     <Image
-                    src={mobileLink.icon}
-                    alt={mobileLink.label}
-                    width={26}
-                    height={26}
-                    priority
-                />
+                        src={mobileLink.icon}
+                        alt={mobileLink.label}
+                        width={26}
+                        height={26}
+                        priority
+                    />
                 </Link>
             ))}
-        </div>
+        </>
     );
 };
 
