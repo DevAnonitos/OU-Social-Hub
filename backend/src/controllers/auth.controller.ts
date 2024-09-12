@@ -6,12 +6,16 @@ export const signUp = async (req: Request, res: Response) => {
     
         // Test response to ensure the API is working
         res.json({ message: "Hello API" });
-    } catch (error) {
+    } catch (error: any) {
         console.error("Error during sign-up:", error);
         res.status(500).json({ error: "Error during sign-up" });
     }
 };
 
 export const signIn = async (req: Request, res: Response) => {
-
+    try {
+        
+    } catch (error: any) {
+        
+    }
 };
