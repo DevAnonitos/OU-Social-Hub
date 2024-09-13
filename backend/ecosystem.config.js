@@ -1,7 +1,7 @@
 module.exports = {
     app: {
         name: 'ou-social-hub-backend',
-        script: 'src/server.ts', // Entry point file
+        script: './src/server.ts', // Entry point file
         exec_mode: 'cluster', // Enables cluster mode for load balancing
         instances: 'max', // Number of instances to run, use 'max' to use all CPU cores
         interpreter: 'ts-node', // Use ts-node to run TypeScript files

@@ -16,6 +16,6 @@ export const signIn = async (req: Request, res: Response) => {
     try {
         
     } catch (error: any) {
-        
+        console.log("Error during sign-in:", error);
     }
 };
