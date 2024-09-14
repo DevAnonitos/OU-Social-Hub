@@ -24,6 +24,7 @@ const SignUpForm = () => {
     resolver: zodResolver(signUpFormSchema),  
     defaultValues: {
       username: "",
+      email: "",
       password: "",
     },
   });
@@ -55,17 +56,16 @@ const SignUpForm = () => {
             )}
           />
           <FormField
-            name='password'
+            name='email'
             control={form.control}
             render={({ field}) => (
               <FormItem className='w-full'>
                 <FormLabel className='text-md font-semibold'>
-                  Password
+                  Email
                 </FormLabel>
                 <FormControl>
                   <Input
-                    type='password'
-                    placeholder='Enter a password'
+                    placeholder='Enter a email'
                     {...field}
                     className='w-full h-[50px] placeholder:text-grey-500  p-regular-16 px-5 py-3 border-[1px] border-slate-400 focus-visible:ring-transparent focus:ring-transparent'
                   />
@@ -75,12 +75,12 @@ const SignUpForm = () => {
             )}
           />
           <FormField
-            name='confirm_password'
+            name='password'
             control={form.control}
             render={({ field}) => (
               <FormItem className='w-full'>
                 <FormLabel className='text-md font-semibold'>
-                  Confirm Password
+                  Password
                 </FormLabel>
                 <FormControl>
                   <Input
