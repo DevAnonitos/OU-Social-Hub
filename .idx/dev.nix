@@ -1,4 +1,4 @@
-clear# To learn more about how to use Nix to configure your environment
+# To learn more about how to use Nix to configure your environment
 # see: https://developers.google.com/idx/guides/customize-idx-env
 { pkgs, ... }: {
   # Which nixpkgs channel to use.
@@ -10,7 +10,7 @@ clear# To learn more about how to use Nix to configure your environment
     # pkgs.python311
     # pkgs.python311Packages.pip
     # pkgs.nodePackages.nodemon
-    pkgs.gitlab-runner
+    pkgs.openssl.dev
   ];
 
   # Sets environment variables in the workspace
