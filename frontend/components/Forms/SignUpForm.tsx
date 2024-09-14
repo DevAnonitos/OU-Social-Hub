@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import * as z from 'zod';
 import Link from 'next/link';
 import { useForm } from "react-hook-form";
@@ -16,9 +16,14 @@ import {
 } from '../ui/form';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
-
+import { useRouter } from 'next/navigation';
+import axios from "axios";
 
 const SignUpForm = () => {
+
+  const router = useRouter();
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<z.infer<typeof signUpFormSchema>>({
     resolver: zodResolver(signUpFormSchema),  
@@ -28,11 +33,28 @@ const SignUpForm = () => {
       password: "",
     },
   });
+
+  const onSubmit = async (data: z.infer<typeof signUpFormSchema>) => {
+    try {
+      const response = await axios.post('http://localhost:4000/api/v1/auth/signup', data); // Gửi dữ liệu đến backend
+      const { accessToken, refreshToken } = response.data;
+
+      // Lưu các token vào localStorage hoặc xử lý thêm
+      localStorage.setItem('accessToken', accessToken);
+      localStorage.setItem('refreshToken', refreshToken);
+
+      // Chuyển hướng sau khi đăng ký thành công
+      router.push('/');
+    } catch (error) {
+      console.error("Error during sign-up:", error);
+      // Xử lý lỗi nếu cần (ví dụ: hiển thị thông báo lỗi cho người dùng)
+    }
+  };
   
   return (
     <Form {...form}>
       <form className='flex flex-col gap-5 items-center 
-        h-full bg-slate-50 space-y-4 p-10 w-[450px] border border-slate-400 rounded-xl'>
+        h-full bg-slate-50 space-y-4 p-10 w-[450px] border border-slate-400 rounded-xl' onSubmit={form.handleSubmit(onSubmit)}>
         <h2 className='text-2xl font-bold'>
           Sign Up
         </h2>
@@ -95,8 +117,8 @@ const SignUpForm = () => {
             )}
           />
           <div className='flex flex-col w-full space-y-4'>
-            <Button type='submit' className='col-span-2 w-full text-lg font-bold  h-[50px]'>
-              Create a new account
+            <Button type='submit' className='col-span-2 w-full text-lg font-bold  h-[50px]' disabled={isSubmitting}>
+              {isSubmitting ? 'Creating Account...' : 'Create a new account'}
             </Button>
             {/* <Separator className='border-[1px] border-slate-300 ' />
             <Button
