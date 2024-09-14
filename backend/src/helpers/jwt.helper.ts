@@ -2,6 +2,7 @@ import {
   generateAccessToken, 
   generateRefreshToken 
 } from "../libs/utils/token.util";
+import { randomBytes } from "crypto";
 
 export const generateToken = ( user:any ) => {
   const payload = {

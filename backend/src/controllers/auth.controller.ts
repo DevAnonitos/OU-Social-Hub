@@ -42,7 +42,7 @@ export const signIn = async (req: Request, res: Response) => {
         if(!user || !user.password) {
             return res.status(400).json({ message: 'Invalid credentials' });
         }
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:3273356462.
+        
         const isPasswordValid = await comparePassWord(password, user.password);
         if(!isPasswordValid) {
             return res.status(400).json({ message: 'Invalid credentials' });
