@@ -7,7 +7,6 @@ import { hashPassWord, comparePassWord } from "../libs/utils/bcrypt.util";
 export const signUp = async (req: Request, res: Response) => {
 
     const { username, email, password } = req.body;
-
     try {
         
         const hashPassword = await hashPassWord(password);
@@ -19,7 +18,8 @@ export const signUp = async (req: Request, res: Response) => {
                 password: hashPassword,
                 role: email === process.env.ADMIN_EMAIL ? "ADMIN" : "USER",
             }
-        })
+        });
+        console.log(user)
         const { accessToken, refreshToken } = generateToken(user);
         
         res.status(201).send({ accessToken, refreshToken });
@@ -39,6 +39,17 @@ export const signIn = async (req: Request, res: Response) => {
                 username,
             },
         });
+        if(!user || !user.password) {
+            return res.status(400).json({ message: 'Invalid credentials' });
+        }
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:3273356462.
+        const isPasswordValid = await comparePassWord(password, user.password);
+        if(!isPasswordValid) {
+            return res.status(400).json({ message: 'Invalid credentials' });
+        }
+        const { accessToken, refreshToken } = generateToken(user);
+
+        res.status(200).send({ accessToken, refreshToken });
     } catch (error: any) {
         console.log("Error during sign-in:", error);
     }
