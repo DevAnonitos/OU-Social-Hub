@@ -6,6 +6,7 @@ import { BellIcon } from "@radix-ui/react-icons";
 import MobileNav from './MobileNav';
 import SignInModal from '../Modals/SignInModal';
 import NotificationDropDown from '../Notification/NotificationDropDown';
+import ProfileDropDown from '../Shared/ProfileDropDown';
 
 const NavBar = () => {
   return (
@@ -18,6 +19,7 @@ const NavBar = () => {
       </div>
       <SearchBar />
       <div className='flex items-center'>
+        <ProfileDropDown />
         <NotificationDropDown />
         {/* Auth Button */}
         <Button className='flex items-center justify-center font-semibold'>
