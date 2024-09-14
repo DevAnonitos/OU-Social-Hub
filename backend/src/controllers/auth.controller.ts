@@ -1,23 +1,28 @@
+import prisma from "../configs/prisma.config";
 import { Request, Response } from "express";
 import { verifyGoogleToken } from "../configs/googleAuth.config";
-import prisma from "../configs/prisma.config";
+import { generateToken } from "../helpers/jwt.helper";
+import { hashPassWord, comparePassWord } from "../libs/utils/bcrypt.util";
 
 export const signUp = async (req: Request, res: Response) => {
 
     const { username, email, password } = req.body;
 
     try {
-        // Your signup logic will go here
+        
+        const hashPassword = await hashPassWord(password);
+
         const user = await prisma.user.create({
             data: {
                 username,
                 email,
-                password,
+                password: hashPassword,
                 role: email === process.env.ADMIN_EMAIL ? "ADMIN" : "USER",
             }
         })
+        const { accessToken, refreshToken } = generateToken(user);
         
-        res.json({ message: "Hello API" });
+        res.status(201).send({ accessToken, refreshToken });
     } catch (error: any) {
         console.error("Error during sign-up:", error);
         res.status(500).json({ error: "Error during sign-up" });
