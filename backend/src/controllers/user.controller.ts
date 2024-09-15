@@ -1,7 +1,7 @@
 import prisma from "../configs/prisma.config";
 import { Request, Response } from "express";
 
-export const getAllUsers = async (req: Request, res: Response) => {
+export const getUsers = async (req: Request, res: Response) => {
    try {
         const users = await prisma.user.findMany();
         res.json(users);
