@@ -11,9 +11,17 @@ export const generateRefreshToken = (payload: object): string =>
   });
 
 export const verifyAccessToken = (token: string) => {
-  return jwt.verify(token, process.env.JWT_ACCESS_SECRET!)
+  try {
+    return jwt.verify(token, process.env.JWT_ACCESS_SECRET!);
+  } catch (error) {
+    throw new Error("Invalid Access Token");
+  }
 };
 
 export const verifyRefreshToken = (token: string) => {
-  return jwt.verify(token, process.env.JWT_REFRESH_SECRET!);
+  try {
+    return jwt.verify(token, process.env.JWT_REFRESH_SECRET!);
+  } catch (error) {
+    throw new Error("Invalid Refresh Token");
+  }
 };

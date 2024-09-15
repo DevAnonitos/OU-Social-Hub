@@ -1,10 +1,12 @@
 import jwt from "jsonwebtoken";
+import { verifyRefreshToken, verifyAccessToken } from "../libs/utils/token.util";
 import { Request, Response, NextFunction } from "express";
 
 export const authMiddleware = async (
     req: Request, res: Response, next: NextFunction
 ) => {
     const token = req.headers['authorization']?.split('')[1];
+
     if(!token) {
         return res.status(401).json({
             message: "No token is provided",
@@ -12,8 +14,8 @@ export const authMiddleware = async (
     }
 
     try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET!);
-        (req as any).user = decoded;
+        const user = verifyAccessToken(token);
+        (req as any).user = user;
         next();
     } catch (error: any) {
         return res.status(401).json({

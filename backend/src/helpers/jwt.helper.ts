@@ -2,7 +2,10 @@ import {
   generateAccessToken, 
   generateRefreshToken 
 } from "../libs/utils/token.util";
-import { randomBytes } from "crypto";
+import { 
+  verifyAccessToken, 
+  verifyRefreshToken 
+} from "../libs/utils/token.util";
 
 export const generateToken = ( user:any ) => {
   const payload = {
@@ -17,4 +20,8 @@ export const generateToken = ( user:any ) => {
     accessToken,
     refreshToken,
   };
+};
+
+export const verifyToken = (token: string) => {
+
 };
