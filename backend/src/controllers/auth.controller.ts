@@ -9,6 +9,18 @@ export const signUp = async (req: Request, res: Response) => {
     const { username, email, password } = req.body;
     try {
         
+        const checkUser = await prisma.user.findMany({
+            where: {
+                OR: [
+                    { username },
+                    { email }
+                ]
+            }
+        });
+        if(checkUser.length > 0) {
+            return res.status(400).json({ message: 'User already exists' });
+        }
+
         const hashPassword = await hashPassWord(password);
 
         const user = await prisma.user.create({
@@ -56,5 +68,31 @@ export const signIn = async (req: Request, res: Response) => {
 };
 
 export const googleLogin = async (req: Request, res: Response) => {
-    
+    const { token } = req.body;
+
+    try {
+        const payload = await verifyGoogleToken(token);
+
+        if (!payload) {
+            return res.status(400).json({ message: 'Invalid token' });
+        }
+
+        let user = await prisma.user.findUnique({ where: { email: payload.email } });
+        if (!user) {
+            user = await prisma.user.create({
+                data: {
+                    username: payload.name || '',
+                    email: payload.email!,
+                    googleId: payload.sub,
+                    role: payload.email === process.env.ADMIN_EMAIL ? 'ADMIN' : 'USER',
+                },
+            });
+        }
+
+        const { accessToken, refreshToken } = generateToken(user);
+        
+        res.status(200).json({ accessToken, refreshToken });
+    } catch (error: any) {
+        res.status(500).json({ message: 'Internal server error' });
+    }
 };
