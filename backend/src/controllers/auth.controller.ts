@@ -123,17 +123,17 @@ export const refreshToken = async (req: Request, res: Response) => {
         if (!user) {
             return res.status(401).json({ message: 'User not found' });
         }
-      
+    
         const accessToken = generateAccessToken({ id: user.id, role: user.role });
-      
+    
         const remainingTime = decoded.exp * 1000 - Date.now();
         const sevenDays = 7 * 24 * 60 * 60 * 1000;
         let newRefreshToken = refreshToken;
-      
+    
         if (remainingTime < sevenDays) {
             newRefreshToken = generateRefreshToken({ id: user.id, role: user.role });
         }
-      
+    
         return res.status(200).json({
             accessToken,
             refreshToken: newRefreshToken,
