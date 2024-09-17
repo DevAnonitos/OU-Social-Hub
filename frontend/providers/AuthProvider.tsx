@@ -2,6 +2,7 @@
 
 import { ReactNode, useEffect } from "react";
 import { useAuthStore } from "@/stores/useAuthStore";
+import { getTokenExpiryDate } from "@/lib/utils";
 import { useRouter, usePathname } from "next/navigation";
 
 interface AuthProviderProps {
@@ -34,7 +35,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     } else if(!isAuthenticated && !user) {
       router.replace("/sign-in");
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, user]);
 
   return (
     <>
