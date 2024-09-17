@@ -13,12 +13,15 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const router = useRouter();
 
   const { 
+    user,
     setAuth, 
     clearAuth, 
     isAuthenticated, 
     accessToken, 
-    refreshToken 
+    refreshToken, 
   } = useAuthStore();
+
+  
 
   return (
     <>
