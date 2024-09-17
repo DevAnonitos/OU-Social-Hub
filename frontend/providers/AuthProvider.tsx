@@ -2,7 +2,7 @@
 
 import { ReactNode, useEffect } from "react";
 import { useAuthStore } from "@/stores/useAuthStore";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 interface AuthProviderProps {
   children: ReactNode;
@@ -11,6 +11,7 @@ interface AuthProviderProps {
 export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const router = useRouter();
+  const pathName = usePathname();
 
   const { 
     user,
@@ -21,11 +22,23 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     refreshToken, 
   } = useAuthStore();
 
+  useEffect(() => {
+    if(isAuthenticated && user) {
+      if(user.role === "ADMIN" && pathName.startsWith("/dasboard")) {
+        return;
+      }
   
+      if(user.role === "USER" && pathName.startsWith("/dashboard")) {
+        router.replace("/");
+      }
+    } else if(!isAuthenticated && !user) {
+      router.replace("/sign-in");
+    }
+  }, [isAuthenticated]);
 
   return (
     <>
       {children}
     </>
-  )
+  );
 };

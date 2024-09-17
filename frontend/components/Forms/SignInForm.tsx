@@ -18,7 +18,14 @@ import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import { Separator } from '../ui/separator';
 
+import axios from "axios";
+import { useRouter } from 'next/navigation';
+import { useAuthStore } from '@/stores/useAuthStore';
+
 const SignInForm = () => {
+
+  const router = useRouter();
+  const { setAuth } = useAuthStore();
 
   const form = useForm<z.infer<typeof signInFormSchema>>({
     resolver: zodResolver(signInFormSchema),
@@ -28,9 +35,29 @@ const SignInForm = () => {
     },
   });
 
+  const onSubmit = async (data: z.infer<typeof signInFormSchema>) => {
+    try {
+      const response = await axios.post('http://localhost:4000/api/v1/auth/signin', {
+        username: data.username,
+        password: data.password,
+      });
+
+      console.log(response.data);
+
+      const { accessToken, refreshToken } = response.data;
+
+      setAuth(accessToken, refreshToken, { id: 'user_id', username: data.username, role: 'USER' });
+
+      router.push('/');
+    } catch (error: any) {
+      console.error("Error during sign-in:", error);
+    }
+  };
+
   return (
     <Form {...form}>
       <form 
+        onSubmit={form.handleSubmit(onSubmit)}
         className='flex flex-col gap-5 items-center 
         h-full bg-slate-50 space-y-4 p-10 w-[450px] border border-slate-400 rounded-xl'
       >

@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import { Button } from '../ui/button';
@@ -8,7 +10,12 @@ import SignInModal from '../Modals/SignInModal';
 import NotificationDropDown from '../Notification/NotificationDropDown';
 import ProfileDropDown from '../Shared/ProfileDropDown';
 
+import { useAuthStore } from '@/stores/useAuthStore';
+
 const NavBar = () => {
+
+  const { isAuthenticated } = useAuthStore();
+
   return (
     <div className='navbar'>
       <h1 className='hidden md:flex'>
@@ -19,18 +26,19 @@ const NavBar = () => {
       </div>
       <SearchBar />
       <div className='flex items-center'>
-        <ProfileDropDown />
-        <NotificationDropDown />
-        {/* Auth Button */}
-        <Button className='flex items-center justify-center font-semibold'>
-          <Link 
-            href={"/sign-in"} 
-            prefetch={true}
-            scroll={true}
-          >
-            Sign In
-          </Link>
-        </Button>
+        {isAuthenticated ? (
+          <>
+            <NotificationDropDown />
+            <ProfileDropDown />
+          </>
+        ) : (
+          // Show Sign In Button if not logged in
+          <Button className='flex items-center justify-center font-semibold'>
+            <Link href={"/sign-in"} prefetch={true} scroll={true}>
+              Sign In
+            </Link>
+          </Button>
+        )}
       </div>
     </div>
   );
