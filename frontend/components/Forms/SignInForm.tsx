@@ -40,13 +40,13 @@ const SignInForm = () => {
       const response = await axios.post('http://localhost:4000/api/v1/auth/signin', {
         username: data.username,
         password: data.password,
-      });
+      });z
 
       console.log(response.data);
 
-      const { accessToken, refreshToken } = response.data;
+      const { accessToken, refreshToken, id, username, role } = response.data;
 
-      setAuth(accessToken, refreshToken, { id: 'user_id', username: data.username, role: 'USER' });
+      setAuth(accessToken, refreshToken, { id, username, role });
 
       router.push('/');
     } catch (error: any) {

@@ -14,7 +14,7 @@ import { useAuthStore } from '@/stores/useAuthStore';
 
 const NavBar = () => {
 
-  const { isAuthenticated } = useAuthStore();
+  const { isAuthenticated, user } = useAuthStore();
 
   return (
     <div className='navbar'>
@@ -29,6 +29,7 @@ const NavBar = () => {
         {isAuthenticated ? (
           <>
             <NotificationDropDown />
+            <p className='mr-4 font-semibold'>Hello, {user?.username}!</p>
             <ProfileDropDown />
           </>
         ) : (

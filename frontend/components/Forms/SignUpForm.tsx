@@ -19,9 +19,13 @@ import { Input } from '../ui/input';
 import { useRouter } from 'next/navigation';
 import axios from "axios";
 
+import { useAuthStore } from '@/stores/useAuthStore';
+
 const SignUpForm = () => {
 
   const router = useRouter();
+
+  const { user, accessToken, refreshToken, setAuth } = useAuthStore();
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -35,26 +39,33 @@ const SignUpForm = () => {
   });
 
   const onSubmit = async (data: z.infer<typeof signUpFormSchema>) => {
+    setIsSubmitting(true);
     try {
-      const response = await axios.post('http://localhost:4000/api/v1/auth/signup', data); // Gửi dữ liệu đến backend
-      const { accessToken, refreshToken } = response.data;
+      const response = await axios.post('http://localhost:4000/api/v1/auth/signup', {
+        username: data.username,
+        email: data.email,
+        password: data.password,
+      }); 
+      const { accessToken, refreshToken, id, username, role } = response.data;
 
-      // Lưu các token vào localStorage hoặc xử lý thêm
-      localStorage.setItem('accessToken', accessToken);
-      localStorage.setItem('refreshToken', refreshToken);
+      setAuth(accessToken, refreshToken, { id, username, role });
 
-      // Chuyển hướng sau khi đăng ký thành công
       router.push('/');
     } catch (error) {
       console.error("Error during sign-up:", error);
-      // Xử lý lỗi nếu cần (ví dụ: hiển thị thông báo lỗi cho người dùng)
+    } finally {
+      setIsSubmitting(false);
     }
   };
   
   return (
     <Form {...form}>
-      <form className='flex flex-col gap-5 items-center 
-        h-full bg-slate-50 space-y-4 p-10 w-[450px] border border-slate-400 rounded-xl' onSubmit={form.handleSubmit(onSubmit)}>
+      <form 
+      className='flex flex-col gap-5 items-center 
+        h-full bg-slate-50 space-y-4 p-10 w-[450px] border 
+        border-slate-400 rounded-xl' 
+        onSubmit={form.handleSubmit(onSubmit)}
+      >
         <h2 className='text-2xl font-bold'>
           Sign Up
         </h2>

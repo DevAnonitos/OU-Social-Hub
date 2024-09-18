@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { persist, PersistOptions } from "zustand/middleware";
+import { persist, PersistOptions, StateStorage } from "zustand/middleware";
 
 interface AuthState {
   accessToken: string | null;
@@ -26,6 +26,7 @@ export const useAuthStore = create<AuthState>()(
       user: null,
       isAuthenticated: false,
       setAuth: (accessToken, refreshToken, user) => {
+        console.log('Setting Auth State:', { accessToken, refreshToken, user });
         set({ accessToken, refreshToken, user, isAuthenticated: true });
       },
       clearAuth: () => {

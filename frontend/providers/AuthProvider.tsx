@@ -30,12 +30,13 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       }
   
       if(user.role === "USER" && pathName.startsWith("/dashboard")) {
+        alert("You are not authorized to access admin routes.");
         router.replace("/");
       }
     } else if(!isAuthenticated && !user) {
       router.replace("/sign-in");
     }
-  }, [isAuthenticated, user]);
+  }, [isAuthenticated, user, pathName, router]);
 
   return (
     <>
