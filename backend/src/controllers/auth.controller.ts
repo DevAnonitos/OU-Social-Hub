@@ -39,7 +39,13 @@ export const signUp = async (req: Request, res: Response) => {
         console.log(user)
         const { accessToken, refreshToken } = generateToken(user);
         
-        res.status(201).send({ accessToken, refreshToken });
+        res.status(201).send({ 
+            accessToken, 
+            refreshToken,
+            id: user.id, 
+            username: user.username,
+            role: user.role, 
+        });
     } catch (error: any) {
         console.error("Error during sign-up:", error);
         res.status(500).json({ error: "Error during sign-up" });
@@ -56,6 +62,7 @@ export const signIn = async (req: Request, res: Response) => {
                 username,
             },
         });
+        console.log(user);
         if(!user || !user.password) {
             return res.status(400).json({ message: 'Invalid credentials' });
         }
@@ -66,7 +73,13 @@ export const signIn = async (req: Request, res: Response) => {
         }
         const { accessToken, refreshToken } = generateToken(user);
 
-        res.status(200).send({ accessToken, refreshToken });
+        res.status(200).send({ 
+            accessToken, 
+            refreshToken, 
+            id: user.id, 
+            username: user.username,
+            role: user.role,
+        });
     } catch (error: any) {
         console.log("Error during sign-in:", error);
     }
