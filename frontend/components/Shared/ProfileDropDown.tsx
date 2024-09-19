@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import Image from "next/image";
 import Link from "next/link";
@@ -12,19 +14,23 @@ import {
     DropdownMenuGroup
 } from '../ui/dropdown-menu';
 
+import { useAuthStore } from '@/stores/useAuthStore';
+
 
 const ProfileDropDown = () => {
+
+    const { user } = useAuthStore();
   return (
     <div>
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <Button variant={"outline"}>
-                    Profile
+                   My Profile
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent side='bottom' className="w-[350px] h-[225px]">
-                <DropdownMenuLabel>
-                    My Profile
+                <DropdownMenuLabel className="font-semibold text-xl">
+                    {user?.username}
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>

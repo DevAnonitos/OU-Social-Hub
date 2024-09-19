@@ -29,7 +29,6 @@ const NavBar = () => {
         {isAuthenticated ? (
           <>
             <NotificationDropDown />
-            <p className='mr-4 font-semibold'>Hello, {user?.username}!</p>
             <ProfileDropDown />
           </>
         ) : (

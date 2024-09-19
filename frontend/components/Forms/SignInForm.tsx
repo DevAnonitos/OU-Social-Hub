@@ -21,6 +21,7 @@ import { Separator } from '../ui/separator';
 import axios from "axios";
 import { useRouter } from 'next/navigation';
 import { useAuthStore } from '@/stores/useAuthStore';
+import { instance } from '@/lib/axios/interceptor';
 
 const SignInForm = () => {
 
@@ -37,10 +38,10 @@ const SignInForm = () => {
 
   const onSubmit = async (data: z.infer<typeof signInFormSchema>) => {
     try {
-      const response = await axios.post('http://localhost:4000/api/v1/auth/signin', {
+      const response = await instance.post('http://localhost:4000/api/v1/auth/signin', {
         username: data.username,
         password: data.password,
-      });z
+      });
 
       console.log(response.data);
 

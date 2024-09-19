@@ -1,14 +1,37 @@
 import axios from "axios";
+import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/stores/useAuthStore";
 
-const instance = axios.create({
-  baseURL: "http://127.0.0.1:8000/api/v1",
+export const instance = axios.create({
+  baseURL: "http://localhost:4000/api/v1/",
   timeout: 3 * 1000,
-  withCredentials: true,
   headers: {
     'Content-Type': 'application/json'
   },
 });
+
+const refreshAccessToken = async() => {
+  const { refreshToken, setAuth, clearAuth, user } = useAuthStore.getState();
+  const router = useRouter();
+
+  try {
+    const response = await axios.post(`http://localhost:4000/api/v1/auth/refresh-token`, {
+      refreshToken,
+    });
+
+    const { accessToken: newAccessToken, refreshToken: newRefreshToken } = response.data;
+
+    setAuth(newAccessToken, newRefreshToken, user!);
+
+    return newAccessToken;
+  } catch (error) {
+    console.error('Failed to refresh token:', error);
+
+    clearAuth();
+    router.push('/sign-in');
+    throw error;
+  }
+};
 
 instance.interceptors.request.use(
     (config: any) => {
@@ -34,25 +57,26 @@ instance.interceptors.response.use(
     console.log(response);
     return response;
   },
-  (error: any) => {
+  async (error: any) => {
     const originalRequest = error.config;
 
     if(error.response.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
       
       try {
-        
+        const newAccessToken = await refreshAccessToken();
+
+        originalRequest.headers['Authorization'] = `Bearer ${newAccessToken}`;
         return instance(originalRequest);
       } catch (error: any) {
         return Promise.reject(error);
       }
     }
 
-
     console.log(error);
     return Promise.reject(error);
   }
-)
+);
 
 
 

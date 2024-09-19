@@ -20,6 +20,7 @@ import { useRouter } from 'next/navigation';
 import axios from "axios";
 
 import { useAuthStore } from '@/stores/useAuthStore';
+import { instance } from '@/lib/axios/interceptor';
 
 const SignUpForm = () => {
 
@@ -41,11 +42,12 @@ const SignUpForm = () => {
   const onSubmit = async (data: z.infer<typeof signUpFormSchema>) => {
     setIsSubmitting(true);
     try {
-      const response = await axios.post('http://localhost:4000/api/v1/auth/signup', {
+      const response = await instance.post('http://localhost:4000/api/v1/auth/signup', {
         username: data.username,
         email: data.email,
         password: data.password,
-      }); 
+      });
+       
       const { accessToken, refreshToken, id, username, role } = response.data;
 
       setAuth(accessToken, refreshToken, { id, username, role });
