@@ -40,12 +40,12 @@ const ProfileDropDown = () => {
   return (
     <div>
         <DropdownMenu>
-            <DropdownMenuTrigger asChild>
+            <DropdownMenuTrigger asChild    >
                 <Button variant={"outline"}>
                    My Profile
                 </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent side='bottom' className="w-[350px]">
+            <DropdownMenuContent align='end' side='bottom' className="absolute right-0 w-[305px] bg-white shadow-lg rounded-md mt-2 overflow-hidden">
                 <DropdownMenuLabel className="font-semibold text-xl">
                     {user?.username}
                 </DropdownMenuLabel>
