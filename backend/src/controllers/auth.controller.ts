@@ -8,10 +8,10 @@ import { verifyRefreshToken } from "../libs/utils/token.util";
 import { generateAccessToken, generateRefreshToken } from "../libs/utils/token.util";
 
 import { JwtPayload } from 'jsonwebtoken';
-
 export const signUp = async (req: Request, res: Response) => {
 
     const { username, email, password } = req.body;
+
     try {
         
         const checkUser = await prisma.user.findMany({
@@ -27,6 +27,8 @@ export const signUp = async (req: Request, res: Response) => {
         }
 
         const hashPassword = await hashPassWord(password);
+
+        
 
         const user = await prisma.user.create({
             data: {
@@ -44,7 +46,7 @@ export const signUp = async (req: Request, res: Response) => {
             refreshToken,
             id: user.id, 
             username: user.username,
-            role: user.role, 
+            role: user.role,
         });
     } catch (error: any) {
         console.error("Error during sign-up:", error);
