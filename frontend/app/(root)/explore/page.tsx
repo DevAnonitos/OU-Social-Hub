@@ -8,17 +8,18 @@ const Explore = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    const socket = io('http://localhost:4000');
-
-    socket.on('users', (data) => {
-      setUsers(data);
-    });
-
-    // Cleanup on component unmount
-    return () => {
-      socket.disconnect();
+    const fetchUsers = async () => {
+      try {
+        const response = await axios.get('http://localhost:4000/api/v1/users/getusers'); 
+        setUsers(response.data);
+      } catch (error) {
+        console.error('Error fetching users:', error);
+      }
     };
+
+    fetchUsers();
   }, []);
+
   return (
     <div>
       <h1>Explore</h1>
