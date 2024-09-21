@@ -9,6 +9,7 @@ import morganMiddleware from "./configs/morgan.config";
 import logger from "./loggers/winston.log";
 
 import prisma from "./configs/prisma.config";
+import redisClient from "./configs/redis.config";
 
 import routes from "./routes";
 
@@ -37,6 +38,19 @@ app.get("/", async (req: Request, res: Response) => {
   } catch (error) {
     console.error('Error with MongoDB connection:', error);
     res.status(500).json({ error: 'Error with MongoDB connection' });
+  }
+});
+
+app.get("/redis", async (req: Request, res: Response) => {
+  try {
+    logger.debug('This is a Debug Log');
+
+    await redisClient.ping();
+
+    res.json({ message: 'Hello API, Redis connection is active!' });
+  } catch (error) {
+    console.error('Error with Redis connection:', error);
+    res.status(500).json({ error: 'Error with Redis connection' });
   }
 });
 

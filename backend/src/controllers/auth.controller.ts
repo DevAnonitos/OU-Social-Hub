@@ -146,7 +146,10 @@ export const refreshToken = async (req: Request, res: Response) => {
         let newRefreshToken = refreshToken;
     
         if (remainingTime < sevenDays) {
-            newRefreshToken = generateRefreshToken({ id: user.id, role: user.role });
+            newRefreshToken = generateRefreshToken({ 
+                id: user.id, 
+                role: user.role 
+            });
         }
     
         return res.status(200).json({

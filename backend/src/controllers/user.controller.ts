@@ -1,5 +1,6 @@
 import prisma from "../configs/prisma.config";
 import { Request, Response } from "express";
+import redisClient from "../configs/redis.config";
 
 export const getUsers = async (req: Request, res: Response) => {
    try {
