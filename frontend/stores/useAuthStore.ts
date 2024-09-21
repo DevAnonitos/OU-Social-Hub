@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { persist, PersistOptions, StateStorage } from "zustand/middleware";
+import { persist, PersistOptions} from "zustand/middleware";
 
 interface AuthState {
   accessToken: string | null;

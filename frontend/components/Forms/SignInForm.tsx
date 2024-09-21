@@ -26,7 +26,7 @@ import { instance } from '@/lib/axios/interceptor';
 const SignInForm = () => {
 
   const router = useRouter();
-  const { setAuth } = useAuthStore();
+  const { setAuth, clearAuth } = useAuthStore();
 
   const form = useForm<z.infer<typeof signInFormSchema>>({
     resolver: zodResolver(signInFormSchema),

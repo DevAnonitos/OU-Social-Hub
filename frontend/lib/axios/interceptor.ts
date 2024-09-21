@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/stores/useAuthStore";
+import { getTokenExpiryDate } from "../utils";
 
 export const instance = axios.create({
   baseURL: "http://localhost:4000/api/v1/",
@@ -13,6 +14,18 @@ export const instance = axios.create({
 const refreshAccessToken = async() => {
   const { refreshToken, setAuth, clearAuth, user } = useAuthStore.getState();
   const router = useRouter();
+
+  if (!refreshToken) {
+    console.error('Refresh token is null or undefined.');
+    clearAuth();
+    router.push('/sign-in');
+    return;
+  }
+
+  if (!isTokenExpiringSoon(refreshToken)) {
+    console.log("Refresh token is not expiring soon.");
+    return; // No need to refresh the token if it's still valid
+  }
 
   try {
     const response = await axios.post(`http://localhost:4000/api/v1/auth/refresh-token`, {
@@ -31,6 +44,13 @@ const refreshAccessToken = async() => {
     router.push('/sign-in');
     throw error;
   }
+};
+
+const isTokenExpiringSoon = (token: string): boolean | null => {
+  const expiryDate = getTokenExpiryDate(token); // Giả định bạn có hàm này
+  if (expiryDate === null) return false;
+  const sevenDaysInMs = 7 * 24 * 60 * 60 * 1000; // 7 ngày tính bằng ms
+  return (expiryDate - Date.now()) < sevenDaysInMs;
 };
 
 instance.interceptors.request.use(

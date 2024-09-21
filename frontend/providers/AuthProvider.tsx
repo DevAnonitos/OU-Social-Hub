@@ -4,6 +4,7 @@ import { ReactNode, useEffect } from "react";
 import { useAuthStore } from "@/stores/useAuthStore";
 import { getTokenExpiryDate } from "@/lib/utils";
 import { useRouter, usePathname } from "next/navigation";
+import { instance } from "@/lib/axios/interceptor";
 
 interface AuthProviderProps {
   children: ReactNode;
@@ -22,7 +23,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     accessToken, 
     refreshToken, 
   } = useAuthStore();
-
+ 
   useEffect(() => {
     if(isAuthenticated && user) {
       if(user.role === "ADMIN" && pathName.startsWith("/dasboard")) {

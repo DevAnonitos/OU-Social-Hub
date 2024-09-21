@@ -1,7 +1,12 @@
 import axios from "axios";
+import { instance } from "../axios/interceptor";
 
 export const getUsers = async () => {
-    const { data } = await axios.get('http://localhost:4000/api/v1/users/getusers');
+    const start = performance.now();
+    const { data } = await instance.get('http://localhost:4000/api/v1/users/getusers');
+    const end = performance.now(); 
+
+    console.log(`Fetch API latency: ${end - start} ms`);
     return data;
 };
 
