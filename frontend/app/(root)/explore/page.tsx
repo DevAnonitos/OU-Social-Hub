@@ -1,28 +1,14 @@
 "use client";
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import io from 'socket.io-client';
-
+import React from 'react';
+import { userGetUsers } from '@/lib/react-query/queries';
+import LoaderSpinner from '@/components/Shared/LoaderSpinner';
 
 const Explore = () => {
+  
+  const { data: users=[], error, isLoading } = userGetUsers();
 
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const start = performance.now();
-        const response = await axios.get('http://localhost:4000/api/v1/users/getusers'); 
-        const end = performance.now();
-        setUsers(response.data);
-        console.log(`Fetch API latency: ${end - start} ms`);
-      } catch (error) {
-        console.error('Error fetching users:', error);
-      }
-    };
-
-    fetchUsers();
-  }, []);
+  if (isLoading) return <LoaderSpinner />;
+  if (error) return <div>Error fetching users</div>;
 
   return (
     <div>
