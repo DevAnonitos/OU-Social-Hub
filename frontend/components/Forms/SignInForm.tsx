@@ -16,6 +16,7 @@ import {
 import Link from 'next/link';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
+import Image from "next/image";
 
 import { useRouter } from 'next/navigation';
 import { useAuthStore } from '@/stores/useAuthStore';
@@ -110,9 +111,18 @@ const SignInForm = () => {
               <Button
                 type="button"
                 variant="outline"
-                className="w-full border border-slate-400 text-gray-700 py-2 rounded-md hover:bg-gray-100 h-[50px]"
+                className="w-full flex items-center justify-center border border-slate-400 text-gray-700 py-2 rounded-md hover:bg-gray-100 h-[50px]"
               >
-                Login with Google
+                <Image
+                  src={"/assets/icons/google.svg"}
+                  width={20}
+                  height={20}
+                  alt="google" 
+                  className=''
+                />
+                <p className='w-full text-lg font-medium'>
+                  Login with Google account
+                </p>
               </Button>
               <p className='text-sm text-gray-500 text-center'>
                 Don't have an account?{" "}
