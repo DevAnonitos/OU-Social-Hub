@@ -129,18 +129,27 @@ const SignUpForm = () => {
               </FormItem>
             )}
           />
-          <div className='flex flex-col w-full space-y-4'>
-            <Button type='submit' className='col-span-2 w-full text-lg font-bold  h-[50px]' disabled={isSubmitting}>
-              {isSubmitting ? 'Creating Account...' : 'Create a new account'}
-            </Button>
-            {/* <Separator className='border-[1px] border-slate-300 ' />
-            <Button
-              type="button"
-              variant="outline"
-              className="w-full border border-gray-300 text-gray-700 py-2 rounded-md hover:bg-gray-100 h-[50px]"
-            >
-              Login with Google
-            </Button> */}
+          <div className='flex flex-col w-full'>
+            <div className='space-y-4'>
+              <Button type='submit' className='col-span-2 w-full text-lg font-bold  h-[50px]' disabled={isSubmitting}>
+                {isSubmitting ? 'Creating Account...' : 'Create a new account'}
+              </Button>
+              <Button
+                type="button"
+                variant="outline"
+                className="w-full border border-slate-400 text-gray-700 py-2 rounded-md hover:bg-gray-100 h-[50px]"
+              >
+                Login with Google
+              </Button>
+              <p className='text-sm text-gray-500 text-center'>
+                Have an account?{" "}
+                <Link href="/sign-in">
+                  <span className='text-blue-600 font-medium hover:underline'>
+                    Sign In
+                  </span>
+                </Link>
+              </p>
+            </div>
           </div>
       </form>
     </Form>

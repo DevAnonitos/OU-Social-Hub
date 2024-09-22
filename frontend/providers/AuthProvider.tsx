@@ -1,10 +1,9 @@
 "use client";
 
-import { ReactNode, useEffect } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { useAuthStore } from "@/stores/useAuthStore";
-import { getTokenExpiryDate } from "@/lib/utils";
 import { useRouter, usePathname } from "next/navigation";
-import { instance } from "@/lib/axios/interceptor";
+import LoaderSpinner from "@/components/Shared/LoaderSpinner";
 
 interface AuthProviderProps {
   children: ReactNode;
@@ -17,28 +16,49 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const { 
     user,
-    setAuth, 
-    clearAuth, 
     isAuthenticated, 
-    accessToken, 
-    refreshToken, 
   } = useAuthStore();
- 
-  useEffect(() => {
-    if(isAuthenticated && user) {
-      if(user.role === "ADMIN" && pathName.startsWith("/dasboard")) {
-        return;
-      }
-  
-      if(user.role === "USER" && pathName.startsWith("/dashboard")) {
-        alert("You are not authorized to access admin routes.");
-        router.replace("/");
-      }
-    } else if(!isAuthenticated && !user) {
-      router.replace("/sign-in");
-    }
-  }, [isAuthenticated, user, pathName, router]);
 
+  const [loading, setLoading] = useState(true);
+  const [isAuthorized, setIsAuthorized] = useState(true);
+
+  useEffect(() => {
+    const checkAuth = () => {
+      if (!loading) return;
+
+      if (!isAuthenticated) {
+        if (pathName.startsWith("/dashboard")) {
+          setIsAuthorized(false);
+          router.replace("/");
+          return;
+        }
+      }
+
+      if (user) {
+        if (user.role === "ADMIN" && pathName.startsWith("/dashboard")) {
+          setIsAuthorized(true);
+        } else if (user.role === "USER" && pathName.startsWith("/dashboard")) {
+          alert("You are not authorized to access admin routes.");
+          router.replace("/");
+          setIsAuthorized(false);
+        } else {
+          setIsAuthorized(true);
+        }
+      }
+
+      setLoading(false);
+    };
+
+    checkAuth();
+  }, [isAuthenticated, user, pathName, router, loading, isAuthorized]);
+
+  if (loading) {
+    return <LoaderSpinner />; 
+  }
+
+  if (!isAuthorized) {
+    return null; 
+  }
   return (
     <>
       {children}
