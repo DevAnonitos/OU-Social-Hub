@@ -17,6 +17,12 @@ enum Roles {
   ADMIN
 }
 
+enum EventStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
 // USER SCHEMA MODEL
 
 model User {
@@ -59,6 +65,8 @@ model Events {
   endDateTime DateTime
   organizerId String @db.ObjectId
   organizer User @relation(fields: [organizerId], references: [id], onDelete: Cascade)
+
+  status EventStatus @default(PENDING)
 
   commentsEvent Comments[]
   notifications Notifications[]
