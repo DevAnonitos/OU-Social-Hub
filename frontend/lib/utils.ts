@@ -29,4 +29,8 @@ export const formatTime = (seconds: number) => {
   return `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
 };
 
+export const convertFiletoUrl = (file: File) => {
+  return URL.createObjectURL(file);
+};
+
 

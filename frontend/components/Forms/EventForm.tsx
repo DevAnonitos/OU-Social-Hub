@@ -28,15 +28,35 @@ import DatePicker from '../Shared/DatePicker';
 
 const EventForm = () => {
 
-  const [date, setDate] = React.useState<Date | undefined>(new Date())
+  const [date, setDate] = React.useState<Date | undefined>(new Date());
+  const [files, setFiles] = useState<File[]>([]);
+
+  const router = useRouter();
 
   const form = useForm<z.infer<typeof eventFormSchema>>({
     resolver: zodResolver(eventFormSchema),
+    defaultValues: {
+      title: "",
+      description: "",
+      location: "",
+      startDateTime: new Date(),
+      endDateTime: new Date(),
+      categoryId: "",
+      url: "",
+    },
   });
+
+  const onSubmit = async (values: z.infer<typeof eventFormSchema>) => {
+    try {
+      
+    } catch (error: any) {
+      console.log(error);
+    }
+  };
 
   return (
     <Form {...form}>
-      <form className='flex flex-col gap-5'>
+      <form className='flex flex-col gap-5' onSubmit={form.handleSubmit(onSubmit)}>
         <div className='flex flex-col gap-5 md:flex-row'>
           <FormField
             control={form.control}
