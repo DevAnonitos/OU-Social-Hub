@@ -10,7 +10,7 @@
     # pkgs.python311
     # pkgs.python311Packages.pip
     # pkgs.nodePackages.nodemon
-    pkgs.gitlab-runner
+    pkgs.openssl.dev
   ];
 
   # Sets environment variables in the workspace

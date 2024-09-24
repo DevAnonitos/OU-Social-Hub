@@ -3,11 +3,15 @@ import cors from "cors";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import helmet from "helmet";
-import morgan from "morgan";
 
 import { setupSwagger } from "./configs/swagger.config";
 import morganMiddleware from "./configs/morgan.config";
 import logger from "./loggers/winston.log";
+
+import prisma from "./configs/prisma.config";
+import redisClient from "./configs/redis.config";
+
+import routes from "./routes";
 
 const app: Express = express();
 
@@ -21,9 +25,33 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 
-app.get("/", (req: Request, res: Response) => {
-  logger.debug("This is Debug Log");
-  res.json({ message: "Hello API" });
+// API ROUTES
+app.use(routes);
+
+app.get("/", async (req: Request, res: Response) => {
+  try {
+    logger.debug('This is a Debug Log');
+
+    await prisma
+
+    res.json({ message: 'Hello API, MongoDB connection is active!' });
+  } catch (error) {
+    console.error('Error with MongoDB connection:', error);
+    res.status(500).json({ error: 'Error with MongoDB connection' });
+  }
+});
+
+app.get("/redis", async (req: Request, res: Response) => {
+  try {
+    logger.debug('This is a Debug Log');
+
+    await redisClient.ping();
+
+    res.json({ message: 'Hello API, Redis connection is active!' });
+  } catch (error) {
+    console.error('Error with Redis connection:', error);
+    res.status(500).json({ error: 'Error with Redis connection' });
+  }
 });
 
 setupSwagger(app);

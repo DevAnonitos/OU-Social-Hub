@@ -3,9 +3,90 @@
 
 generator client {
   provider = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-3.0.x"]
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
+}
+
+// Type of data source
+enum Roles {
+  USER
+  ADMIN
+}
+
+// USER SCHEMA MODEL
+
+model User {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  username String @unique 
+  email String @unique
+  password String?
+  avatarUrl String?
+  googleId String? @unique
+  role Roles @default(USER)
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+
+  profile Profile?
+  admin Admin?
+
+  events Events[]
+  comments Comments[]
+
+  @@index([username, email])
+}
+
+model Profile {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  bio String?
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String @unique @db.ObjectId
+}
+
+model Events {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  eventTitle String
+  eventDescription String?
+  eventLocation String?
+  imageUrl String
+  linkUrl String
+  startDateTime DateTime
+  endDateTime DateTime
+  organizerId String @db.ObjectId
+  organizer User @relation(fields: [organizerId], references: [id], onDelete: Cascade)
+
+  commentsEvent Comments[]
+  notifications Notifications[]
+
+  @@index([eventTitle, eventLocation])
+}
+
+model Comments {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  content String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  userId String @db.ObjectId
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  eventId String @db.ObjectId
+  events Events @relation(fields: [eventId], references: [id], onDelete: Cascade)
+
+  @@index([content])
+}
+
+model Notifications {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  eventsId String @db.ObjectId
+  events Events @relation(fields: [eventsId], references: [id], onDelete: Cascade)
+}
+
+// ADMIN SCHEMA MODEL
+model Admin {
+  id String @id @db.ObjectId @map("_id")
+  user User @relation(fields: [id], references: [id], onDelete: Cascade)
 }
