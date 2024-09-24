@@ -114,6 +114,8 @@ const EventForm = () => {
                     alt="calendar"
                     width={24}
                     height={24}
+                    quality={85}
+                    priority
                   />
                   <Input
                     className='h-[54px] focus-visible:ring-offset-0 placeholder:text-grey-500 rounded-full p-regular-16 px-4 py-3 border-none focus-visible:ring-transparent'
@@ -140,6 +142,8 @@ const EventForm = () => {
                     alt="calendar"
                     width={24}
                     height={24}
+                    quality={85}
+                    priority
                   />
                   <p className="ml-3 whitespace-nowrap text-grey-600">Start Date:</p>
                   <DatePicker />
@@ -161,6 +165,8 @@ const EventForm = () => {
                     alt="calendar"
                     width={24}
                     height={24}
+                    quality={85}
+                    priority
                   />
                   <p className="ml-3 whitespace-nowrap text-grey-600">End Date:</p>
                   <DatePicker />
@@ -183,6 +189,8 @@ const EventForm = () => {
                     alt="calendar"
                     width={24}
                     height={24}
+                    quality={85}
+                    priority
                   />
                   <Input
                     className='h-[54px] focus-visible:ring-offset-0 placeholder:text-grey-500 rounded-full p-regular-16 px-4 py-3 border-none focus-visible:ring-transparent'

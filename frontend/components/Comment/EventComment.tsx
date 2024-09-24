@@ -12,6 +12,8 @@ const EventComment = () => {
             src={"/assets/icons/comment.svg"}
             width={28}
             height={28}
+            priority
+            quality={85}
             alt='Comment'
             className='mr-2'
           />

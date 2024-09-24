@@ -10,6 +10,8 @@ const EventCommentItems = () => {
         alt="hero image"
         width={44}
         height={44}
+        loading='lazy'
+        quality={85}
         className="object-cover rounded-full"
       />
       <div className='flex w-full'>

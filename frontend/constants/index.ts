@@ -133,3 +133,23 @@ export const adminSideBar = [
     },
 ];
 
+export const bannerCarousel = [
+    {
+        id: 1,
+        title: "NikoNiko Japanese Club",
+        imageUrl: "/assets/images/nikoniko.png", 
+        description: "This is the description for banner 1",
+    },
+    {
+        id: 2,
+        title: "Passion Club - OU ",
+        imageUrl: "/assets/images/passion.png",
+        description: "This is the description for banner 2",
+    },
+    {
+        id: 3,
+        title: "CLB Truyền Thông Trẻ - YOUM ",
+        imageUrl: "/assets/images/youm.png",
+        description: "This is the description for banner 3",
+    },
+];

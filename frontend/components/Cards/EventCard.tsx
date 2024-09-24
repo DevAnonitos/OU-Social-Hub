@@ -17,6 +17,8 @@ const EventCard = () => {
       <Link href={"/events"} 
         className='flex-center flex-grow bg-gray-50 bg-cover bg-center text-grey-500' 
         style={{ backgroundImage: `url(/assets/images/dtdb.jpg)` }}
+        prefetch={true}
+        scroll={true}
       />
       
 

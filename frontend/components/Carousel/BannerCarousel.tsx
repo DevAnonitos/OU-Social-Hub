@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { EmblaOptionsType } from 'embla-carousel'
 import Autoplay from 'embla-carousel-autoplay';
 import { Button } from '../ui/button';
+import { bannerCarousel } from '@/constants';
 
 const banners = [
   {
@@ -50,15 +51,15 @@ export default function BannerCarousel() {
     <div className="relative w-full">
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex">
-          {banners.map((banner, index) => (
+          {bannerCarousel.map((banner, index) => (
             <div key={banner.id} className="relative flex-[0_0_100%] min-w-0">
               <div className="relative h-[300px] w-full">
                 <Image
                   src={banner.imageUrl}
                   alt={banner.title}
                   layout="fill"
-                  loading='lazy'
-                  quality={100}
+                  quality={85}
+                  priority
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent "></div>
