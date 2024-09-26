@@ -29,6 +29,7 @@ export const createEvent = async (req: Request, res: Response) => {
         startDateTime: event.startDateTime,
         endDateTime: event.endDateTime,
         organizerId: userId,
+        status: "PENDING",
       },
     });
     console.log(createEvent);
@@ -55,10 +56,20 @@ export const deleteEvent = async (req: Request, res: Response) => {
 };
 
 export const getEventById = async (req: Request, res: Response) => {
+
+  const { eventId } = req.params;
+
   try {
-    
+    const event = await prisma.events.findUnique({
+      where: {
+        id: eventId,
+      },
+    });
+    console.log(event);
+    res.json(event);
   } catch (error: any) {
-    console.error(error);
+    console.error('Error fetching event:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 };
 
