@@ -5,9 +5,13 @@ import {
     useInfiniteQuery,
 } from "@tanstack/react-query";
 
-import { getUsers } from "../api";
+import { 
+    getUsers, 
+    getEventsCount, 
+    getUsersCount 
+} from "../api";
 
-export const userGetUsers = () => {
+export const useGetUsers = () => {
     return useQuery({
         queryKey: ["user"],
         queryFn: () => getUsers(),
@@ -15,3 +19,20 @@ export const userGetUsers = () => {
         retry: 1, 
     });
 };
+
+export const useGetUsersCount = () => { 
+    return useQuery({
+        queryKey: ["userCount"],
+        queryFn: () => getUsersCount(),
+        staleTime: 1000,
+    })
+};
+
+export const useGetEventsCount = () => { 
+    return useQuery({
+        queryKey: ["eventCount"],
+        queryFn: () => getEventsCount(),
+        staleTime: 1000,
+    });
+};
+

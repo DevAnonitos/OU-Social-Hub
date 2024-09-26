@@ -1,11 +1,11 @@
 "use client";
 import React from 'react';
-import { userGetUsers } from '@/lib/react-query/queries';
+import { useGetUsers } from '@/lib/react-query/queries';
 import LoaderSpinner from '@/components/Shared/LoaderSpinner';
 
 const Explore = () => {
   
-  const { data: users=[], error, isLoading } = userGetUsers();
+  const { data: users=[], error, isLoading } = useGetUsers();
 
   if (isLoading) return <LoaderSpinner />;
   if (error) return <div>Error fetching users</div>;
