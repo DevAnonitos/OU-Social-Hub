@@ -9,6 +9,11 @@ export const getUsers = async () => {
     return data;
 };
 
+export const getUserByMonth = async () => {
+    const { data } = await instance.get('http://localhost:4000/api/v1/users/count-by-month');
+    return data;
+}
+
 export const getUserById = async () => {
     return;
 };

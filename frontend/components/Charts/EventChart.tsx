@@ -16,31 +16,35 @@ import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/ui/chart"
+} from "@/components/ui/chart";
+import { useGetUsersByMonth } from "@/lib/react-query/queries";
 
 export const description = "A multiple bar chart"
 
-const chartData = [
-  { month: "January", desktop: 186, mobile: 80 },
-  { month: "February", desktop: 305, mobile: 200 },
-  { month: "March", desktop: 237, mobile: 120 },
-  { month: "April", desktop: 73, mobile: 190 },
-  { month: "May", desktop: 209, mobile: 130 },
-  { month: "June", desktop: 214, mobile: 140 },
-]
-
 const chartConfig = {
-  desktop: {
-    label: "Desktop",
+  user: {
+    label: "User",
     color: "hsl(var(--chart-1))",
-  },
-  mobile: {
-    label: "Mobile",
-    color: "hsl(var(--chart-2))",
   },
 } satisfies ChartConfig
 
 const EventChart = () => {
+
+  const { data, isLoading, error } = useGetUsersByMonth();
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error loading data</div>;
+  }
+
+  const chartData = data?.data.map((item: any) => ({
+    month: item.month,
+    user: item.count,
+  }));
+
   return (
     <div className="border-slate-400 border-[1px] rounded-lg p-4 w-full h-full">
         <ChartContainer config={chartConfig}>
@@ -57,8 +61,7 @@ const EventChart = () => {
               cursor={false}
               content={<ChartTooltipContent indicator="dashed" />}
             />
-            <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
-            <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
+            <Bar dataKey="user" fill="var(--color-desktop)" radius={4} />
           </BarChart>
         </ChartContainer>
     </div>

@@ -8,7 +8,8 @@ import {
 import { 
     getUsers, 
     getEventsCount, 
-    getUsersCount 
+    getUsersCount,
+    getUserByMonth, 
 } from "../api";
 
 export const useGetUsers = () => {
@@ -36,3 +37,10 @@ export const useGetEventsCount = () => {
     });
 };
 
+export const useGetUsersByMonth = () => { 
+    return useQuery({
+        queryKey: ["users-by-month"],
+        queryFn: () => getUserByMonth(),
+        staleTime: 1000,
+    });
+}
