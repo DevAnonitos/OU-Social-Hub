@@ -3,10 +3,39 @@
 @tailwind utilities;
 
 * {
+  list-style: none;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 12px;  /* Độ rộng của thanh cuộn dọc */
+  height: 12px; 
+}
+
+/* Thanh cuộn track (khu vực chứa thanh cuộn) */
+::-webkit-scrollbar-track {
+  background: #f0f0f0;  /* Màu nền của track */
+  border-radius: 10px;
+}
+
+/* Thanh cuộn thumb (phần di chuyển của thanh cuộn) */
+::-webkit-scrollbar-thumb {
+  background-color: #888;  /* Màu của thumb */
+  border-radius: 10px;     /* Bo tròn */
+  border: 3px solid #f0f0f0; /* Bo viền và tạo hiệu ứng tách biệt với track */
+}
+
+/* Khi hover vào thanh cuộn */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;  /* Đổi màu khi hover */
+}
+
+/* Custom thanh cuộn ngang */
+::-webkit-scrollbar-horizontal {
+  height: 8px;
 }
 
 @layer base {
@@ -86,11 +115,15 @@
   }
 
   .navbar {
-    @apply bg-slate-50 fixed z-50 flex items-center justify-between flex-wrap p-4 gap-x-4 inset-y-0 w-full h-20 border-b-[1px] border-slate-300;
+    @apply bg-slate-50 fixed z-50 flex flex-grow items-center justify-between flex-wrap p-4 gap-x-4 inset-y-0 w-full h-20 border-b-[1px] border-slate-300;
   }
 
   .bottombar {
     @apply flex flex-row bg-slate-50 items-center  bottom-0 fixed lg:hidden md:hidden backdrop-blur-lg w-full h-20 z-50 border-t-[1px] p-4 border-slate-400 flex-wrap;
+  }
+
+  .hidden {
+    display: none;
   }
 
   /* .bottombar_container {

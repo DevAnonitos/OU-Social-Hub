@@ -5,6 +5,8 @@ import {
     useInfiniteQuery,
 } from "@tanstack/react-query";
 
+import { QUERY_KEY } from "./queriesKey";
+
 import { 
     getUsers, 
     getEventsCount, 
@@ -14,7 +16,7 @@ import {
 
 export const useGetUsers = () => {
     return useQuery({
-        queryKey: ["user"],
+        queryKey: [QUERY_KEY.GET_USERS],
         queryFn: () => getUsers(),
         staleTime: 1000 * 60 * 60 * 24,
         retry: 1, 
@@ -23,7 +25,7 @@ export const useGetUsers = () => {
 
 export const useGetUsersCount = () => { 
     return useQuery({
-        queryKey: ["userCount"],
+        queryKey: [QUERY_KEY.GET_USERS_COUNT],
         queryFn: () => getUsersCount(),
         staleTime: 1000,
     })
@@ -31,7 +33,7 @@ export const useGetUsersCount = () => {
 
 export const useGetEventsCount = () => { 
     return useQuery({
-        queryKey: ["eventCount"],
+        queryKey: [QUERY_KEY.GET_EVENTS_COUNT],
         queryFn: () => getEventsCount(),
         staleTime: 1000,
     });
@@ -39,8 +41,8 @@ export const useGetEventsCount = () => {
 
 export const useGetUsersByMonth = () => { 
     return useQuery({
-        queryKey: ["users-by-month"],
+        queryKey: [QUERY_KEY.GET_USER_BY_MONTH],
         queryFn: () => getUserByMonth(),
         staleTime: 1000,
     });
-}
+};

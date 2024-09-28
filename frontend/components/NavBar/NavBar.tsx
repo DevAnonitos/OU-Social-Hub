@@ -28,7 +28,7 @@ const NavBar = () => {
       <div className='flex items-center'>
         {isAuthenticated ? (
           <>
-            {/* <NotificationDropDown /> */}
+            <NotificationDropDown />
             <ProfileDropDown />
           </>
         ) : (

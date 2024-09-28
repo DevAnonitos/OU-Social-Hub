@@ -1,4 +1,5 @@
 import axios from "axios";
+import { instance } from "../axios/interceptor";
 
 export const createEvent = async () => {
     return;
@@ -12,7 +13,7 @@ export const updateEvent = async () => {
     return;
 }
 
-export const deletEvent = async () => {
+export const deleteEvent = async () => {
     return;
 };
 
