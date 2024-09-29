@@ -12,6 +12,7 @@ import {
     getEventsCount, 
     getUsersCount,
     getUserByMonth, 
+    getUserById,
 } from "../api";
 
 export const useGetUsers = () => {
@@ -38,6 +39,15 @@ export const useGetEventsCount = () => {
         staleTime: 1000,
     });
 };
+
+export const useGetUserById = (userId: string) => { 
+    return useQuery({
+        queryKey: [QUERY_KEY.GET_USER_BY_ID],
+        queryFn: () => getUserById(userId),
+        enabled: !!userId,
+    });
+};
+
 
 export const useGetUsersByMonth = () => { 
     return useQuery({
