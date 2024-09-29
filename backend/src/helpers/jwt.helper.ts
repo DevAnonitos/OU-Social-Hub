@@ -23,5 +23,5 @@ export const generateToken = ( user:any ) => {
 };
 
 export const verifyToken = (token: string) => {
-
+  
 };

@@ -30,13 +30,35 @@ export const getUsers = async (req: Request, res: Response) => {
   }
 };
 
+export const getUserById = async (req: Request, res: Response) => {
+  try {
+    
+    const { userId } =req.params;
+
+    const user = await prisma.user.findUnique({
+      where: {
+        id: userId,
+      },
+    });
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    console.log(user);
+    res.status(200).json(user);
+  } catch (error) {
+    console.error("Error fetching user by ID", error);
+    res.status(500).json({ error: "Failed to fetch user data" });
+  }
+};
+
 export const getUsersByMonth = async (req: Request, res: Response) => {
   try {
     const currentYear = new Date().getFullYear();
 
-    // Truy vấn dựa trên tháng và năm
     const userCount = await prisma.user.groupBy({
-      by: ["createAt"], // Sử dụng đúng tên trường trong schema của bạn
+      by: ["createAt"], 
       _count: {
         id: true,
       },
@@ -52,13 +74,11 @@ export const getUsersByMonth = async (req: Request, res: Response) => {
       const monthDate = new Date(currentYear, index);
       const monthName = monthDate.toLocaleString("default", { month: "long" });
 
-      // Tìm số lượng user theo tháng
       const monthData = userCount.filter((uc) => {
         const createdMonth = new Date(uc.createAt).getMonth();
         return createdMonth === index;
       });
 
-      // Tính tổng số user cho tháng này
       const totalCount = monthData.reduce((total, uc) => total + uc._count.id, 0);
 
       return {
