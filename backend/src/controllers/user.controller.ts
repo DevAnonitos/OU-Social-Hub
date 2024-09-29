@@ -35,6 +35,15 @@ export const getUserById = async (req: Request, res: Response) => {
     
     const { userId } =req.params;
 
+    const cacheKey = `user:${userId}`; // Tạo khóa cache riêng cho từng người dùng
+
+    // Kiểm tra xem người dùng đã có trong cache chưa
+    const cachedUser = await redisClient.get(cacheKey);
+    if (cachedUser) {
+      console.log("Serving cached user");
+      return res.status(200).json(JSON.parse(cachedUser));
+    }
+
     const user = await prisma.user.findUnique({
       where: {
         id: userId,
@@ -44,6 +53,10 @@ export const getUserById = async (req: Request, res: Response) => {
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
+
+    await redisClient.set(cacheKey, JSON.stringify(user), {
+      EX: 60 * 60,
+    });
 
     console.log(user);
     res.status(200).json(user);
