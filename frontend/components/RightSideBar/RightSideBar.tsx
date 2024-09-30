@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import EventCarousel from '../Carousel/EventCarousel';
 import { Button } from '../ui/button';
 import LoaderSpinner from '../Shared/LoaderSpinner';
@@ -33,10 +34,15 @@ const RightSideBar = () => {
 
   return (
     <div className='right_sidebar px-4'>
-      <section className='mt-4'>
-        <h3>
-          Up Coming Event!
-        </h3>
+      <section className='mt-4 flex flex-col justify-between'>
+        <div className='flex items-center justify-between'>
+          <h3>
+            Up Coming Event!
+          </h3>
+          <Link href={"/explore"} className='font-semibold'>
+            View All
+          </Link>
+        </div>
         <EventCarousel />
       </section>
       <section className='flex flex-col pt-12'>
@@ -44,12 +50,12 @@ const RightSideBar = () => {
           <h3>
             Content Creator
           </h3>
-          <p>
-            All
-          </p>
+          <Link href={"/explore"} className='font-semibold'>
+            View All
+          </Link>
         </div>
         <div className='flex flex-col mt-1'>
-        {randomUsers.map((user: any) => (
+          {randomUsers.map((user: any) => (
             <div 
               key={user.id} 
               className='flex cursor-pointer items-center justify-between 

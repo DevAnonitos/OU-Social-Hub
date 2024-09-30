@@ -152,4 +152,10 @@ export const bannerCarousel = [
         imageUrl: "/assets/images/youm.png",
         description: "This is the description for banner 3",
     },
+    {
+        id: 4,
+        title: "OU Chess Club",
+        imageUrl: "/assets/images/ouc.jpg",
+        description: "This is the description for banner 3",
+    }
 ];

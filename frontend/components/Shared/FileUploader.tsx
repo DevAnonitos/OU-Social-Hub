@@ -1,7 +1,15 @@
-import React from 'react';
+"use client";
+
+import React, { 
+  useCallback, 
+  Dispatch, 
+  SetStateAction 
+} from 'react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import Image from 'next/image';
+
+import { convertFiletoUrl } from '@/lib/utils';
 
 
 const FileUploader = () => {
