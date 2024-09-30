@@ -16,14 +16,14 @@ import { Button } from '../ui/button';
 
 // Dữ liệu mẫu cho các sự kiện
 const events = [
-  { id: 1, eventTitle: "Event 1", organizer: "User A", createdAt: "2024-09-20", status: "Pending" },
-  { id: 2, eventTitle: "Event 2", organizer: "User B", createdAt: "2024-09-21", status: "Approved" },
-  { id: 3, eventTitle: "Event 3", organizer: "User C", createdAt: "2024-09-22", status: "Pending" },
-  { id: 4, eventTitle: "Event 4", organizer: "User D", createdAt: "2024-09-23", status: "Rejected" },
-  { id: 5, eventTitle: "Event 5", organizer: "User E", createdAt: "2024-09-24", status: "Pending" },
-  { id: 6, eventTitle: "Event 6", organizer: "User F", createdAt: "2024-09-25", status: "Pending" },
-  { id: 7, eventTitle: "Event 7", organizer: "User G", createdAt: "2024-09-26", status: "Approved" },
-  { id: 8, eventTitle: "Event 8", organizer: "User H", createdAt: "2024-09-27", status: "Rejected" },
+  { id: 1, eventTitle: "Event 1 by DẠ NGUYỆT 2024 - GÓC GÂY QUỸ", organizer: "User A", createdAt: "2024-09-20", status: "Pending" },
+  { id: 2, eventTitle: "Event 2 by DẠ NGUYỆT 2024 - GÓC GÂY QUỸ", organizer: "User B", createdAt: "2024-09-21", status: "Approved" },
+  { id: 3, eventTitle: "Event 3 by DẠ NGUYỆT 2024 - GÓC GÂY QUỸ", organizer: "User C", createdAt: "2024-09-22", status: "Pending" },
+  { id: 4, eventTitle: "Event 4 by DẠ NGUYỆT 2024 - GÓC GÂY QUỸ", organizer: "User D", createdAt: "2024-09-23", status: "Rejected" },
+  { id: 5, eventTitle: "Event 5 by DẠ NGUYỆT 2024 - GÓC GÂY QUỸ", organizer: "User E", createdAt: "2024-09-24", status: "Pending" },
+  { id: 6, eventTitle: "Event 6 by DẠ NGUYỆT 2024 - GÓC GÂY QUỸ", organizer: "User F", createdAt: "2024-09-25", status: "Pending" },
+  { id: 7, eventTitle: "Event 7 by DẠ NGUYỆT 2024 - GÓC GÂY QUỸ", organizer: "User G", createdAt: "2024-09-26", status: "Approved" },
+  { id: 8, eventTitle: "Event 8 by DẠ NGUYỆT 2024 - GÓC GÂY QUỸ", organizer: "User H", createdAt: "2024-09-27", status: "Rejected" },
 ];
 
 // Component quản lý sự kiện với phân trang và cột Review
@@ -59,9 +59,9 @@ const EventsDataTable = () => {
       <Table className='rounded-lg overflow-hidden'>
         <TableHeader className='text-lg font-bold text-black'>
           <TableRow>
-            <TableHead className="w-[50px] text-xl font-bold text-black">ID</TableHead>
-            <TableHead className="w-[200px] text-xl font-bold text-black">Event Name</TableHead>
-            <TableHead className="w-[150px] text-center text-xl font-bold text-black">Organizer</TableHead>
+            <TableHead className="w-[85px] text-xl font-bold text-black">ID</TableHead>
+            <TableHead className="w-[355px] text-xl font-bold text-black">Event Name</TableHead>
+            <TableHead className="w-[155px] text-center text-xl font-bold text-black">Organizer</TableHead>
             <TableHead className='text-xl text-center font-bold text-black'>Created At</TableHead>
             <TableHead className="text-center text-xl font-bold text-black">Review</TableHead>
             <TableHead className="text-center text-xl font-bold text-black">Actions</TableHead>

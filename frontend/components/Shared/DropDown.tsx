@@ -15,18 +15,21 @@ import {
   AlertDialogContent, 
   AlertDialogDescription, 
   AlertDialogFooter, 
-  AlertDialogHeader, 
-  AlertDialogOverlay, 
-  AlertDialogPortal, 
+  AlertDialogHeader,
   AlertDialogTitle, 
   AlertDialogTrigger 
 } from '../ui/alert-dialog';
 
 import { Input } from '../ui/input';
 
-const DropDown = () => {
+type DropDownProps = {
+  value?: string
+  onChangeHandler?: () => void
+};
+
+const DropDown = ({ value, onChangeHandler }: DropDownProps) => {
   return (
-    <Select>
+    <Select onValueChange={onChangeHandler} defaultValue={value}>
       <SelectTrigger 
         className='w-full h-[54px] placeholder:text-grey-500 
         rounded-full p-regular-16 px-5 py-3 border-[1px] 
