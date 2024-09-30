@@ -9,10 +9,10 @@ import { useGetUsers } from '@/lib/react-query/queries';
 import { useRouter } from 'next/navigation';
 
 const getRandomUsers = (users: any[], count: number) => {
-  if (!Array.isArray(users)) return []; // Kiểm tra nếu không phải là mảng, trả về mảng rỗng
+  if (!Array.isArray(users)) return []; 
 
-  const shuffled = [...users].sort(() => 0.5 - Math.random()); // Trộn ngẫu nhiên danh sách
-  return shuffled.slice(0, count); // Lấy số lượng người dùng mong muốn
+  const shuffled = [...users].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, count);
 };
 
 const RightSideBar = () => {

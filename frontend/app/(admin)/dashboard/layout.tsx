@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className}`}>
         <QueryProvider>
-          <div className="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-12 h-full w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-12 h-full w-full overflow-y-auto">
             <div className="hidden sm:block sm:col-span-1 lg:col-span-2">
               <AdminSideBar />
             </div>

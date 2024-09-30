@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import GroupStats from '@/components/Shared/GroupStats';
-import EventsDataTable from '@/components/Table/EventsDataTable';
+import EventsDataTable from '@/components/Tables/EventsDataTable';
 import UpComingEvent from '@/components/Shared/UpComingEvent';
 import EventChart from '@/components/Charts/EventChart';
 
@@ -14,7 +14,7 @@ import EventChart from '@/components/Charts/EventChart';
 const DashBoard = () => {
 
   return (
-    <div className='flex flex-col max-w-screen mx-auto w-full h-full min-h-screen'>
+    <div className='flex flex-col flex-grow overflow-y-auto max-w-screen mx-auto w-full h-full min-h-screen'>
       <main className='p-6 space-y-6 w-full h-full'>
         <section className="w-full space-y-4">
           <h1 className="text-2xl font-bold">Hi, Admin👋</h1>

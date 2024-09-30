@@ -6,6 +6,7 @@ import SignInModal from '../Modals/SignInModal';
 import { BellIcon } from "@radix-ui/react-icons";
 import { useAuthStore } from '@/stores/useAuthStore';
 import ProfileDropDown from '../Shared/ProfileDropDown';
+import NotificationDropDown from '../Notification/NotificationDropDown';
 
 const AdminNavBar = () => {
 
@@ -20,6 +21,7 @@ const AdminNavBar = () => {
       <div className='flex items-center'>
         {isAuthenticated ? (
           <>
+            <NotificationDropDown />
             <ProfileDropDown />
           </>
         ): (

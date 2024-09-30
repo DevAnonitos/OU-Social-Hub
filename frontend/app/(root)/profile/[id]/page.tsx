@@ -19,9 +19,6 @@ const Profile = ({ params }: { params: { id: string } }) => {
     <main className='flex flex-col max-w-screen mx-auto w-full h-full min-h-screen'>
       <div className='p-6 space-y-6 w-full h-full'>
         <section className='bg-cover bg-center py-5 md:py-10'>
-          <h2>
-            {currentUser?.username}
-          </h2>
           <div className='wrapper flex items-center justify-center sm:justify-between'>
             <h3 className='font-bold text-[20px] leading-[28px] md:text-[28px] md:leading-[36px]text-center sm:text-left'>
               My Tickets
