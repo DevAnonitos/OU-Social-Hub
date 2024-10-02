@@ -11,36 +11,28 @@ import {
   TableFooter,
 } from '../ui/table';
 import { useRouter } from 'next/navigation';
-import { ExternalLinkIcon } from '@radix-ui/react-icons';
+import { useGetPendingEvents } from '@/lib/react-query/queries';// Import your useGetPendingEvents hook
 import { Button } from '../ui/button';
 
-// Dữ liệu mẫu cho các sự kiện
-const events = [
-  { id: 1, eventTitle: "Event 1 by DẠ NGUYỆT 2024 - GÓC GÂY QUỸ", organizer: "User A", createdAt: "2024-09-20", status: "Pending" },
-  { id: 2, eventTitle: "Event 2 by DẠ NGUYỆT 2024 - GÓC GÂY QUỸ", organizer: "User B", createdAt: "2024-09-21", status: "Approved" },
-  { id: 3, eventTitle: "Event 3 by DẠ NGUYỆT 2024 - GÓC GÂY QUỸ", organizer: "User C", createdAt: "2024-09-22", status: "Pending" },
-  { id: 4, eventTitle: "Event 4 by DẠ NGUYỆT 2024 - GÓC GÂY QUỸ", organizer: "User D", createdAt: "2024-09-23", status: "Rejected" },
-  { id: 5, eventTitle: "Event 5 by DẠ NGUYỆT 2024 - GÓC GÂY QUỸ", organizer: "User E", createdAt: "2024-09-24", status: "Pending" },
-  { id: 6, eventTitle: "Event 6 by DẠ NGUYỆT 2024 - GÓC GÂY QUỸ", organizer: "User F", createdAt: "2024-09-25", status: "Pending" },
-  { id: 7, eventTitle: "Event 7 by DẠ NGUYỆT 2024 - GÓC GÂY QUỸ", organizer: "User G", createdAt: "2024-09-26", status: "Approved" },
-  { id: 8, eventTitle: "Event 8 by DẠ NGUYỆT 2024 - GÓC GÂY QUỸ", organizer: "User H", createdAt: "2024-09-27", status: "Rejected" },
-];
-
-// Component quản lý sự kiện với phân trang và cột Review
 const EventsDataTable = () => {
+  const { data: events = [], isLoading } = useGetPendingEvents(); // Set default to an empty array
   const [currentPage, setCurrentPage] = useState(1);
   const eventsPerPage = 5;
   const router = useRouter();
 
-  // Tính toán chỉ số của các sự kiện
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  // Ensure events is an array
+  const validEvents = Array.isArray(events) ? events : [];
+
   const indexOfLastEvent = currentPage * eventsPerPage;
   const indexOfFirstEvent = indexOfLastEvent - eventsPerPage;
-  const currentEvents = events.slice(indexOfFirstEvent, indexOfLastEvent);
+  const currentEvents = validEvents.slice(indexOfFirstEvent, indexOfLastEvent);
 
-  // Tạo số trang
-  const totalPages = Math.ceil(events.length / eventsPerPage);
+  const totalPages = Math.ceil(validEvents.length / eventsPerPage);
 
-  // Chuyển trang
   const goToNextPage = () => {
     setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
   };
@@ -50,7 +42,6 @@ const EventsDataTable = () => {
   };
 
   const handleReview = (eventId: string) => {
-    // Điều hướng tới trang xem trước sự kiện theo eventId
     router.push(`/admin/events/${eventId}`);
   };
 
@@ -60,7 +51,7 @@ const EventsDataTable = () => {
         <TableHeader className='text-lg font-bold text-black'>
           <TableRow>
             <TableHead className="w-[85px] text-xl font-bold text-black">ID</TableHead>
-            <TableHead className="w-[355px] text-xl font-bold text-black">Event Name</TableHead>
+            <TableHead className="w-[385px] text-xl font-bold text-black">Event Name</TableHead>
             <TableHead className="w-[155px] text-center text-xl font-bold text-black">Organizer</TableHead>
             <TableHead className='text-xl text-center font-bold text-black'>Created At</TableHead>
             <TableHead className="text-center text-xl font-bold text-black">Review</TableHead>
@@ -70,16 +61,15 @@ const EventsDataTable = () => {
         <TableBody>
           {currentEvents.map((event) => (
             <TableRow key={event.id}>
-              <TableCell className="font-medium">{event.id}</TableCell>
-              <TableCell className="font-medium">{event.eventTitle}</TableCell>
-              <TableCell className='text-center'>{event.organizer}</TableCell>
-              <TableCell className='text-center'>{new Date(event.createdAt).toLocaleDateString()}</TableCell>
+              <TableCell>{event.id}</TableCell>
+              <TableCell>{event.eventTitle}</TableCell>
+              {/* Access a property from organizer (e.g., username or email) */}
+              <TableCell className="text-center">{event.organizer?.username || 'N/A'}</TableCell>
+              <TableCell className="text-center">{new Date(event.createdAt).toLocaleDateString()}</TableCell>
               <TableCell className="text-center">
-                <button
-                  
-                >
-                  <ExternalLinkIcon width={25} height={25} />
-                </button>
+                <Button onClick={() => handleReview(event.id)}>
+                  Review
+                </Button>
               </TableCell>
               <TableCell className="text-center space-x-2">
                 <Button>

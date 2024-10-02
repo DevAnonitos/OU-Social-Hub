@@ -13,6 +13,7 @@ import {
     getUsersCount,
     getUserByMonth, 
     getUserById,
+    getPendingEvents,
 } from "../api";
 
 export const useGetUsers = () => {
@@ -53,6 +54,14 @@ export const useGetUsersByMonth = () => {
     return useQuery({
         queryKey: [QUERY_KEY.GET_USER_BY_MONTH],
         queryFn: () => getUserByMonth(),
+        staleTime: 1000,
+    });
+};
+
+export const useGetPendingEvents = () => { 
+    return useQuery({
+        queryKey: [QUERY_KEY.GET_PENDING_EVENTS],
+        queryFn: () => getPendingEvents(),
         staleTime: 1000,
     });
 };

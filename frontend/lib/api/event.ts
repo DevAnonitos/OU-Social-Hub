@@ -5,6 +5,13 @@ export const createEvent = async () => {
     return;
 };
 
+export const getPendingEvents = async () => {
+    const { data } = await instance.get('http://localhost:4000/api/v1/events/pending');
+    console.log(data);
+    return data;
+};
+
+
 export const getEventById = async () => {
     return;
 };
