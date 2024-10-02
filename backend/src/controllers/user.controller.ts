@@ -35,9 +35,8 @@ export const getUserById = async (req: Request, res: Response) => {
     
     const { userId } =req.params;
 
-    const cacheKey = `user:${userId}`; // Tạo khóa cache riêng cho từng người dùng
+    const cacheKey = `user:${userId}`;
 
-    // Kiểm tra xem người dùng đã có trong cache chưa
     const cachedUser = await redisClient.get(cacheKey);
     if (cachedUser) {
       console.log("Serving cached user");

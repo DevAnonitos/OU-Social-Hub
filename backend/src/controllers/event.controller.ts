@@ -39,6 +39,46 @@ export const createEvent = async (req: Request, res: Response) => {
   }
 };
 
+export const approveEvent = async (req: Request, res: Response) => {
+
+  const { eventId } = req.params;
+
+  try {
+    const event = await prisma.events.update({
+      where: {
+        id: eventId,
+      },
+      data: {
+        status: "APPROVED",
+      },
+    });
+    console.log(event);
+    res.status(200).json(event);
+  } catch (error: any) {
+    console.error(error);
+    res.status(500).json({ message: 'Error approving event', error });
+  }
+};
+
+export const rejectEvent = async (req: Request, res: Response) => {
+  const { eventId } = req.params;
+
+  try {
+    const event = await prisma.events.update({
+      where: { 
+        id: eventId 
+      },
+      data: { 
+        status: 'REJECTED' 
+      },
+    });
+    console.log(event);
+    return res.status(200).json({ message: 'Event rejected', event });
+  } catch (error) {
+    return res.status(500).json({ message: 'Error rejecting event', error });
+  }
+};
+
 export const updateEvent = async (req: Request, res: Response) => {
   try {
     
@@ -55,18 +95,20 @@ export const deleteEvent = async (req: Request, res: Response) => {
   }
 };
 
-export const getEventById = async (req: Request, res: Response) => {
+export const getPendingEvents = async (req: Request, res: Response) => {
 
-  const { eventId } = req.params;
-
-  try {
-    const event = await prisma.events.findUnique({
-      where: {
-        id: eventId,
+    try {
+    const event = await prisma.events.findMany({
+      select: {
+        id: true,
+        eventTitle: true,
+        organizer: true,
+        createdAt: true,
+        status: true,
       },
     });
     console.log(event);
-    res.json(event);
+    res.status(200).json(event);
   } catch (error: any) {
     console.error('Error fetching event:', error);
     res.status(500).json({ error: 'Internal Server Error' });

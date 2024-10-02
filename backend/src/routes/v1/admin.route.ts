@@ -4,6 +4,7 @@ import { authMiddleware, adminMiddleware } from "../../middlewares/auth.middlewa
 
 const router = express.Router();
 
+// Admin Route
 router.use("/stats", statsRoute);
 
 export default router;
