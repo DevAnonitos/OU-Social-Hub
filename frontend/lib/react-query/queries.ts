@@ -17,6 +17,7 @@ import {
     approveEvents,
     rejectEvents,
     getAllEvents,
+    getEventById,
 } from "../api";
 
 export const useGetUsers = () => {
@@ -46,7 +47,7 @@ export const useGetEventsCount = () => {
 
 export const useGetUserById = (userId: string) => { 
     return useQuery({
-        queryKey: [QUERY_KEY.GET_USER_BY_ID],
+        queryKey: [QUERY_KEY.GET_USER_BY_ID, userId],
         queryFn: () => getUserById(userId),
         enabled: !!userId,
     });
@@ -110,5 +111,13 @@ export const useGetAllEvents = () => {
         queryKey: [QUERY_KEY.GET_ALL_EVENTS],
         queryFn: () => getAllEvents(),
         staleTime: 1000,
+    });
+};
+
+export const useGetEventById = (eventId: string) => {
+    return useQuery({
+        queryKey: [QUERY_KEY.GET_EVENT_BY_ID, eventId],
+        queryFn: () => getEventById(eventId),
+        enabled: !!eventId,
     });
 };

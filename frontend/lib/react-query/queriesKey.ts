@@ -9,4 +9,5 @@ export enum QUERY_KEY {
   APPROVE_EVENTS = "approveEvents",
 
   GET_ALL_EVENTS = "getAllEvents",
-}
+  GET_EVENT_BY_ID = "getEventById",
+};

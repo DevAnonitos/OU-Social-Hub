@@ -30,8 +30,10 @@ export const getAllEvents = async () => {
 };
 
 
-export const getEventById = async () => {
-    return;
+export const getEventById = async (eventId: string) => {
+    const { data } = await instance.get(`http://localhost:4000/api/v1/events/get-events/${eventId}`);
+    console.log(data);
+    return data;
 };
 
 export const updateEvent = async () => {
