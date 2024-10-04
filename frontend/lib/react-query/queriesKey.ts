@@ -6,4 +6,6 @@ export enum QUERY_KEY {
   GET_USER_BY_ID = "getUserCountById",
   
   GET_PENDING_EVENTS = "getPendingEvents",
+
+  APPROVE_EVENTS = "approveEvents",
 }

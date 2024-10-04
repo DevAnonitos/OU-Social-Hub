@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState } from 'react';
 import { 
@@ -11,11 +11,15 @@ import {
   TableFooter,
 } from '../ui/table';
 import { useRouter } from 'next/navigation';
-import { useGetPendingEvents } from '@/lib/react-query/queries';// Import your useGetPendingEvents hook
+import { useGetPendingEvents, useApproveEvent, useRejectEvent } from '@/lib/react-query/queries';
 import { Button } from '../ui/button';
 
 const EventsDataTable = () => {
-  const { data: events = [], isLoading } = useGetPendingEvents(); // Set default to an empty array
+  const { data: events = [], isLoading, refetch } = useGetPendingEvents();
+
+  const { mutate: approveEvent } = useApproveEvent();
+
+  const { mutate: rejectEvent } = useRejectEvent();
   const [currentPage, setCurrentPage] = useState(1);
   const eventsPerPage = 5;
   const router = useRouter();
@@ -24,7 +28,6 @@ const EventsDataTable = () => {
     return <div>Loading...</div>;
   }
 
-  // Ensure events is an array
   const validEvents = Array.isArray(events) ? events : [];
 
   const indexOfLastEvent = currentPage * eventsPerPage;
@@ -45,6 +48,14 @@ const EventsDataTable = () => {
     router.push(`/admin/events/${eventId}`);
   };
 
+  const handleApprove = (eventId: string) => {
+    approveEvent(eventId);
+  };
+
+  const handleReject = (eventId: string) => {
+    rejectEvent(eventId);
+  };
+
   return (
     <div className='z-10 w-full overflow-hidden border-[1px] rounded-lg border-slate-400'>
       <Table className='rounded-lg overflow-hidden'>
@@ -54,6 +65,7 @@ const EventsDataTable = () => {
             <TableHead className="w-[385px] text-xl font-bold text-black">Event Name</TableHead>
             <TableHead className="w-[155px] text-center text-xl font-bold text-black">Organizer</TableHead>
             <TableHead className='text-xl text-center font-bold text-black'>Created At</TableHead>
+            <TableHead className='text-xl text-center font-bold text-black'>Status</TableHead>
             <TableHead className="text-center text-xl font-bold text-black">Review</TableHead>
             <TableHead className="text-center text-xl font-bold text-black">Actions</TableHead>
           </TableRow>
@@ -63,19 +75,19 @@ const EventsDataTable = () => {
             <TableRow key={event.id}>
               <TableCell>{event.id}</TableCell>
               <TableCell>{event.eventTitle}</TableCell>
-              {/* Access a property from organizer (e.g., username or email) */}
               <TableCell className="text-center">{event.organizer?.username || 'N/A'}</TableCell>
               <TableCell className="text-center">{new Date(event.createdAt).toLocaleDateString()}</TableCell>
+              <TableCell className="text-center">{event.status}</TableCell>
               <TableCell className="text-center">
                 <Button onClick={() => handleReview(event.id)}>
                   Review
                 </Button>
               </TableCell>
               <TableCell className="text-center space-x-2">
-                <Button>
+                <Button onClick={() => handleApprove(event?.id)}>
                   Approve
                 </Button>
-                <Button variant="destructive">
+                <Button variant="destructive" onClick={() => handleReject(event?.id)}>
                   Reject
                 </Button>
               </TableCell>

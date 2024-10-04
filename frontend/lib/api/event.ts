@@ -11,6 +11,18 @@ export const getPendingEvents = async () => {
     return data;
 };
 
+export const approveEvents = async (eventId: string) => { 
+    const { data } = await instance.patch(`http://localhost:4000/api/v1/events/approve/${eventId}`);
+    console.log(data);
+    return data;
+};
+
+export const rejectEvents = async (eventId: string) => {
+    const { data } = await instance.patch(`http://localhost:4000/api/v1/events/reject/${eventId}`);
+    console.log(data);
+    return data;
+};
+
 
 export const getEventById = async () => {
     return;

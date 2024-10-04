@@ -14,6 +14,8 @@ import {
     getUserByMonth, 
     getUserById,
     getPendingEvents,
+    approveEvents,
+    rejectEvents,
 } from "../api";
 
 export const useGetUsers = () => {
@@ -65,3 +67,39 @@ export const useGetPendingEvents = () => {
         staleTime: 1000,
     });
 };
+
+export const useApproveEvent = () => {
+
+    const queryClient = useQueryClient();
+
+    return useMutation({
+        mutationFn: (eventId: string) => approveEvents(eventId),
+        onSuccess: (data) => {
+            queryClient.invalidateQueries({
+                queryKey: [QUERY_KEY.GET_PENDING_EVENTS, data?.eventId]
+            });
+        },
+        onError: (error) => {
+            console.error('Error approving event:', error);
+            alert('Failed to approve event');
+        },
+    });
+};
+
+export const useRejectEvent = () => {
+
+    const queryClient = useQueryClient();
+
+    return useMutation({
+        mutationFn: (eventId: string) =>rejectEvents(eventId),
+        onSuccess: (data) => {
+            queryClient.invalidateQueries({
+                queryKey: [QUERY_KEY.GET_PENDING_EVENTS, data?.eventId]
+            });
+        },
+        onError: (error) => {
+            console.error('Error reject event:', error);
+            alert('Failed to reject event');
+        },
+    });
+}
