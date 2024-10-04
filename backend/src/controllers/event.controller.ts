@@ -117,9 +117,22 @@ export const getPendingEvents = async (req: Request, res: Response) => {
 
 export const getAllEvents = async (req: Request, res: Response) => {
   try {
-    
+    const events = await prisma.events.findMany({
+      orderBy: {
+        createdAt: "desc",
+      },
+      include: {
+        organizer: true,
+      },
+      where: {
+        status: "APPROVED",
+      }
+    });
+    console.log(events);
+    res.status(200).json(events);
   } catch (error: any) {
     console.error(error);
+    res.status(500).json({ message: 'Failed to fetch events' });
   }
 };
 
