@@ -7,8 +7,8 @@ const router = express.Router();
 
 router.post("/create", createEvent);
 router.get("/pending", getPendingEvents)
-router.patch("/approve", approveEvent);
-router.patch("/reject", rejectEvent);
+router.patch("/approve/:eventId", approveEvent);
+router.patch("/reject/:eventId", rejectEvent);
 
 router.use(authMiddleware);
 

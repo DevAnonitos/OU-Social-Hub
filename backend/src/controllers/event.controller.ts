@@ -50,7 +50,7 @@ export const approveEvent = async (req: Request, res: Response) => {
       },
       data: {
         status: "APPROVED",
-      },
+      }, 
     });
     console.log(event);
     res.status(200).json(event);
