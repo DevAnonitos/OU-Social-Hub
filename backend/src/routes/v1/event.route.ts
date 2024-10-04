@@ -1,5 +1,5 @@
 import express, { Router } from "express";
-import { createEvent, getPendingEvents  } from "../../controllers/event.controller";
+import { createEvent, getEventById, getPendingEvents  } from "../../controllers/event.controller";
 import { authMiddleware } from "../../middlewares/auth.middleware";
 import { approveEvent, rejectEvent, getAllEvents } from "../../controllers/event.controller";
 
@@ -11,6 +11,7 @@ router.patch("/approve/:eventId", approveEvent);
 router.patch("/reject/:eventId", rejectEvent);
 
 router.get("/get-events", getAllEvents);
+router.get("/get-events/:eventId", getEventById);
 
 router.use(authMiddleware);
 

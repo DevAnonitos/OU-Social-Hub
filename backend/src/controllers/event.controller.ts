@@ -136,6 +136,26 @@ export const getAllEvents = async (req: Request, res: Response) => {
   }
 };
 
+export const getEventById = async (req: Request, res: Response) => {
+  try {
+    const { eventId }  = req.params;
+    const event = await prisma.events.findUnique({
+      where: {
+        id: eventId,
+        status: "APPROVED",
+      },
+      include: {
+        organizer: true,
+      }
+    });
+    console.log(event);
+    res.status(200).json(event);
+  } catch (error: any) {
+    console.error(error);
+    res.status(500).json({ message: 'Failed to fetch events' });
+  }
+};
+
 export const getEventByUser = async (req: Request, res: Response) => {
   try {
     

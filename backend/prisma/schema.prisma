@@ -68,10 +68,20 @@ model Events {
 
   status EventStatus @default(PENDING)
 
+  categoryId String[] @db.ObjectId
+  eventCategory Category[] @relation(fields: [categoryId], references: [id])
+
   commentsEvent Comments[]
   notifications Notifications[]
 
   @@index([eventTitle, eventLocation])
+}
+
+model Category {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  categoryName String
+  eventId String[] @db.ObjectId
+  events Events[] @relation(fields: [eventId], references: [id])
 }
 
 model Comments {
@@ -79,9 +89,9 @@ model Comments {
   content String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  userId String @db.ObjectId
+  userId String[] @db.ObjectId
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  eventId String @db.ObjectId
+  eventId String[] @db.ObjectId
   events Events @relation(fields: [eventId], references: [id], onDelete: Cascade)
 
   @@index([content])
@@ -89,7 +99,7 @@ model Comments {
 
 model Notifications {
   id String @id @default(auto()) @map("_id") @db.ObjectId
-  eventsId String @db.ObjectId
+  eventsId String[] @db.ObjectId
   events Events @relation(fields: [eventsId], references: [id], onDelete: Cascade)
 }
 
