@@ -1,36 +1,27 @@
 "use client";
 
-import React, { Suspense, useState, useEffect, useMemo } from 'react';
+import React, { Suspense, useMemo } from 'react';
 import EventCard from '../Cards/EventCard';
 import LoadingSkeleton from './LoadingSkeleton';
+import { useGetAllEvents } from '@/lib/react-query/queries';
 
 const CollectionEvents = () => {
-
-  const [loading, setLoading] = useState(true);
+  // Fetch events using react-query hook
+  const { data: events = [], isLoading } = useGetAllEvents();
 
   const skeletons = useMemo(() => Array.from({ length: 12 }), []);
-  const eventCards = useMemo(() => Array.from({ length: 12 }), []);
-
-  useEffect(() => {
-    // Simulate a delay to showcase loading (e.g., fetching data)
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <div>
       <div className="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-6">
-        {loading ? (
+        {isLoading ? (
           skeletons.map((_, index) => (
             <LoadingSkeleton key={index} />
           ))
         ) : (
           <Suspense fallback={<LoadingSkeleton />}>
-            {eventCards.map((_, index) => (
-              <EventCard key={index} />
+            {events.map((event: any, index: string) => (
+              <EventCard key={index} event={event} />
             ))}
           </Suspense>
         )}

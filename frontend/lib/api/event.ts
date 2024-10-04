@@ -23,6 +23,12 @@ export const rejectEvents = async (eventId: string) => {
     return data;
 };
 
+export const getAllEvents = async () => {
+    const { data } = await instance.get(`http://localhost:4000/api/v1/events/get-events/`);
+    console.log(data);
+    return data;
+};
+
 
 export const getEventById = async () => {
     return;
@@ -36,9 +42,6 @@ export const deleteEvent = async () => {
     return;
 };
 
-export const getAllEvents = async () => {
-    return;
-};
 
 export const getEventByUser = async () => {
     return;

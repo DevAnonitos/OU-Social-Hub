@@ -16,6 +16,7 @@ import {
     getPendingEvents,
     approveEvents,
     rejectEvents,
+    getAllEvents,
 } from "../api";
 
 export const useGetUsers = () => {
@@ -102,4 +103,12 @@ export const useRejectEvent = () => {
             alert('Failed to reject event');
         },
     });
-}
+};
+
+export const useGetAllEvents = () => {
+    return useQuery({
+        queryKey: [QUERY_KEY.GET_ALL_EVENTS],
+        queryFn: () => getAllEvents(),
+        staleTime: 1000,
+    });
+};
