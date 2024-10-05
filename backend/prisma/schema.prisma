@@ -68,8 +68,8 @@ model Events {
 
   status EventStatus @default(PENDING)
 
-  categoryId String[] @db.ObjectId
-  eventCategory Category[] @relation(fields: [categoryId], references: [id])
+  categoryIds String[] @db.ObjectId
+  eventCategory Category[] @relation(fields: [categoryIds], references: [id])
 
   commentsEvent Comments[]
   notifications Notifications[]
@@ -80,8 +80,8 @@ model Events {
 model Category {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   categoryName String
-  eventId String[] @db.ObjectId
-  events Events[] @relation(fields: [eventId], references: [id])
+  eventIds String[] @db.ObjectId
+  events Events[] @relation(fields: [eventIds], references: [id])
 }
 
 model Comments {

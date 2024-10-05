@@ -7,7 +7,11 @@ export interface CreateUserParams {
     imageUrl: string;
     startDateTime: Date;
     endDateTime: Date;
-    categoryId: string;
+    categoryIds: string[] | any;
     url: string;
   }
 };
+
+export interface createCategoryParams {
+  categoryName: string
+}

@@ -6,6 +6,7 @@ export const createEvent = async (req: Request, res: Response) => {
   try {
     const { userId, event }: CreateUserParams = req.body;
 
+
     const existingEvent = await prisma.events.findFirst({
       where: {
         eventTitle: event.title,
@@ -27,6 +28,7 @@ export const createEvent = async (req: Request, res: Response) => {
         imageUrl: event.imageUrl,
         linkUrl: event.url,
         startDateTime: event.startDateTime,
+        categoryIds: event.categoryIds,
         endDateTime: event.endDateTime,
         organizerId: userId,
         status: "PENDING",
@@ -123,6 +125,7 @@ export const getAllEvents = async (req: Request, res: Response) => {
       },
       include: {
         organizer: true,
+        eventCategory: true,
       },
       where: {
         status: "APPROVED",
@@ -146,6 +149,7 @@ export const getEventById = async (req: Request, res: Response) => {
       },
       include: {
         organizer: true,
+        eventCategory: true,
       }
     });
     console.log(event);
