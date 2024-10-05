@@ -46,7 +46,7 @@ const EventForm = () => {
       location: "",
       startDateTime: new Date(),
       endDateTime: new Date(),
-      categoryId: "",
+      categoryIds: [],
       url: "",
       imageUrl: "",
     },
@@ -56,7 +56,7 @@ const EventForm = () => {
     try {
       const createEvent = await axios.post("http://localhost:4000/api/v1/events/create", {
         userId: user?.id,
-        event: values,
+        event: {...values},
       });
 
       if (createEvent.status === 200) {
@@ -91,7 +91,7 @@ const EventForm = () => {
           />
           <FormField
             control={form.control}
-            name="title"
+            name="categoryIds"
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl>
