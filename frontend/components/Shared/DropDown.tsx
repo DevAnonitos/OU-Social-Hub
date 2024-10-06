@@ -51,8 +51,7 @@ const DropDown = ({ value = [], onChangeHandler }: DropDownProps) => {
 
     fetchCategories();
   }, []);
-
-  // Handle selection of categories
+  
   const handleSelect = (selected: string) => {
     let updatedValue: string[];
 

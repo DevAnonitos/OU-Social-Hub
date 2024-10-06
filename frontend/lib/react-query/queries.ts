@@ -18,6 +18,7 @@ import {
     rejectEvents,
     getAllEvents,
     getEventById,
+    getAllCategories,
 } from "../api";
 
 export const useGetUsers = () => {
@@ -119,5 +120,13 @@ export const useGetEventById = (eventId: string) => {
         queryKey: [QUERY_KEY.GET_EVENT_BY_ID, eventId],
         queryFn: () => getEventById(eventId),
         enabled: !!eventId,
+    });
+};
+
+export const useGetAllCategories = () => {
+    return useQuery({
+        queryKey: [QUERY_KEY.GET_ALL_CATEGORIES],
+        queryFn: () => getAllCategories(),
+        staleTime: 1000,
     });
 };

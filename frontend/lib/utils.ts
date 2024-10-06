@@ -1,6 +1,8 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { jwtDecode } from "jwt-decode";
+import { UrlQueryParams, RemoveUrlQueryParams } from "@/types";
+import qs from 'query-string';
 
 interface DecodedToken {
   exp: number;
@@ -69,4 +71,38 @@ export const convertFileToUrl = (file: File) => {
   return URL.createObjectURL(file);
 };
 
+export function formUrlQuery({ params, key, value }: UrlQueryParams) {
+  const currentUrl = qs.parse(params)
+
+  currentUrl[key] = value
+
+  return qs.stringifyUrl(
+    {
+      url: window.location.pathname,
+      query: currentUrl,
+    },
+    { skipNull: true }
+  )
+}
+
+export function removeKeysFromQuery({ params, keysToRemove }: RemoveUrlQueryParams) {
+  const currentUrl = qs.parse(params)
+
+  keysToRemove.forEach(key => {
+    delete currentUrl[key]
+  })
+
+  return qs.stringifyUrl(
+    {
+      url: window.location.pathname,
+      query: currentUrl,
+    },
+    { skipNull: true }
+  )
+}
+
+export const handleError = (error: unknown) => {
+  console.error(error)
+  throw new Error(typeof error === 'string' ? error : JSON.stringify(error))
+}
 
