@@ -25,7 +25,7 @@ const EventCard = ({event}: any) => {
       <div className='flex min-h-[155px] flex-col gap-3 p-5 md:gap-4'>
         <div className='flex gap-2'>
           <p className='text-[14px] font-semibold leading-[20px] rounded-full bg-grey-500/10 px-4 py-1 text-grey-500'>
-            {event.eventCategory?.categoryName || 'Uncategorized'}
+            {event.eventCategory[0]?.categoryName || 'Uncategorized'}
           </p>
         </div>
 

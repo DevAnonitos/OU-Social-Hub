@@ -10,6 +10,7 @@ const CollectionEvents = () => {
   const { data: events = [], isLoading } = useGetAllEvents();
 
   const skeletons = useMemo(() => Array.from({ length: 12 }), []);
+  console.log(events);
 
   return (
     <div>
