@@ -9,9 +9,19 @@ export interface CreateUserParams {
     endDateTime: Date;
     categoryIds: string[] | any;
     url: string;
-  }
+  },
+};
+
+export interface createCommentParams {
+  userId: string;
+  eventId: string;
+  comment: {
+    content: string;
+    parentId: string;
+    userLikesId: string[] | any;
+  },
 };
 
 export interface createCategoryParams {
   categoryName: string
-}
+};

@@ -40,7 +40,10 @@ model User {
   admin Admin?
 
   events Events[]
-  comments Comments[]
+  comments Comments[] @relation("UserComment")
+
+  likeCommentsId String[] @db.ObjectId
+  likeComments Comments[] @relation("UserLikeComment", fields: [likeCommentsId], references: [id])
 
   @@index([username, email])
 }
@@ -82,6 +85,8 @@ model Category {
   categoryName String
   eventIds String[] @db.ObjectId
   events Events[] @relation(fields: [eventIds], references: [id])
+
+  @@index([categoryName])
 }
 
 model Comments {
@@ -89,10 +94,19 @@ model Comments {
   content String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  userId String[] @db.ObjectId
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  eventId String[] @db.ObjectId
+
+  userId String @db.ObjectId
+  user User @relation("UserComment",fields: [userId], references: [id], onDelete: Cascade)
+
+  eventId String @db.ObjectId
   events Events @relation(fields: [eventId], references: [id], onDelete: Cascade)
+
+  parentId   String?     @db.ObjectId // Self-referencing field for replies
+  parent     Comments?   @relation("CommentReplies", fields: [parentId], references: [id],onDelete: NoAction, onUpdate: NoAction )
+  replies    Comments[]  @relation("CommentReplies")
+  
+  userLikesId String [] @db.ObjectId
+  userLikes User[] @relation("UserLikeComment", fields: [userLikesId], references: [id])
 
   @@index([content])
 }
