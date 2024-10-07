@@ -2,12 +2,12 @@ import React from 'react';
 import Link from 'next/link';
 import { Card } from '../ui/card';
 import { formatDateTime } from '@/lib/utils';
-import { DotsVerticalIcon, BookmarkFilledIcon } from '@radix-ui/react-icons';
+import { DotsVerticalIcon, BookmarkFilledIcon, HeartIcon } from '@radix-ui/react-icons';
 
 const EventCard = ({event}: any) => {
   return (
     <Card 
-      className='group relative flex min-h-[250px] w-full flex-col overflow-hidden rounded-xl bg-white shadow-sm transition-all hover:shadow-md md:min-h-[345px] border border-slate-400 cursor-pointer'
+      className='group relative flex min-h-[380px] w-full flex-col overflow-hidden rounded-xl bg-white shadow-sm transition-all hover:shadow-md md:min-h-[345px] border border-slate-400 cursor-pointer'
     >
 
       <Link 
@@ -22,10 +22,13 @@ const EventCard = ({event}: any) => {
         <DotsVerticalIcon className='w-5 h-5' />
       </div>
 
-      <div className='flex min-h-[155px] flex-col gap-3 p-5 md:gap-4'>
-        <div className='flex gap-2'>
+      <div className='flex min-h-[230px] flex-col gap-3 p-5 md:gap-4'>
+        <div className='flex gap-2 items-center justify-between'>
           <p className='text-[14px] font-semibold leading-[20px] rounded-full bg-grey-500/10 px-4 py-1 text-grey-500'>
             {event.eventCategory[0]?.categoryName || 'Uncategorized'}
+          </p>
+          <p>
+            {event.eventLocation}
           </p>
         </div>
 

@@ -5,8 +5,8 @@ import { formatDateTime } from '@/lib/utils';
 const EventDetailCard = ({ event }: any) => {
   return (
     <>
-      <section className='flex justify-center bg-grey-50 bg-dotted-pattern bg-contain'>
-          <div className='grid grid-cols-1 md:grid-cols-2 2xl:max-w-7xl'>
+      <section className='flex justify-center bg-grey-50 bg-dotted-pattern bg-contain w-full'>
+          <div className='grid grid-cols-1 md:grid-cols-2 w-full'>
             <Image 
               src={event?.imageUrl}
               alt="hero image"
