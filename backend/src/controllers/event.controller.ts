@@ -1,6 +1,7 @@
 import prisma from "../configs/prisma.config";
 import { Request, Response } from "express";
 import { CreateUserParams } from "../interfaces";
+import { queriesParams } from "../interfaces";
 
 export const createEvent = async (req: Request, res: Response) => {
   try {
@@ -118,6 +119,9 @@ export const getPendingEvents = async (req: Request, res: Response) => {
 };
 
 export const getAllEvents = async (req: Request, res: Response) => {
+
+  const { query }: queriesParams = req.query;
+
   try {
     const events = await prisma.events.findMany({
       orderBy: {
@@ -129,6 +133,10 @@ export const getAllEvents = async (req: Request, res: Response) => {
       },
       where: {
         status: "APPROVED",
+        eventTitle: {
+          contains: query,
+          mode: "insensitive",
+        },
       }
     });
     console.log(events);

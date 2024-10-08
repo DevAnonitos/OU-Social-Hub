@@ -25,3 +25,7 @@ export interface createCommentParams {
 export interface createCategoryParams {
   categoryName: string
 };
+
+export interface queriesParams {
+  query?: string | any;
+}

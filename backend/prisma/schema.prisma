@@ -31,6 +31,7 @@ model User {
   email String @unique
   password String?
   avatarUrl String?
+  isOnline Boolean @default(false)
   googleId String? @unique
   role Roles @default(USER)
   createAt DateTime @default(now())
