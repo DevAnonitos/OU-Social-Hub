@@ -88,7 +88,11 @@ export const signIn = async (req: Request, res: Response) => {
 };
 
 export const googleLogin = async (req: Request, res: Response) => {
-    const { token } = req.body;
+    const token = req.body.token || req.headers.authorization?.split(' ')[1]; // Lấy token từ body hoặc header
+
+    if (!token) {
+      return res.status(401).json({ message: "Authorization token missing or invalid" });
+    }
 
     try {
         const payload = await verifyGoogleToken(token);
@@ -111,7 +115,7 @@ export const googleLogin = async (req: Request, res: Response) => {
 
         const { accessToken, refreshToken } = generateToken(user);
         
-        res.status(200).json({ accessToken, refreshToken });
+        res.status(200).json({ accessToken, refreshToken, user: payload });
     } catch (error: any) {
         res.status(500).json({ message: 'Internal server error' });
     }

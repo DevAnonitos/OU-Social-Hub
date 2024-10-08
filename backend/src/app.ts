@@ -18,7 +18,7 @@ const app: Express = express();
 // App Config 
 dotenv.config();
 app.use(express.json());
-app.use(cors());
+app.use(cors({}));
 app.use(helmet());
 app.use(morganMiddleware);
 app.use(bodyParser.json({ limit: "10mb" }));
