@@ -1,10 +1,9 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import EventCarousel from '../Carousel/EventCarousel';
-import { Button } from '../ui/button';
 import LoaderSpinner from '../Shared/LoaderSpinner';
 import { useGetUsers } from '@/lib/react-query/queries';
 import { useRouter } from 'next/navigation';
@@ -70,7 +69,9 @@ const RightSideBar = () => {
                   height={44}
                   className='object-contain rounded-full'
                 />
-                <h3 className='text-14 font-semibold text-black'>{user.username}</h3>
+                <h3 className='text-14 font-semibold text-black'>
+                  {user.username}
+                </h3>
               </figure>
             </div>
           ))}

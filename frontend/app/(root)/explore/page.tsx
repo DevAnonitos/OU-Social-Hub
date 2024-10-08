@@ -1,9 +1,11 @@
 "use client";
+
 import React from 'react';
 import { useGetUsers } from '@/lib/react-query/queries';
 import LoaderSpinner from '@/components/Shared/LoaderSpinner';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Explore = () => {
   
@@ -20,14 +22,23 @@ const Explore = () => {
           {users.map((user: any) => (
             <li 
               key={user?.id} 
-              className='w-full flex items-center justify-between border-[1px] border-slate-400 py-3 px-4 space-y-2 my-4'
+              className='w-full flex items-center justify-between border-[1px] border-slate-400 py-3 px-4 my-4'
             >  
-              <h4 className='font-semibold text-md'>
-                {user?.username}  
-                <p className='font-light text-sm'>
-                  {user?.email}
-                </p>
-              </h4>      
+              <div className='flex items-center space-x-4'>
+                <Image
+                  src={user.avatarUrl || "/assets/images/dtdb.jpg"} 
+                  alt={user.username}
+                  width={44}
+                  height={44}
+                  className='object-contain rounded-full'
+                />
+                <h4 className='font-semibold text-md'>
+                  {user?.username}  
+                  <p className='font-light text-sm'>
+                    {user?.email}
+                  </p>
+                </h4>
+              </div>      
               <Button>
                 <Link href={`/profile/${user?.id}`}>
                   Visit Profile
