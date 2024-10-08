@@ -107,10 +107,10 @@ export const useRejectEvent = () => {
     });
 };
 
-export const useGetAllEvents = () => {
+export const useGetAllEvents = (searchQuery: string) => {
     return useQuery({
         queryKey: [QUERY_KEY.GET_ALL_EVENTS],
-        queryFn: () => getAllEvents(),
+        queryFn: () => getAllEvents(searchQuery),
         staleTime: 1000,
     });
 };

@@ -8,21 +8,27 @@ import { useGetAllEvents } from '@/lib/react-query/queries';
 import { useSearchParams } from 'next/navigation';
 
 const CollectionEvents = () => {
-  const { data: events = [], isLoading } = useGetAllEvents();
   const searchParams = useSearchParams();
+  const searchQuery = searchParams.get('query') || ''; 
+  const { data: events = [], isLoading } = useGetAllEvents(searchQuery);
   
   const [filteredEvents, setFilteredEvents] = useState<any[]>([]);
 
   useEffect(() => {
     const category = searchParams.get('category');
-    
+
+    const filteredByQuery = events.filter((event: any) => {
+      return event.eventTitle && event.eventTitle.toLowerCase().includes(searchQuery.toLowerCase());
+    });
+    let finalFilteredEvents = filteredByQuery;
     if (category && category !== 'All') {
-      const filtered = events.filter((event: any) => event.eventCategory[0]?.categoryName === category);
-      setFilteredEvents(filtered);
-    } else {
-      setFilteredEvents(events);
+      finalFilteredEvents = finalFilteredEvents.filter((event: any) =>
+        event.eventCategory[0]?.categoryName === category
+      );
     }
-  }, [events, searchParams]);
+
+    setFilteredEvents(finalFilteredEvents);
+  }, [events, searchParams, searchQuery]);
 
   const skeletons = useMemo(() => Array.from({ length: 12 }), []);
 
