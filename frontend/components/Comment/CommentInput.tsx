@@ -16,6 +16,11 @@ import { Button } from '../ui/button';
 import Image from 'next/image';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/navigation';
+import { useAuthStore } from '@/stores/useAuthStore';
+import axios from 'axios';
+
+
 
 const formSchema = z.object({
   content: z.string().min(3, {
@@ -23,16 +28,47 @@ const formSchema = z.object({
   }),
 });
 
-const CommentInput = () => {
+const CommentInput = ({ eventId, parentId }: { eventId: string, parentId?: string }) => {
+
+  const router = useRouter();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      content: "",
+    },
   });
+
+  const { user } = useAuthStore();
+
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    try {
+      const createComment = await axios.post("http://localhost:4000/api/v1/comments/create", {
+        userId: user?.id,
+        eventId: eventId,
+        comment: {
+          content: values.content,
+          parentId: parentId ?? null,
+        }
+      });
+
+      if (createComment.status === 200) {
+        console.log("Event created successfully:", createComment.data);
+        form.reset();
+      }
+      console.log(createComment);
+    } catch (error: any) {
+      console.log(error);
+    }
+  };
 
   return (
     <div>
       <Form {...form}>
-        <form className='space-y-8 after:clear-both after:table'>
+        <form 
+          className='space-y-8 after:clear-both after:table' 
+          onSubmit={form.handleSubmit(onSubmit)}
+        >
           <FormField
             control={form.control}
             name="content"
@@ -49,6 +85,7 @@ const CommentInput = () => {
                     />
                     <Textarea
                       placeholder='Write a comment ...'
+                      {...field}
                       className='rounded-2xl border-[1px] border-slate-400 focus-visible:ring-transparent focus-visible:ring-offset-0'
                     />
                   </div>

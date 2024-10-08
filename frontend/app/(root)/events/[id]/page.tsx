@@ -14,7 +14,7 @@ const EventsDetail = ({ params }: { params: { id: string } }) => {
       <div className='p-6 space-y-6 w-full'>
         <EventDetailCard event={event} />
         <div>
-          <EventComment />
+          <EventComment eventId={event?.id} />
         </div>
       </div>
     </main>
