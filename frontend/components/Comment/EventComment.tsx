@@ -5,36 +5,19 @@ import EventCommentItems from './EventCommentItems';
 import CommentInput from './CommentInput';
 import Image from 'next/image';
 import axios from 'axios';
+import LoaderSpinner from '../Shared/LoaderSpinner';
+import { useGetAllComments } from '@/lib/react-query/queries';
 
 const EventComment = ({ eventId }: { eventId: string }) => {
 
-  const [comments, setComments] = useState<any[]>([]); 
-  const [commentCount, setCommentCount] = useState<number>(0);
-  const [loading, setLoading] = useState<boolean>(true); 
+  const { data, isLoading, error } = useGetAllComments(eventId);
 
-  useEffect(() => {
-    const fetchComments = async () => {
-      try {
-        const response = await axios.get(`http://localhost:4000/api/v1/comments/${eventId}`);
-        console.log(response.data);
-        
-        if (Array.isArray(response.data.comments)) {
-          setComments(response.data.comments);
-        } else {
-          console.error("Comments is not an array:", response.data.comments);
-          setComments([]); 
-        }
+  // Nếu có dữ liệu, tách ra comments và commentCount
+  const comments = data?.comments || [];
+  const commentCount = data?.commentCount || 0;
 
-        setCommentCount(response.data.commentCount);
-      } catch (error: any) {
-        console.log("Error fetching comments:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchComments();
-  }, [eventId]);
+  if (isLoading) return <LoaderSpinner />;
+  if (error) return <>Error Fetching Comments</>; //
 
   return (
     <div className='flex flex-col gap-5 w-full bg-grey-50 px-5 py-4 rounded-xl'>
@@ -56,15 +39,12 @@ const EventComment = ({ eventId }: { eventId: string }) => {
         </h3>
       </div>
       <CommentInput eventId={eventId} />
-      {loading ? (
-        <p>Loading comments...</p>
+      {comments.length > 0 ? (
+        comments.map((comment: any) => (
+          <EventCommentItems key={comment.id} comment={comment} />
+        ))
       ) : (
-        <>
-          {/* Render all fetched comments */}
-          {comments.map((comment: any) => (
-            <EventCommentItems key={comment.id} comment={comment} />
-          ))}
-        </>
+        <p>No comments available.</p>
       )}
     </div>
   );

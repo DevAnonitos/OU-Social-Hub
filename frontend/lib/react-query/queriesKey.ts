@@ -12,4 +12,6 @@ export enum QUERY_KEY {
   GET_EVENT_BY_ID = "getEventById",
 
   GET_ALL_CATEGORIES = "getAllCategories",
+
+  GET_ALL_COMMENTS = "getAllComments",
 };

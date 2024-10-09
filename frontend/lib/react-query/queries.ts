@@ -19,6 +19,7 @@ import {
     getAllEvents,
     getEventById,
     getAllCategories,
+    getAllComments,
 } from "../api";
 
 export const useGetUsers = () => {
@@ -109,7 +110,7 @@ export const useRejectEvent = () => {
 
 export const useGetAllEvents = (searchQuery: string) => {
     return useQuery({
-        queryKey: [QUERY_KEY.GET_ALL_EVENTS],
+        queryKey: [QUERY_KEY.GET_ALL_EVENTS, searchQuery],
         queryFn: () => getAllEvents(searchQuery),
         staleTime: 1000,
     });
@@ -127,6 +128,15 @@ export const useGetAllCategories = () => {
     return useQuery({
         queryKey: [QUERY_KEY.GET_ALL_CATEGORIES],
         queryFn: () => getAllCategories(),
+        staleTime: 1000,
+    });
+};
+
+export const useGetAllComments = (eventId: string) => {
+    return useQuery({
+        queryKey: [QUERY_KEY.GET_ALL_COMMENTS, eventId],
+        queryFn: () => getAllComments(eventId),
+        enabled: !!eventId,
         staleTime: 1000,
     });
 };
