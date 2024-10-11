@@ -11,7 +11,8 @@ const EventCard = ({event}: any) => {
     >
 
       <Link 
-        href={`/events/${event?.id}`} 
+        href="/events/[id]"
+        as={`/events/${encodeURIComponent(event.id)}`}
         className='flex-center flex-grow bg-gray-50 bg-cover bg-center text-grey-500 border-b-[1px] border-slate-200' 
         style={{ backgroundImage: `url(${event?.imageUrl || '/assets/images/dtdb.jpg'})` }}
         prefetch={true}
