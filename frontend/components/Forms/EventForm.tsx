@@ -61,6 +61,7 @@ const EventForm = () => {
 
       if (createEvent.status === 200) {
         console.log("Event created successfully:", createEvent.data);
+        form.reset();
         router.push('/');
       }
       console.log(createEvent);

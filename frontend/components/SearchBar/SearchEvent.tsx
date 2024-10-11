@@ -31,10 +31,10 @@ const SearchEvent = ({ placeholder = "Search Title..." }: { placeholder?: string
       }
 
       router.push(newUrl, { scroll: false });
-    }, 300)
+    }, 300);
 
     return () => clearTimeout(delayDebounceFn);
-  }, [query, searchParams, router])
+  }, [query, searchParams, router]);
 
   return (
     <div className='flex items-center min-h-[54px] w-full overflow-hidden rounded-full bg-grey-50 px-4 py-2'>

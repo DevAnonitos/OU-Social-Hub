@@ -8,6 +8,8 @@ import LoaderSpinner from '../Shared/LoaderSpinner';
 import { useGetUsers } from '@/lib/react-query/queries';
 import { useRouter } from 'next/navigation';
 
+import { useGetEventById } from '@/lib/react-query/queries';
+
 const getRandomUsers = (users: any[], count: number) => {
   if (!Array.isArray(users)) return []; 
 

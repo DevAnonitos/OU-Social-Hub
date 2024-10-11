@@ -62,7 +62,6 @@ const DropDown = ({ value = [], onChangeHandler }: DropDownProps) => {
       updatedValue = [...value, selected]; 
     }
 
-    // Pass updated categories array to form handler
     onChangeHandler?.(updatedValue);
   };
 
@@ -75,7 +74,7 @@ const DropDown = ({ value = [], onChangeHandler }: DropDownProps) => {
         categoryName: newCategory.trim(),
       });
       setCategories((prevCategories) => [...prevCategories, response.data]);
-      setNewCategory(""); // Reset input
+      setNewCategory(""); 
     } catch (error) {
       console.error("Error adding category", error);
     } finally {
@@ -85,8 +84,8 @@ const DropDown = ({ value = [], onChangeHandler }: DropDownProps) => {
 
   return (
     <Select
-      onValueChange={handleSelect} // Handle a single value and toggle it in the array
-      defaultValue={value[0]} // Set the first selected value as the default
+      onValueChange={handleSelect}
+      defaultValue={value[0]}
     >
       <SelectTrigger
         className="w-full h-[54px] placeholder:text-grey-500 rounded-full p-regular-16 px-5 py-3 border-[1px] border-slate-400 focus-visible:ring-transparent focus:ring-transparent text-[16px] font-normal leading-[24px]"

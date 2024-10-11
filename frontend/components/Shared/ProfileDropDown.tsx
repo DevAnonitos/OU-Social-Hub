@@ -1,7 +1,6 @@
 "use client";
 
 import React from 'react';
-import Image from "next/image";
 import Link from "next/link";
 import { Button } from '../ui/button';
 import { 
@@ -13,11 +12,8 @@ import {
     DropdownMenuTrigger, 
     DropdownMenuGroup
 } from '../ui/dropdown-menu';
-
-import { usePathname, useRouter } from 'next/navigation';
-
 import { useAuthStore } from '@/stores/useAuthStore';
-
+import { usePathname, useRouter } from 'next/navigation';
 
 const ProfileDropDown = () => {
 

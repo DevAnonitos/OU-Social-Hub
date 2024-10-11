@@ -39,7 +39,7 @@ const CommentInput = ({ eventId, parentId }: { eventId: string, parentId?: strin
     },
   });
 
-  const { user } = useAuthStore();
+  const { user, isAuthenticated } = useAuthStore();
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
@@ -94,7 +94,7 @@ const CommentInput = ({ eventId, parentId }: { eventId: string, parentId?: strin
               </FormItem>
             )}
           />
-          <Button type='submit' className='float-right'>
+          <Button type='submit' className='float-right' disabled={!isAuthenticated}>
             Comment
           </Button>
         </form>

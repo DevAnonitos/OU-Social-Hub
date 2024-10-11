@@ -16,10 +16,8 @@ const CategoryFilter = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  // Sử dụng hook useGetAllCategories để lấy danh sách category
   const { data: categories=[], isLoading, error } = useGetAllCategories();
 
-  // Hàm xử lý khi người dùng chọn một danh mục
   const onSelectCategory = (category: string) => {
     let newUrl = '';
 

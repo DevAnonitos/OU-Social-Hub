@@ -1,16 +1,6 @@
 "use client"
 
-import { TrendingUp } from "lucide-react"
-import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
-
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
+import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 import {
   ChartConfig,
   ChartContainer,
@@ -26,7 +16,7 @@ const chartConfig = {
     label: "User",
     color: "hsl(var(--chart-1))",
   },
-} satisfies ChartConfig
+} satisfies ChartConfig;
 
 const EventChart = () => {
 

@@ -4,9 +4,7 @@ import React from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import { Button } from '../ui/button';
 import Link from 'next/link';
-import { BellIcon } from "@radix-ui/react-icons";
 import MobileNav from './MobileNav';
-import SignInModal from '../Modals/SignInModal';
 import NotificationDropDown from '../Notification/NotificationDropDown';
 import ProfileDropDown from '../Shared/ProfileDropDown';
 

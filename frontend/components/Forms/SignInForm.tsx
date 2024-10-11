@@ -21,7 +21,6 @@ import Image from "next/image";
 import { useRouter } from 'next/navigation';
 import { useAuthStore } from '@/stores/useAuthStore';
 import { instance } from '@/lib/axios/interceptor';
-import axios from 'axios';
 
 const SignInForm = () => {
 
@@ -59,7 +58,7 @@ const SignInForm = () => {
     try {
       const response = await fetch('http://localhost:4000/api/v1/auth/google', {
         method: 'POST',
-      }); // Fetch Google sign-in
+      });
 
       const data = await response.json()
 

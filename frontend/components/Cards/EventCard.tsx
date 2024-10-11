@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Card } from '../ui/card';
 import { formatDateTime } from '@/lib/utils';
-import { DotsVerticalIcon, BookmarkFilledIcon, HeartIcon } from '@radix-ui/react-icons';
+import { DotsVerticalIcon, BookmarkFilledIcon } from '@radix-ui/react-icons';
 
 const EventCard = ({event}: any) => {
   return (

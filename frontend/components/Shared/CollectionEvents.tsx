@@ -1,4 +1,3 @@
-// CollectionEvents.tsx
 "use client";
 
 import React, { Suspense, useMemo, useEffect, useState } from 'react';

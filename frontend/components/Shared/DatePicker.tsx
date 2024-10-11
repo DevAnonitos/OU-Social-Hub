@@ -1,14 +1,10 @@
 "use client";
-import React, { useState } from 'react';
-import { CalendarIcon } from "@radix-ui/react-icons"
+
+import React from 'react';
 import { format } from "date-fns";
-
-
-
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
-
 import {
   Popover,
   PopoverContent,
@@ -46,7 +42,7 @@ const DatePicker = ({ selected, onSelect }: DatePickerProps) => {
         </PopoverContent>
       </Popover>
     </div>
-  )
-}
+  );
+};
 
-export default DatePicker
+export default DatePicker;
