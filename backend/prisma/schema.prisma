@@ -102,7 +102,7 @@ model Comments {
   eventId String @db.ObjectId
   events Events @relation(fields: [eventId], references: [id], onDelete: Cascade)
 
-  parentId   String?     @db.ObjectId // Self-referencing field for replies
+  parentId   String?     @db.ObjectId 
   parent     Comments?   @relation("CommentReplies", fields: [parentId], references: [id],onDelete: NoAction, onUpdate: NoAction )
   replies    Comments[]  @relation("CommentReplies")
   
@@ -114,8 +114,24 @@ model Comments {
 
 model Notifications {
   id String @id @default(auto()) @map("_id") @db.ObjectId
-  eventsId String[] @db.ObjectId
+  isRead Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  eventsId String @db.ObjectId
   events Events @relation(fields: [eventsId], references: [id], onDelete: Cascade)
+}
+
+model EntityNotification {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  entityType EntityNotificationType
+  entityContent String
+}
+
+enum EntityNotificationType {
+  EVENT
+  COMMENT
 }
 
 // ADMIN SCHEMA MODEL
