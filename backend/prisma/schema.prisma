@@ -42,6 +42,7 @@ model User {
 
   events Events[]
   comments Comments[] @relation("UserComment")
+  notifications Notifications[]
 
   likeCommentsId String[] @db.ObjectId
   likeComments Comments[] @relation("UserLikeComment", fields: [likeCommentsId], references: [id])
@@ -121,12 +122,19 @@ model Notifications {
 
   eventsId String @db.ObjectId
   events Events @relation(fields: [eventsId], references: [id], onDelete: Cascade)
+
+  userId String @db.ObjectId
+  users User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  entityNotification EntityNotification @relation(fields: [entityNotificationId], references: [id])
+  entityNotificationId String @db.ObjectId
 }
 
 model EntityNotification {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   entityType EntityNotificationType
   entityContent String
+  notification Notifications[]
 }
 
 enum EntityNotificationType {
