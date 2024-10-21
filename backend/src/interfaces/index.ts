@@ -26,6 +26,12 @@ export interface createCategoryParams {
   categoryName: string
 };
 
+export interface createNotificationParams {
+  userId: string;
+  eventId: string;
+  commentContent: string;
+};
+
 export interface queriesParams {
   query?: string | any;
 }
