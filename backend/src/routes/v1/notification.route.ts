@@ -3,6 +3,6 @@ import { getNotifications } from "../../controllers/notification.controller";
 
 const router = express.Router();
 
-router.get("/get-notifications", getNotifications);
+router.get("/get-notifications/:userId", getNotifications);
 
 export default router;
