@@ -12,10 +12,14 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
 } from '../ui/dropdown-menu';
+import { useGetNotifications } from '@/lib/react-query/queries';
 
 import NotificationItems from './NotificationItems';
 
-const NotificationDropDown = () => {
+const NotificationDropDown = ({ userId }: { userId: string }) => {
+
+  const { data, isLoading, error } = useGetNotifications(userId);
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

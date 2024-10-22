@@ -20,6 +20,7 @@ import {
     getEventById,
     getAllCategories,
     getAllComments,
+    getNotifications,
 } from "../api";
 
 export const useGetUsers = () => {
@@ -137,6 +138,15 @@ export const useGetAllComments = (eventId: string) => {
         queryKey: [QUERY_KEY.GET_ALL_COMMENTS, eventId],
         queryFn: () => getAllComments(eventId),
         enabled: !!eventId,
+        staleTime: 1000,
+    });
+};
+
+export const useGetNotifications = (userId: string) => {
+    return useQuery({
+        queryKey: [QUERY_KEY.GET_NOTIFICATIONS, userId],
+        queryFn: () => getNotifications(userId),
+        enabled: !!userId,
         staleTime: 1000,
     });
 };

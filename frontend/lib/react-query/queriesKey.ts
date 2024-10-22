@@ -14,4 +14,6 @@ export enum QUERY_KEY {
   GET_ALL_CATEGORIES = "getAllCategories",
 
   GET_ALL_COMMENTS = "getAllComments",
+
+  GET_NOTIFICATIONS = "getNotifications",
 };
