@@ -1,38 +1,44 @@
 "use client";
 
-import React, { useState } from 'react';
-import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { io } from 'socket.io-client';
 import { BellIcon } from "@radix-ui/react-icons";
-import { 
-  DropdownMenu, 
-  DropdownMenuContent,  
-  DropdownMenuTrigger, 
-} from '../ui/dropdown-menu';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '../ui/dropdown-menu';
 import NotificationItems from './NotificationItems';
 import { useGetNotifications } from '@/lib/react-query/queries';
-import { useNotification } from '@/hooks/useNotification';
 
 const NotificationDropDown = ({ userId }: { userId: string }) => {
+  // State để lưu trữ các thông báo mới nhận được qua Socket.IO
+  const [realtimeNotifications, setRealtimeNotifications] = useState<any[]>([]);
 
-  useNotification(userId);
+  useEffect(() => {
+    const socket = io("http://localhost:4000", {
+      withCredentials: true,
+      transports: ['websocket', 'polling'],
+    });
 
-  const { data: notifications=[], isLoading, error } = useGetNotifications(userId);
+    socket.on("newCommentNotification", (data: any) => {
+      console.log("New comment notification received:", data);
 
-  if(isLoading) return <p>Loading Notification...</p>
+      setRealtimeNotifications((prevNotifications) => [...prevNotifications, data]);
+    });
 
-  if (error) return <p>Error Loading Notification...</p>
+    return () => {
+      socket.disconnect();
+    };
+  }, []);
+
+  const { data: notifications = [], isLoading, error } = useGetNotifications(userId);
+
+  const allNotifications = [...realtimeNotifications, ...notifications];
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <BellIcon 
-          width={25} 
-          height={25} 
-          className='mx-4 cursor-pointer' 
-        />
+        <BellIcon width={25} height={25} className='mx-4 cursor-pointer' />
       </DropdownMenuTrigger>
       <DropdownMenuContent align='end' side='bottom' className='w-[455px] max-h-72 overflow-y-auto'>
-        {notifications.map((notification: any) => (
+        {allNotifications.map((notification: any) => (
           <NotificationItems key={notification.id} notification={notification} />
         ))}
       </DropdownMenuContent>

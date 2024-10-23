@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import EventCommentItems from './EventCommentItems';
 import CommentInput from './CommentInput';
 import Image from 'next/image';
-import axios from 'axios';
 import LoaderSpinner from '../Shared/LoaderSpinner';
 import { useGetAllComments } from '@/lib/react-query/queries';
 

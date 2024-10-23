@@ -19,8 +19,7 @@ import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import { useAuthStore } from '@/stores/useAuthStore';
 import axios from 'axios';
-
-
+import { io } from 'socket.io-client';
 
 const formSchema = z.object({
   content: z.string().min(3, {
@@ -54,6 +53,16 @@ const CommentInput = ({ eventId, parentId }: { eventId: string, parentId?: strin
 
       if (createComment.status === 200) {
         console.log("Event created successfully:", createComment.data);
+
+        const socket = io("http://localhost:4000", { 
+          transports: ['websocket', 'polling'] 
+        });
+
+        socket.emit("newComment", {
+          userId: user?.id,
+          eventId: eventId,
+          content: values.content,
+        });
         form.reset();
       }
       console.log(createComment);

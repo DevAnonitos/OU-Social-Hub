@@ -1,14 +1,15 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-
+import { notificationTemplate, formatTimeAgo } from '@/lib/utils';
 import { DropdownMenuItem } from '../ui/dropdown-menu';
 
 const NotificationItems = ({ notification }: { notification: any }) => {
 
-  const { entityNotification, createdAt } = notification;
+  const { createdAt } = notification;
+  const message = notificationTemplate(notification);
 
   return (
     <DropdownMenuItem className='w-full p-3'>
@@ -24,9 +25,9 @@ const NotificationItems = ({ notification }: { notification: any }) => {
             />
           </div>
           <div className='grow text-md font-semibold  w-[26rem]'>
-            {entityNotification?.entityContent}
+            {message}
             <p className='text-sm font-normal'>
-              {new Date(createdAt).toLocaleTimeString()} ago
+              {formatTimeAgo(new Date(createdAt))}
             </p>
           </div>
         </div>
