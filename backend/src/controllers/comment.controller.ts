@@ -1,9 +1,8 @@
 import prisma from "../configs/prisma.config";
 import { Request, Response } from "express";
 import { createCommentParams } from "../interfaces";
-
-import { createNotification } from './notification.controller';
 import { notification } from "../configs/socket.config"
+import { createNotification } from './notification.controller';
 
 export const createComment = async (req: Request, res: Response) => {
 
@@ -21,7 +20,6 @@ export const createComment = async (req: Request, res: Response) => {
         replies: true,
       }
     });
-    console.log(createComment);
 
     await createNotification(createComment.userId, createComment.eventId, createComment.content);
 
@@ -30,7 +28,9 @@ export const createComment = async (req: Request, res: Response) => {
       content: createComment.content,
       userId: createComment.userId,
     });
-    
+
+    console.log(createComment);
+
     res.status(200).send(createComment);
   } catch (error: any) {
     console.log(error);

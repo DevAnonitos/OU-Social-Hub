@@ -18,7 +18,11 @@ const app: Express = express();
 // App Config 
 dotenv.config();
 app.use(express.json());
-app.use(cors({}));
+app.use(cors({
+  origin: 'http://localhost:3000',  
+  methods: ['GET', 'POST'], 
+  credentials: true 
+}));
 app.use(helmet());
 app.use(morganMiddleware);
 app.use(bodyParser.json({ limit: "10mb" }));
