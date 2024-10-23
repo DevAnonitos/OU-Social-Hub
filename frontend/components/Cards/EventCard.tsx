@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Card } from '../ui/card';
 import { formatDateTime } from '@/lib/utils';
-import { DotsVerticalIcon, BookmarkFilledIcon } from '@radix-ui/react-icons';
+import { DotsVerticalIcon, BookmarkFilledIcon, PersonIcon } from '@radix-ui/react-icons';
 
 const EventCard = ({event}: any) => {
   return (
@@ -49,8 +49,8 @@ const EventCard = ({event}: any) => {
             {event?.organizer.username}
           </p>
           <p className='p-medium-14 md:p-medium-16 text-grey-600 flex items-center'>
-            {event?.likes || '0'} 
-            <BookmarkFilledIcon className='ml-2 w-5 h-5' />
+            {/* Add Config countView Here */}
+            <PersonIcon className='ml-2 w-5 h-5' />
           </p>
         </div>
       </div>

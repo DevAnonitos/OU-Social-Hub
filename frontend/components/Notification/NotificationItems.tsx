@@ -6,7 +6,10 @@ import Image from 'next/image';
 
 import { DropdownMenuItem } from '../ui/dropdown-menu';
 
-const NotificationItems = () => {
+const NotificationItems = ({ notification }: { notification: any }) => {
+
+  const { entityNotification, createdAt } = notification;
+
   return (
     <DropdownMenuItem className='w-full p-3'>
       <Link href="#">
@@ -21,9 +24,9 @@ const NotificationItems = () => {
             />
           </div>
           <div className='grow text-md font-semibold  w-[26rem]'>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa consectetur iusto reiciendis, iste ratione nesciunt quidem! 
+            {entityNotification?.entityContent}
             <p className='text-sm font-normal'>
-              1h ago
+              {new Date(createdAt).toLocaleTimeString()} ago
             </p>
           </div>
         </div>

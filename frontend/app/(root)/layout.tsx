@@ -47,6 +47,7 @@ export default function RootLayout({
               </div>
             </div>
             <BottomBar />
+            <Toaster />
           </AuthProvider>
         </QueryProvider>
       </body>

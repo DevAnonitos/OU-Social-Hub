@@ -5,20 +5,22 @@ import Image from 'next/image';
 import { BellIcon } from "@radix-ui/react-icons";
 import { 
   DropdownMenu, 
-  DropdownMenuContent, 
-  DropdownMenuItem, 
-  DropdownMenuGroup, 
+  DropdownMenuContent,  
   DropdownMenuTrigger, 
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
 } from '../ui/dropdown-menu';
-import { useGetNotifications } from '@/lib/react-query/queries';
-
 import NotificationItems from './NotificationItems';
+import { useGetNotifications } from '@/lib/react-query/queries';
+import { useNotification } from '@/hooks/useNotification';
 
 const NotificationDropDown = ({ userId }: { userId: string }) => {
 
-  const { data, isLoading, error } = useGetNotifications(userId);
+  useNotification(userId);
+
+  const { data: notifications=[], isLoading, error } = useGetNotifications(userId);
+
+  if(isLoading) return <p>Loading Notification...</p>
+
+  if (error) return <p>Error Loading Notification...</p>
 
   return (
     <DropdownMenu>
@@ -30,15 +32,9 @@ const NotificationDropDown = ({ userId }: { userId: string }) => {
         />
       </DropdownMenuTrigger>
       <DropdownMenuContent align='end' side='bottom' className='w-[455px] max-h-72 overflow-y-auto'>
-        <NotificationItems />
-        <NotificationItems />
-        <NotificationItems />
-        <NotificationItems />
-        <NotificationItems />
-        <NotificationItems />
-        <NotificationItems />
-        <NotificationItems />
-        <NotificationItems />
+        {notifications.map((notification: any) => (
+          <NotificationItems key={notification.id} notification={notification} />
+        ))}
       </DropdownMenuContent>
     </DropdownMenu>
   );

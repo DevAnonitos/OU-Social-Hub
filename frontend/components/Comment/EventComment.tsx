@@ -12,12 +12,11 @@ const EventComment = ({ eventId }: { eventId: string }) => {
 
   const { data, isLoading, error } = useGetAllComments(eventId);
 
-  // Nếu có dữ liệu, tách ra comments và commentCount
   const comments = data?.comments || [];
   const commentCount = data?.commentCount || 0;
 
   if (isLoading) return <LoaderSpinner />;
-  if (error) return <>Error Fetching Comments</>; //
+  if (error) return <>Error Fetching Comments</>
 
   return (
     <div className='flex flex-col gap-5 w-full bg-grey-50 px-5 py-4 rounded-xl'>
