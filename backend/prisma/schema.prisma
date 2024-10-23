@@ -76,10 +76,18 @@ model Events {
   categoryIds String[] @db.ObjectId
   eventCategory Category[] @relation(fields: [categoryIds], references: [id])
 
+  viewCount ViewCount[]
   commentsEvent Comments[]
   notifications Notifications[]
 
   @@index([eventTitle, eventLocation])
+}
+
+model ViewCount {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @default(now())
+  events Events @relation(fields: [eventsId], references: [id], onDelete: Cascade)
+  eventsId String @db.ObjectId
 }
 
 model Category {

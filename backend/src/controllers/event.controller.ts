@@ -130,6 +130,11 @@ export const getAllEvents = async (req: Request, res: Response) => {
       include: {
         organizer: true,
         eventCategory: true,
+        _count: {
+          select: {
+            viewCount: true,
+          },
+        },
       },
       where: {
         status: "APPROVED",
@@ -140,7 +145,10 @@ export const getAllEvents = async (req: Request, res: Response) => {
       }
     });
     console.log(events);
-    res.status(200).json(events);
+    res.status(200).json(events.map(event => ({
+      ...event,
+      viewCount: event._count.viewCount, 
+    })));
   } catch (error: any) {
     console.error(error);
     res.status(500).json({ message: 'Failed to fetch events' });
