@@ -34,6 +34,21 @@ backend-trigger:
       - "backend/**/*"
 
 
+mobile-trigger:
+  stage: triggers
+  trigger:
+    include:
+      - gitlab/mobile.yml
+    strategy: 
+  rules:
+    - if: "$CI_COMMIT_REF_NAME == 'dev'"  
+    - if: "$CI_COMMIT_REF_NAME == 'main'"
+    - if: $CI_COMMIT_BEFORE_SHA == "0000000000000000000000000000000000000000"
+      when: never
+    - changes: 
+      - "mobile/**/*"
+
+
 frontend-trigger:
   stage: triggers
   trigger:
@@ -54,7 +69,7 @@ dev-trigger:
     include:
       - gitlab/dev.yml
     strategy: depend
-  needs: [backend-trigger, frontend-trigger]
+  needs: [backend-trigger, frontend-trigger, mobile-trigger]
   rules: 
     - if: "$CI_COMMIT_REF_NAME == 'dev'"
 
