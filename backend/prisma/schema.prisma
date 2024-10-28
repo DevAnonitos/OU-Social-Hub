@@ -99,6 +99,15 @@ model Category {
   @@index([categoryName])
 }
 
+model Message {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  content String?
+  image String?
+  createdAt DateTime @default(now())
+
+  senderId String @db.ObjectId
+}
+
 model Comments {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   content String
