@@ -59,6 +59,13 @@ const SignUpForm = () => {
       setIsSubmitting(false);
     }
   };
+
+  const handleGoogleLogin = () => {
+    const googleAuthUrl = `https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=${process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}&redirect_uri=${process.env.NEXT_PUBLIC_GOOGLE_REDIRECT_URI}&scope=profile email&access_type=offline&prompt=consent`;
+  
+    // Chuyển hướng người dùng đến trang đăng nhập Google
+    window.location.href = googleAuthUrl;
+  };
   
   return (
     <Form {...form}>
@@ -137,6 +144,7 @@ const SignUpForm = () => {
               <Button
                 type="button"
                 variant="outline"
+                onClick={handleGoogleLogin}
                 className="w-full flex items-centerjustify-center border border-slate-400 text-gray-700 py-2 rounded-md hover:bg-gray-100 h-[50px]"
               >
                 <Image

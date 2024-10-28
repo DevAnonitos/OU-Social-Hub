@@ -1,6 +1,6 @@
 "use-client";
 
-import React from 'react';
+import React, { useCallback} from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import Autoplay from "embla-carousel-autoplay";
@@ -9,10 +9,32 @@ import { EmblaOptionsType, EmblaCarouselType } from 'embla-carousel';
 
 import LoaderSpinner from '../Shared/LoaderSpinner';
 import DotButton from './DotButton';
+import { useDotButton } from './DotButton';
 
 const EventCarousel = () => {
 
-  // const router = useRouter();
+  const router = useRouter();
+
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()])
+
+  const onNavButtonClick = useCallback((emblaApi: EmblaCarouselType) => {
+    const autoplay = emblaApi?.plugins()?.autoplay
+    if (!autoplay || !("stopOnInteraction" in autoplay.options)) return
+
+    const resetOrStop =
+      autoplay.options.stopOnInteraction === false
+        ? (autoplay.reset as () => void)
+        : (autoplay.stop as () => void)
+
+    resetOrStop()
+  }, []);
+  
+
+  const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(
+    emblaApi,
+    onNavButtonClick
+  );
+
 
   return (
     <section className='flex w-full flex-col mt-4 gap-4 overflow-hidden'>
@@ -37,10 +59,13 @@ const EventCarousel = () => {
         </figure>
       </div>
       <div className='flex items-center justify-center gap-2'>
-        <DotButton />
-        <DotButton />
-        <DotButton />
-        <DotButton />
+        {scrollSnaps.map((_, index) => (
+          <DotButton
+            key={index}
+            onClick={() => onDotButtonClick(index)}
+            selected={index === selectedIndex}
+          />
+        ))}
       </div>
     </section>
   );

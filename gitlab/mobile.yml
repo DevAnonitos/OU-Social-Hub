@@ -1,0 +1,24 @@
+stages:
+  - build
+  - test
+
+include:
+  - gitlab/base-line.yml
+
+.mobile:
+  extends: 
+    - .base-line
+
+build-job:
+  stage: build
+  extends: 
+    - .mobile
+  script:
+    - echo "build phase"
+
+test-job:
+  stage: test
+  extends: 
+    - .mobile
+  script:
+    - echo "test phase"

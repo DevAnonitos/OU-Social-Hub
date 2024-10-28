@@ -1,7 +1,6 @@
 "use client";
 
 import React from 'react';
-import Image from "next/image";
 import Link from "next/link";
 import { Button } from '../ui/button';
 import { 
@@ -13,16 +12,14 @@ import {
     DropdownMenuTrigger, 
     DropdownMenuGroup
 } from '../ui/dropdown-menu';
-
-import { useRouter } from 'next/navigation';
-
 import { useAuthStore } from '@/stores/useAuthStore';
-
+import { usePathname, useRouter } from 'next/navigation';
 
 const ProfileDropDown = () => {
 
     const { user, clearAuth } = useAuthStore();
     const router = useRouter();
+    const pathName = usePathname();
 
     const handleSignOut = () => {
         clearAuth();
@@ -30,19 +27,21 @@ const ProfileDropDown = () => {
     };
 
     const handleAdminSwitch = () => {
-        // Redirect to admin dashboard if role is admin
         if (user?.role === 'ADMIN') {
-            router.push('/dashboard');
+            if (pathName === '/dashboard') {
+                router.push('/'); 
+            } else {
+                router.push('/dashboard');
+            }
         }
     };
-
     
   return (
     <div>
         <DropdownMenu>
             <DropdownMenuTrigger asChild    >
                 <Button variant={"outline"}>
-                   My Profile
+                    My Profile
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align='end' side='bottom' className="absolute right-0 w-[305px] bg-white shadow-lg rounded-md mt-2 overflow-hidden">
@@ -53,7 +52,7 @@ const ProfileDropDown = () => {
                 <DropdownMenuGroup className='cursor-pointer'>
                     {user?.role === 'ADMIN' && (
                         <DropdownMenuItem className='py-3' onClick={handleAdminSwitch}>
-                            Switch to Dashboard
+                            {pathName === '/dashboard' ? 'Switch to Home' : 'Switch to Dashboard'}
                         </DropdownMenuItem>
                     )}
                     <DropdownMenuItem className='py-3'>

@@ -19,8 +19,6 @@ const LeftSideBarItems = () => {
                     <Link 
                         key={link.id}
                         href={link.route}
-                        prefetch={true}
-                        scroll={true} 
                         className={`left_sidebar-link ${isActive && "bg-slate-200"}`} 
                     >
                         <Image

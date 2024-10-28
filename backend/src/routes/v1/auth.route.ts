@@ -2,6 +2,7 @@ import express, { Router } from "express";
 import { 
   signIn, 
   signUp, 
+  googleCallback,
   googleLogin,
   refreshToken, 
 } from "../../controllers/auth.controller";
@@ -15,7 +16,8 @@ const router = express.Router();
 // Action Router
 router.post("/signup", signUp);
 router.post("/signin", signIn);
-router.post("/google", googleLogin);   
+router.get("google", googleLogin)
+router.get("/google/callback", googleCallback);
 router.post("/fresh-token", refreshToken);
 
 router.use(

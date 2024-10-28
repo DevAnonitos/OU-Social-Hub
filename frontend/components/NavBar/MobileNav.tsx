@@ -1,18 +1,17 @@
-"use client"
+"use client";
+
+import React from 'react';
 import { 
     Sheet,
     SheetContent,
     SheetHeader,
     SheetTitle,
     SheetDescription,
-    SheetFooter,
     SheetTrigger, 
     SheetClose,
 } from '../ui/sheet';
 import Image from "next/image";
 import MobileNavItems from './MobileNavItems';
-
-import React from 'react';
 
 const MobileNav = () => {
   

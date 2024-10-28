@@ -2,11 +2,9 @@
 
 import React from 'react';
 import { Button } from '../ui/button';
-import { Separator } from '../ui/separator';
 import { useRouter } from 'next/navigation';
 import { useAuthStore } from '@/stores/useAuthStore';
 import LeftSideBarItems from './LeftSideBarItems';
-
 
 const LeftSideBar = () => {
 

@@ -54,6 +54,26 @@ const SignInForm = () => {
     }
   };
 
+  const handleGoogleSignIn = async () => {
+    try {
+      const response = await fetch('http://localhost:4000/api/v1/auth/google', {
+        method: 'POST',
+      });
+
+      const data = await response.json()
+
+      window.location.href = "http://localhost:4000/api/v1/auth/google";
+
+      const { accessToken, refreshToken, id, username, role } = data;
+
+      setAuth(accessToken, refreshToken, { id, username, role });
+
+      router.push('/');
+    } catch (error: any) {
+      console.error("Error during Google sign-in:", error);
+    }
+  };
+
   return (
     <Form {...form}>
       <form 
@@ -111,6 +131,7 @@ const SignInForm = () => {
               <Button
                 type="button"
                 variant="outline"
+                onClick={handleGoogleSignIn}
                 className="w-full flex items-center justify-center border border-slate-400 text-gray-700 py-2 rounded-md hover:bg-gray-100 h-[50px]"
               >
                 <Image

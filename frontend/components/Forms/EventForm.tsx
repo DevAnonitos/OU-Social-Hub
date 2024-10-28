@@ -10,33 +10,69 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import DropDown from '../Shared/DropDown';
 
-import { Calendar } from '../ui/calendar';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import { Textarea } from '../ui/textarea';
 import { 
   Form, 
   FormControl, 
-  FormDescription, 
   FormField, 
-  FormLabel, 
   FormMessage, 
   FormItem, 
 } from '../ui/form';
 import FileUploader from '../Shared/FileUploader';
 import DatePicker from '../Shared/DatePicker';
+import axios from 'axios';
+
+import { useAuthStore } from '@/stores/useAuthStore';
+
+type EventFormProps = {
+  userId: string
+};
 
 const EventForm = () => {
 
-  const [date, setDate] = React.useState<Date | undefined>(new Date())
+  const [date, setDate] = React.useState<Date | undefined>(new Date());
+  const [files, setFiles] = useState<File[]>([]);
+
+  const router = useRouter();
+  const { user } = useAuthStore();
 
   const form = useForm<z.infer<typeof eventFormSchema>>({
     resolver: zodResolver(eventFormSchema),
+    defaultValues: {
+      title: "",
+      description: "",
+      location: "",
+      startDateTime: new Date(),
+      endDateTime: new Date(),
+      categoryIds: [],
+      url: "",
+      imageUrl: "",
+    },
   });
+
+  const onSubmit = async (values: z.infer<typeof eventFormSchema>) => {
+    try {
+      const createEvent = await axios.post("http://localhost:4000/api/v1/events/create", {
+        userId: user?.id,
+        event: {...values},
+      });
+
+      if (createEvent.status === 200) {
+        console.log("Event created successfully:", createEvent.data);
+        form.reset();
+        router.push('/');
+      }
+      console.log(createEvent);
+    } catch (error: any) {
+      console.log(error);
+    }
+  };
 
   return (
     <Form {...form}>
-      <form className='flex flex-col gap-5'>
+      <form className='flex flex-col gap-5' onSubmit={form.handleSubmit(onSubmit)}>
         <div className='flex flex-col gap-5 md:flex-row'>
           <FormField
             control={form.control}
@@ -56,11 +92,11 @@ const EventForm = () => {
           />
           <FormField
             control={form.control}
-            name="title"
+            name="categoryIds"
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl>
-                  <DropDown />
+                  <DropDown onChangeHandler={field.onChange} value={field.value} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -90,11 +126,15 @@ const EventForm = () => {
         <div className='flex flex-col gap-5 md:flex-row'>
           <FormField
             control={form.control}
-            name="description"
+            name="imageUrl"
             render={({ field }) => (
               <FormItem className="w-full">
                 <FormControl className='h-72'>
-                  <FileUploader />
+                  <FileUploader
+                    onFieldChange={field.onChange}
+                    imageUrl={field.value}
+                    setFiles={setFiles}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -105,7 +145,7 @@ const EventForm = () => {
         <div className='flex flex-col gap-5 md:flex-row'>
           <FormField
             control={form.control}
-            name="description"
+            name="location"
             render={({ field }) => (
               <FormItem className="w-full">
                 <div className='flex items-center h-[54px] w-full overflow-hidden rounded-full px-4 py-2 border-[1px] border-slate-400'>
@@ -133,7 +173,7 @@ const EventForm = () => {
           {/* Calendar */}
           <FormField
             control={form.control}
-            name="description"
+            name="startDateTime"
             render={({ field }) => (
               <FormItem className="w-full">
                 <div className='flex items-center h-[54px] w-full overflow-hidden rounded-full px-4 py-2 border-[1px] border-slate-400'>
@@ -146,7 +186,10 @@ const EventForm = () => {
                     priority
                   />
                   <p className="ml-3 whitespace-nowrap text-grey-600">Start Date:</p>
-                  <DatePicker />
+                  <DatePicker 
+                    selected={field.value} 
+                    onSelect={(date) => field.onChange(date)} 
+                  />
                 </div>
                 <FormMessage />
               </FormItem>
@@ -156,7 +199,7 @@ const EventForm = () => {
           {/* Calendar */}
           <FormField
             control={form.control}
-            name="description"
+            name="endDateTime"
             render={({ field }) => (
               <FormItem className="w-full">
                 <div className='flex items-center h-[54px] w-full overflow-hidden rounded-full px-4 py-2 border-[1px] border-slate-400'>
@@ -169,7 +212,10 @@ const EventForm = () => {
                     priority
                   />
                   <p className="ml-3 whitespace-nowrap text-grey-600">End Date:</p>
-                  <DatePicker />
+                  <DatePicker
+                    selected={field.value} 
+                    onSelect={(date) => field.onChange(date)} 
+                  />
                 </div>
                 <FormMessage />
               </FormItem>
@@ -180,7 +226,7 @@ const EventForm = () => {
         <div className='flex flex-col gap-5 md:flex-row'>
           <FormField
             control={form.control}
-            name="description"
+            name="url"
             render={({ field }) => (
               <FormItem className="w-full">
                 <div className='flex items-center h-[54px] w-full overflow-hidden rounded-full px-4 py-2 border-[1px] border-slate-400'>
@@ -204,7 +250,10 @@ const EventForm = () => {
           />
         </div>
         
-        <Button type='submit' className='col-span-2 w-full text-lg font-bold rounded-full h-[54px]'>
+        <Button 
+          type='submit' 
+          className='col-span-2 w-full text-lg font-bold rounded-full h-[54px]'
+        >
           Submit Event Form
         </Button>
       </form>

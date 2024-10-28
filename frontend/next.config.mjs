@@ -10,6 +10,24 @@ const nextConfig = {
   },
   typescript: {
     ignoreBuildErrors: true,
+  },
+  async rewrites (){
+    return [
+      {
+        source: '/api/v1/:path*',
+        destination: `${process.env.NEXT_PUBLIC_API_URL}/api/v1/:path*`,
+      }
+    ]
+  },
+  images: {
+    domains: ['utfs.io'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'utfs.io',
+        port: ''
+      }
+    ]
   }
 };
 

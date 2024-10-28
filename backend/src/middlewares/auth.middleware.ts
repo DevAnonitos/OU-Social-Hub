@@ -5,23 +5,32 @@ import { Request, Response, NextFunction } from "express";
 export const authMiddleware = async (
     req: Request, res: Response, next: NextFunction
 ) => {
-    const token = req.headers['authorization']?.split('')[1];
-
-    if(!token) {
-        return res.status(401).json({
-            message: "No token is provided",
-        });
-    }
-
     try {
-        const user = verifyAccessToken(token);
-        (req as any).user = user;
-        next();
-    } catch (error: any) {
-        return res.status(401).json({
-            message: "Invalid token",
-        });
+    const authHeader = req.headers.authorization;
+
+    console.log(authHeader);
+
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+        return res.status(401).json({ message: 'Authorization token missing or invalid' });
     }
+
+    const token = authHeader.split(' ')[1];
+    
+    console.log(token);
+
+    const decodedUser = verifyAccessToken(token); 
+
+    console.log(decodedUser);
+
+    if (!decodedUser) {
+        return res.status(401).json({ message: 'Invalid token' });
+    }
+
+    (req as any).user = decodedUser;
+    next(); 
+  } catch (error) {
+    return res.status(403).json({ message: 'Authorization failed' });
+  }
 };
 
 export const adminMiddleware = async (

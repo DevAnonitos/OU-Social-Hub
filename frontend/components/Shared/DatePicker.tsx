@@ -1,21 +1,22 @@
 "use client";
-import React, { useState } from 'react';
-import { CalendarIcon } from "@radix-ui/react-icons"
+
+import React from 'react';
 import { format } from "date-fns";
-
-
-
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
-
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
-const DatePicker = () => {
-  const [date, setDate] = useState<Date>()
+
+interface DatePickerProps {
+  selected?: Date;
+  onSelect: (date: Date | undefined) => void;
+};
+  
+const DatePicker = ({ selected, onSelect }: DatePickerProps) => {
 
   return (
     <div className='flex w-full'>
@@ -25,23 +26,23 @@ const DatePicker = () => {
             variant={"outline"}
             className={cn(
               "w-full justify-start text-left font-normal hover:bg-white",
-              !date && "text-muted-foreground"
+              !selected && "text-muted-foreground"
             )}
           >
-            {date ? format(date, "PPP") : <span>Pick a date</span>}
+            {selected ? format(selected, "PPP") : <span>Pick a date</span>}
           </Button>
         </PopoverTrigger>
         <PopoverContent className="w-auto p-0" align="start">
           <Calendar
             mode="single"
-            selected={date}
-            onSelect={setDate}
+            selected={selected}
+            onSelect={onSelect}
             initialFocus
           />
         </PopoverContent>
       </Popover>
     </div>
-  )
-}
+  );
+};
 
-export default DatePicker
+export default DatePicker;

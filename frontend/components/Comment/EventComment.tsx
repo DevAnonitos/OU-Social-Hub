@@ -1,9 +1,22 @@
+"use client";
+
 import React from 'react';
 import EventCommentItems from './EventCommentItems';
 import CommentInput from './CommentInput';
 import Image from 'next/image';
+import LoaderSpinner from '../Shared/LoaderSpinner';
+import { useGetAllComments } from '@/lib/react-query/queries';
 
-const EventComment = () => {
+const EventComment = ({ eventId }: { eventId: string }) => {
+
+  const { data, isLoading, error } = useGetAllComments(eventId);
+
+  const comments = data?.comments || [];
+  const commentCount = data?.commentCount || 0;
+
+  if (isLoading) return <LoaderSpinner />;
+  if (error) return <>Error Fetching Comments</>
+
   return (
     <div className='flex flex-col gap-5 w-full bg-grey-50 px-5 py-4 rounded-xl'>
       <div className='flex flex-end items-center justify-between'>
@@ -20,12 +33,17 @@ const EventComment = () => {
           Comment
         </h2>
         <h3 className='text-lg font-semibold'>
-          11555: Comments
+          {commentCount}: Comments
         </h3>
       </div>
-      <CommentInput />
-      <EventCommentItems />
-      <EventCommentItems />
+      <CommentInput eventId={eventId} />
+      {comments.length > 0 ? (
+        comments.map((comment: any) => (
+          <EventCommentItems key={comment.id} comment={comment} />
+        ))
+      ) : (
+        <p>No comments available.</p>
+      )}
     </div>
   );
 };

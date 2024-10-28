@@ -18,11 +18,15 @@ const app: Express = express();
 // App Config 
 dotenv.config();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:3000',  
+  methods: ['GET', 'POST'], 
+  credentials: true 
+}));
 app.use(helmet());
 app.use(morganMiddleware);
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json({ limit: "10mb" }));
+app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }));
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 
 // API ROUTES

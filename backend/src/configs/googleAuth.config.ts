@@ -1,14 +1,14 @@
 import { OAuth2Client } from 'google-auth-library';
 
-const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
-
-export const verifyGoogleToken = async (token: string) => {
-  const ticket = await client.verifyIdToken({
-    idToken: token,
-    audience: process.env.GOOGLE_CLIENT_ID,
-  });    
-  
-  const payload = ticket.getPayload()
-  console.log(payload);
-  return payload;
+const googleConfig = {
+  clientId: process.env.GOOGLE_CLIENT_ID || '',
+  clientSecret: process.env.GOOGLE_CLIENT_SECRET_KEY || '',
+  redirectUri: `${process.env.BASE_URL}/api/v1/auth/google/callback`, // Your callback URL
 };
+
+export const client = new OAuth2Client(
+  googleConfig.clientId,
+  googleConfig.clientSecret,
+  googleConfig.redirectUri,
+);
+
