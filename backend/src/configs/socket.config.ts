@@ -19,10 +19,8 @@ export const createSocketServer = (server: http.Server) => {
 
     socket.on("newComment", (data: any) => {
       console.log("New comment received:", data);
-      // Phát ra thông báo comment mới cho tất cả các client
       io?.emit("newCommentNotification", data);
     });
-
 
     socket.on("disconnection", () => {
       console.log("A user disconnected:", socket.id);
@@ -36,6 +34,5 @@ export const notification = (commentData: any) => {
     io.emit("newComment", commentData);  
   }
 };
-
 
 console.log("socket is connected", createSocketServer);

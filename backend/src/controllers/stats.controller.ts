@@ -37,4 +37,4 @@ export const getEventsCount = async (req: Request, res: Response) => {
     console.error('Error fetching user count:', error);
     return res.status(500).json({ message: 'Failed to fetch user count' });
   }
-}
+};

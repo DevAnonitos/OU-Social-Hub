@@ -1,5 +1,9 @@
-import express, { Router } from "express";
-import { getUsers,getUsersByMonth, getUserById } from "../../controllers/user.controller";
+import express from "express";
+import { 
+  getUsers, 
+  getUsersByMonth, 
+  getUserById 
+} from "../../controllers/user.controller";
 import { authMiddleware } from "../../middlewares/auth.middleware";
 
 const router = express.Router();

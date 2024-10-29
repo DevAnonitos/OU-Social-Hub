@@ -28,15 +28,13 @@ export const signUp = async (req: Request, res: Response) => {
 
         const hashPassword = await hashPassWord(password);
 
-        
-
         const user = await prisma.user.create({
             data: {
                 username,
                 email,
                 password: hashPassword,
                 role: email === process.env.ADMIN_EMAIL ? "ADMIN" : "USER",
-            }
+            },
         });
         console.log(user)
         const { accessToken, refreshToken } = generateToken(user);
@@ -89,24 +87,21 @@ export const signIn = async (req: Request, res: Response) => {
 
 export const googleLogin = (req: Request, res: Response) => {
     const clientId = process.env.GOOGLE_CLIENT_ID;
-    const redirectUri = `${process.env.BASE_URL}/api/v1/auth/google/callback`; // Updated for your API route
+    const redirectUri = `${process.env.BASE_URL}/api/v1/auth/google/callback`;
     const scope = 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email';
-  
+
     const googleAuthUrl = `https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scope}&access_type=offline&prompt=consent`;
-  
     
     res.redirect(googleAuthUrl);
 };
-  
 
 export const googleCallback = async (req: Request, res: Response) => {
     const code = req.query.code as string;
     const clientId = process.env.GOOGLE_CLIENT_ID;
     const clientSecret = process.env.GOOGLE_CLIENT_SECRET_KEY;
-    const redirectUri = `${process.env.BASE_URL}/api/v1/auth/google/callback`; // Updated for your API route
+    const redirectUri = `${process.env.BASE_URL}/api/v1/auth/google/callback`; 
 
     try {
-        // Exchange the authorization code for an access token
         const tokenResponse = await axios.post('https://oauth2.googleapis.com/token', {
             code,
             client_id: clientId,
@@ -128,13 +123,11 @@ export const googleCallback = async (req: Request, res: Response) => {
 
         const profile = userInfoResponse.data;
 
-        // Now, check if the user exists in the database
         let user = await prisma.user.findUnique({
             where: { googleId: profile.id },
         });
 
         if (!user) {
-            // Create a new user if they don't exist
             user = await prisma.user.create({
                 data: {
                     username: profile.name,
@@ -147,7 +140,6 @@ export const googleCallback = async (req: Request, res: Response) => {
 
         const { accessToken, refreshToken } = generateToken(user);
 
-        // Respond with the access token, refresh token, and user info
         res.status(200).send({
             accessToken,
             refreshToken,

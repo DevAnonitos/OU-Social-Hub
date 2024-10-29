@@ -6,7 +6,6 @@ const stream: StreamOptions = {
 };
 
 const skip = () => {
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:3351209228.
     const env = process.env.NODE_ENV || 'development';
     return env !== 'development';
 };

@@ -2,14 +2,13 @@ import React from 'react';
 import Link from 'next/link';
 import { Card } from '../ui/card';
 import { formatDateTime } from '@/lib/utils';
-import { DotsVerticalIcon, BookmarkFilledIcon, PersonIcon } from '@radix-ui/react-icons';
+import { DotsVerticalIcon, PersonIcon } from '@radix-ui/react-icons';
 
 const EventCard = ({event}: any) => {
   return (
     <Card 
       className='group relative flex min-h-[380px] w-full flex-col overflow-hidden rounded-xl bg-white shadow-sm transition-all hover:shadow-md md:min-h-[345px] border border-slate-400 cursor-pointer'
     >
-
       <Link 
         href="/events/[id]"
         as={`/events/${encodeURIComponent(event.id)}`}

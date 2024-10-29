@@ -1,4 +1,4 @@
-import express, { Router } from "express";
+import express from "express";
 import { getNotifications } from "../../controllers/notification.controller";
 
 const router = express.Router();

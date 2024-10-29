@@ -82,4 +82,4 @@ const EventDetailCard = ({ event }: any) => {
   );
 };
 
-export default EventDetailCard
+export default EventDetailCard;

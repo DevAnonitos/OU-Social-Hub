@@ -12,7 +12,7 @@ const options = {
         },
         servers: [
           {
-            url: 'http://localhost:4000', // URL của server backend
+            url: 'http://localhost:4000', 
           },
         ],
       },

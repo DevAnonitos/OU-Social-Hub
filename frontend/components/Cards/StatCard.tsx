@@ -4,7 +4,7 @@ import React from 'react'
 interface StatsCardProps {
   count: number;
   label: string;
-}
+};
 
 const StatCard = ({ count, label }: StatsCardProps) => {
   return (

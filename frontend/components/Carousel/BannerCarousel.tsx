@@ -1,6 +1,10 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { 
+  useState, 
+  useEffect, 
+  useCallback 
+} from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Image from 'next/image';
 import Autoplay from 'embla-carousel-autoplay';
@@ -82,4 +86,4 @@ export default function BannerCarousel() {
       </div>
     </div>
   );
-}
+};

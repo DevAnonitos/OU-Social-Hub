@@ -29,10 +29,13 @@ const EventCarousel = () => {
     resetOrStop()
   }, []);
   
-
-  const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(
+  const { 
+    selectedIndex, 
+    scrollSnaps, 
+    onDotButtonClick 
+  } = useDotButton(
     emblaApi,
-    onNavButtonClick
+    onNavButtonClick,
   );
 
 

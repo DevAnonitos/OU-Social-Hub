@@ -55,7 +55,7 @@ const EventChart = () => {
           </BarChart>
         </ChartContainer>
     </div>
-  )
-}
+  );
+};
 
 export default EventChart;

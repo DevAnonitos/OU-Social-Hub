@@ -36,7 +36,7 @@ app.get("/", async (req: Request, res: Response) => {
   try {
     logger.debug('This is a Debug Log');
 
-    await prisma
+    await prisma;
 
     res.json({ message: 'Hello API, MongoDB connection is active!' });
   } catch (error) {

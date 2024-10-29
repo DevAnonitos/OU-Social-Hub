@@ -31,7 +31,7 @@ const BottomItems = () => {
               className={``}
             />
           </Link>
-        )
+        );
       })}
     </div>
   );

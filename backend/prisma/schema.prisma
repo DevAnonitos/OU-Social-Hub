@@ -152,6 +152,8 @@ model EntityNotification {
   entityType EntityNotificationType
   entityContent String
   notification Notifications[]
+
+  @@index([entityContent])
 }
 
 enum EntityNotificationType {

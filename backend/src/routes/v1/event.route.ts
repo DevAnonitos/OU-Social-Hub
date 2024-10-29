@@ -1,4 +1,4 @@
-import express, { Router } from "express";
+import express from "express";
 import { createEvent, getEventById, getPendingEvents  } from "../../controllers/event.controller";
 import { authMiddleware } from "../../middlewares/auth.middleware";
 import { approveEvent, rejectEvent, getAllEvents } from "../../controllers/event.controller";

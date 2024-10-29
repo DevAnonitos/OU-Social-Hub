@@ -11,7 +11,6 @@ import notificationRoute from "./notification.route";
 const routes: Router = express.Router();
 
 // using Routes
-
 routes.use("/auth", authRoute);
 routes.use("/users", userRoute);
 routes.use("/admin", adminRoute);
