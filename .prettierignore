@@ -1,0 +1,31 @@
+# Build artifacts
+.next/
+.turbo/
+_next/
+__tmp__/
+dist/
+target/
+compiled/
+
+lerna.json
+test-timings.json
+pnpm-lock.yaml
+
+# Package dependencies
+packages/next/src/bundles/webpack/packages/*.runtime.js
+packages/next/src/bundles/webpack/packages/lazy-compilation-*.js
+
+packages/next-swc/native/**/*
+packages/next-swc/docs/assets/**/*
+
+packages/next-codemod/transforms/__testfixtures__/**
+packages/next-codemod/transforms/__tests__/**
+packages/next-codemod/**/*.js
+packages/next-codemod/**/*.d.ts
+
+packages/next-env/**/*.d.ts
+
+# Test 
+test/lib/amp-validator-wasm.js
+test/production/pages-dir/production/fixture/amp-validator-wasm.js
+test/e2e/async-modules/amp-validator-wasm.js

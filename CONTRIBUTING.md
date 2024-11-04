@@ -1,2 +1,7 @@
-Test contributing
+# Contributing to platform
+
+## Repository
+
+## Documentation
+
 

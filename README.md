@@ -38,7 +38,7 @@
 ## <a name="introduction">🤖 Introduction</a>
 
 <p style="text-align: justify;">
-OU Social Hub is a project aimed at building an online social media platform exclusively for the student community of Ho Chi Minh City Open University. This website focuses on developing a platform to share news, announcements, and events from the university.
+OU Social Hub is a project aimed at building an online social media platform exclusively for the student community of Ho Chi Minh City Open University. This website focuses on developing a platform to share news, announcements, and events from the university. The project was conceived with the mission to create a social network community for students, enabling easy access to comprehensive information about official news and events from the university.
 </p>
 
 ## <a name="tech-stack">⚙️ Tech Stack</a>
@@ -106,6 +106,7 @@ Install the project dependencies by using npm:
 ```bash
 cd frontend # Navigate to the Frontend Project
 cd backend # Navigate to the Backend Project
+cd mobile # Navigate to the Mobile App Project
 
 npm install
 ```
