@@ -2,4 +2,11 @@ services:
   client:
     build: frontend/
     ports:
-      - "3003:3003"
+      - "3000:3000"
+    restart: unless-stopped
+
+  backend:
+    build: backend/
+    ports:
+      - 4000:4000
+    restart: unless-stopped
