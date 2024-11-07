@@ -1,0 +1,29 @@
+name: 'Report a documentation issue'
+description: Report an issue with the Next.js documentation.
+title: 'Docs: '
+labels:
+  - 'Documentation'
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before opening a new documentation issue, is this something you can help us with? Your contributions are welcomed and appreciated.
+
+        If you are reporting about an documentation request, please open it in our [discussions]
+
+  - type: markdown
+    attributes:
+      value: Thank you for helping us update our docs!
+  - type: textarea
+    attributes:
+      label: What is the documentation issue?
+      description: 'Example: There is incorrect or stale information about the `<Link>` component.'
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Is there any context that might help us understand?
+      description: A clear description of any added context that might help us understand.
+    validations:
+      required: true
