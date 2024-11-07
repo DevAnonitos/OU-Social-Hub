@@ -1,0 +1,29 @@
+name: Report an issue with an example
+description: Report an issue with one of our Next.js examples.
+labels: ['examples']
+body:
+  - type: markdown
+    attributes:
+        value: |
+          *Note:* If you leave out sections, the issue might be moved to the ["Help"]
+
+          Thanks for taking the time to file a bug report for [one of the examples]
+
+  - type: textarea
+    attributes:
+      label: To Reproduce
+      description: Steps to reproduce the behavior, please provide a clear description of how to reproduce the issue, based on the relevant example. Screenshots can be provided in the issue body below. If using code blocks, make sure that [syntax highlighting is correct](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks#syntax-highlighting) and double check that the rendered preview is not broken.
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: Before posting the issue go through the steps you've written down to make sure the steps provided are detailed and clear.
+
+  - type: markdown
+    attributes:
+      value: Contributors should be able to follow the steps provided in order to reproduce the bug.
+
+  - type: markdown
+    attributes:
+      value: Thanks in advance!

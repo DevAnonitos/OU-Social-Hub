@@ -1,0 +1,18 @@
+name: Report an issue
+description: Report a OU Social Hub issue.
+labels: ['bug']
+body:
+  - type: markdown
+    attributes:
+      value: |
+          This template is used for reporting a OU Social Hub issue.
+
+          Feature requests should be opened in [discussions]
+
+          Documentation requests should also be opened in [discussions]
+
+          Before opening a new issue, please do a [search]
+
+          If you need help with your own project, you can:
+            - Start a discussion in the ["Help"]
+            - Ask a question in ["Community"]
