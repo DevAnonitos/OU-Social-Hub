@@ -1,0 +1,24 @@
+name: "Frontend SonarQube Scan"
+on:
+  push:
+    branches:
+      - main
+      - dev
+jobs:
+  sonar_scan_frontend:
+    name: SonarQube Scan for Frontend
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '22'
+      - name: Install Dependencies
+        run: cd frontend && npm install
+      - name: Run Tests
+        run: cd frontend && npm test -- --coverage
+      - name: Run SonarQube Scanner
+        run: |
+          sonar-scanner -Dsonar.projectKey=$SONAR_PROJECT_KEY_FRONTEND -Dsonar.sources=./frontend -Dsonar.language=js -Dsonar.javascript.lcov.reportPaths=frontend/coverage/lcov.info -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.login=$SONAR_TOKEN

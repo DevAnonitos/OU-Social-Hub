@@ -1,0 +1,24 @@
+name: "Backend Sonar Scanning"
+on:
+  push:
+    branches:
+      - main
+      - dev
+jobs: 
+  sonar_scan_backend:
+    name: Backend Scanning
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '22'
+      - name: Install Dependencies
+        run: cd backend && npm install
+      - name: Run Tests
+        run: cd backend && npm test -- --coverage
+      - name: Run SonarQube Scanner
+        run: |
+          sonar-scanner -Dsonar.projectKey=$SONAR_PROJECT_KEY_BACKEND -Dsonar.sources=./backend -Dsonar.language=ts -Dsonar.typescript.lcov.reportPaths=backend/coverage/lcov.info -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.login=$SONAR_TOKEN
