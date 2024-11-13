@@ -11,6 +11,7 @@ import BottomBar from "@/components/BottomBar/BottomBar";
 
 import { AuthProvider } from "@/providers/AuthProvider";
 import QueryProvider from "@/providers/QueryProvider";
+import ChatWidget from "@/components/Shared/ChatWidget";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -48,6 +49,7 @@ export default function RootLayout({
             </div>
             <BottomBar />
             <Toaster />
+            <ChatWidget />
           </AuthProvider>
         </QueryProvider>
       </body>
