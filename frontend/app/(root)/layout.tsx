@@ -25,10 +25,10 @@ export default function RootLayout({
       <body className={`${inter.className}`}>
         <QueryProvider>
           <AuthProvider>
+            <Sidebar />
+            <NavBar />
             <div className="flex">
-              <Sidebar />
-              <div className="flex-1">
-                <NavBar />
+              <div className="ml-[272px] mt-[64px] flex-1 overflow-y-auto">
                 <main className="grid grid-cols-12 gap-6 px-8">
                   {children}
                 </main>

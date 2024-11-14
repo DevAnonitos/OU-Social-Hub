@@ -3,88 +3,52 @@ export const leftSideBarLinks = [
         id: 1,
         icon: "/assets/icons/home.svg",
         route: "/",
-        label: "Home",
+        label: "Trang chủ",
     }, 
     {
         id: 2,
         icon: "/assets/icons/search.svg",
         route: "/search",
-        label: "Search",
+        label: "Tìm kiếm",
     },
     {
         id: 3,
         icon: "/assets/icons/add.svg",
         route: "/create-event",
-        label: "Create Event",
+        label: "Đăng bài",
     },
     {
         id: 4,
         icon: "/assets/icons/explore.svg",
         route: "/explore",
-        label: "Explore",
+        label: "Khám phá",
     },
     {
         id: 5,
         icon: "/assets/icons/news.svg",
         route: "/news",
-        label: "News",
-    },
-    {
-        id: 6,
-        icon: "/assets/icons/activities.svg",
-        route: "/activities",
-        label: "Activities",
-    },
-    {
-        id: 7,
-        icon: "/assets/icons/chat.svg",
-        route: "/chats",
-        label: "Chats",
-    },
-    {
-        id: 8,
-        icon: "/assets/icons/setting.svg",
-        route: "/setting",
-        label: "Setting",
-    },
-    {
-        id: 9,
-        icon: "/assets/icons/profile.svg",
-        route: "/profile",
-        label: "Profile",
+        label: "Bài viết",
     },
 ];
 
-export const bottomBarLinks = [
+export const categoriesLinks = [
     {
         id: 1,
         icon: "/assets/icons/home.svg",
         route: "/",
-        label: "Home",
-    },
+        label: "Phòng ban",
+    }, 
     {
         id: 2,
         icon: "/assets/icons/search.svg",
         route: "/search",
-        label: "Search",
+        label: "Khoa",
     },
     {
         id: 3,
         icon: "/assets/icons/add.svg",
         route: "/create-event",
-        label: "Create Event",
-    },
-    {
-        id: 4,
-        icon: "/assets/icons/explore.svg",
-        route: "/explore",
-        label: "Explore",
-    },
-    {
-        id: 5,
-        icon: "/assets/icons/profile.svg",
-        route: "/profile",
-        label: "Profile",
+        label: "Câu lạc bộ",
     },
 ];
 

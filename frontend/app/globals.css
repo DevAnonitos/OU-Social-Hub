@@ -168,7 +168,7 @@
   }
 
   .left_sidebar-link {
-    @apply hidden lg:flex px-4 py-3 items-center border-[1px] border-slate-400 my-3 rounded-lg;
+    @apply hidden lg:flex w-full items-center border-[1px] border-slate-400 rounded-lg;
   }
 
   .left_sidebar-mobilelink {

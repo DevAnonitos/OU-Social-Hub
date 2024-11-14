@@ -25,12 +25,11 @@ const Home = () => {
             {Array(8).fill(0).map((_, idx) => (
               <div key={idx} className='relative aspect-square w-full max-w-[164px] rounded-lg border border-gray-300 overflow-hidden'>
                 <Image
-        src='/assets/images/ĐTĐB.png'
-        alt='Avatar'
-        layout='fill'         // Đảm bảo ảnh phủ toàn bộ div
-        objectFit='cover'      // Đảm bảo ảnh không bị méo
-        className='rounded-lg'
-      />
+                  src='/assets/images/ĐTĐB.png'
+                  alt='Avatar'
+                  layout='fill'         
+                  className='rounded-lg'
+                />
               </div>
             ))}
           </div>
@@ -69,8 +68,8 @@ const Home = () => {
           <div className='flex items-center w-full text-sm text-gray-500'>
             <Image
               src='/assets/images/ĐTĐB.png'
-              width={32}
-              height={32}
+              width={40}
+              height={40}
               alt='Avatar'
               className='rounded-full border-[2px] mr-2'
             />
