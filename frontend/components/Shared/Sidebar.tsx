@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { leftSideBarLinks,categoriesLinks } from '@/constants';
+import { leftSideBarLinks,categoriesLinks, connectLinks } from '@/constants';
 import { Separator } from '../ui/separator';
 import { LayoutGrid, Tv } from 'lucide-react';
 import { useRouter, usePathname } from 'next/navigation';
@@ -84,7 +84,7 @@ const Sidebar = () => {
           </h3>
           <Tv />
         </div>
-        {leftSideBarLinks.map((link) => {
+        {connectLinks.map((link) => {
           const isActive = (pathName.includes(link.route) && link.route.length > 1) || pathName === link.route;
           return (
             <Link 

@@ -34,23 +34,57 @@ export const leftSideBarLinks = [
 export const categoriesLinks = [
     {
         id: 1,
-        icon: "/assets/icons/home.svg",
+        icon: "/assets/icons/department.svg",
         route: "/",
         label: "Phòng ban",
     }, 
     {
         id: 2,
-        icon: "/assets/icons/search.svg",
+        icon: "/assets/icons/book-open.svg",
         route: "/search",
         label: "Khoa",
     },
     {
         id: 3,
-        icon: "/assets/icons/add.svg",
+        icon: "/assets/icons/club.svg",
         route: "/create-event",
         label: "Câu lạc bộ",
     },
+    {
+        id: 4,
+        icon: "/assets/icons/location.svg",
+        route: "/create-event",
+        label: "Địa điểm học tập",
+    },
 ];
+
+export const connectLinks = [
+    {
+        id: 1,
+        icon: "/assets/icons/newspaper.svg",
+        route: "/",
+        label: "Tin tức",
+    }, 
+    {
+        id: 2,
+        icon: "/assets/icons/events.svg",
+        route: "/search",
+        label: "Sự kiện",
+    },
+    {
+        id: 3,
+        icon: "/assets/icons/share.svg",
+        route: "/create-event",
+        label: "Chia sẻ",
+    },
+    {
+        id: 4,
+        icon: "/assets/icons/group-user.svg",
+        route: "/explore",
+        label: "Thành viên",
+    },
+];
+
 
 export const adminSideBar = [
     {
