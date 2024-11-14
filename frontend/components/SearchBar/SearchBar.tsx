@@ -5,10 +5,10 @@ import { Input } from '../ui/input';
 
 const SearchBar = () => {
   return (
-    <div className='hidden flex-center rounded-full min-h-[54px] px-4 py-2 lg:flex'>
+    <div className='flex item-center justify-between rounded-full'>
       <Input
-        placeholder='Search your favorite Event ...' 
-        className='searchbar-input placeholder:text-grey-500 focus:border-[1px] focus-visible:ring-0 focus-visible:ring-offset-0'
+        placeholder='Tìm trên OUHUB...' 
+        className='w-[446px] border-[1px] border-gray-300 min-h-[40px] px-8 py-2 rounded-full placeholder:text-grey-500 focus:border-[1px] focus-visible:ring-0 focus-visible:ring-offset-0'
       />
     </div>
   );

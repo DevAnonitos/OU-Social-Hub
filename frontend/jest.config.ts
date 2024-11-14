@@ -23,7 +23,7 @@ const config: Config = {
     }]
   ],
   testResultsProcessor: "./node_modules/jest-html-reporter"
-}
+};
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
-export default createJestConfig(config)
+export default createJestConfig(config);
