@@ -14,17 +14,19 @@ const NavBar = () => {
       <div className='flex items-center w-full justify-between px-8'>
         <SearchBar />
         <div className='flex items-center space-x-4'>
-          <div className='bg-slate-300 w-10 h-10 flex items-center justify-center rounded-full cursor-pointer'>
+          <div className='bg-gray-200 w-10 h-10 flex items-center justify-center rounded-full cursor-pointer'>
             <SettingsIcon size={24} />
           </div>
-          <div className='bg-slate-300 w-10 h-10 flex items-center justify-center rounded-full cursor-pointer'>
+          <div className='bg-gray-200 w-10 h-10 flex items-center justify-center rounded-full cursor-pointer'>
             <MoonIcon />
           </div>
-          <div className='bg-slate-300 w-10 h-10 flex items-center justify-center rounded-full cursor-pointer'>
+          <div className='bg-gray-200 w-10 h-10 flex items-center justify-center rounded-full cursor-pointer'>
             <BellIcon />
           </div>
           <Button className='h-[40px]'>
-            Đăng nhập
+            <Link href="/sign-in">
+              Đăng nhập
+            </Link>
           </Button>
         </div>
       </div>
