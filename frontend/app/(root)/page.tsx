@@ -48,7 +48,7 @@ const Home = () => {
         className='bg-white rounded-lg shadow-md border border-gray-300 overflow-hidden'
       >
         {/* Hình ảnh */}
-        <div className='relative h-[188px] w-full flex items-center justify-center'>
+        <div className='relative h-[194px] w-full flex items-center justify-center'>
           {/* Overlay text or logo */}
           <div className='absolute inset-0 bg-black/40 flex justify-end items-start p-4'>
             <Image
@@ -66,7 +66,7 @@ const Home = () => {
 
 
         <div className='p-4 space-y-4 w-full border-t-[1px] border-gray-300'>
-          <h3 className='font-semibold text-lg mb-1 w-full'>
+          <h3 className='font-semibold text-lg mb-1 w-full line-clamp-2'>
             Trải nghiệm bóc "túi mù", nhưng là với một bộ phim chiếu rạp
           </h3>
           <div className='flex items-center w-full text-sm text-gray-500'>
@@ -79,7 +79,7 @@ const Home = () => {
             />
             <div className='flex flex-row w-full justify-between items-center'>
               <div className='flex flex-col items-start'>
-                <span className='font-semibold'>Quỳnh Anh</span>
+                <span className='font-semibold text-md'>Quỳnh Anh</span>
                 <span className='text-xs'>5 giờ trước</span>
               </div>
               <div className=''>
@@ -127,7 +127,7 @@ const Home = () => {
           </div>
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
             {Array(4).fill(0).map((_, idx) => (
-              <div key={idx} className='relative w-full h-[150px] rounded-lg border border-gray-300 overflow-hidden'>
+              <div key={idx} className='relative w-full h-[154px] rounded-lg border border-gray-300 overflow-hidden'>
                 
               </div>
             ))}

@@ -53,7 +53,7 @@ export const categoriesLinks = [
     {
         id: 4,
         icon: "/assets/icons/location.svg",
-        route: "/create-event",
+        route: "/campus",
         label: "Địa điểm học tập",
     },
 ];

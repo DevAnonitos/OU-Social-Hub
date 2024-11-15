@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Roboto, Lexend, Open_Sans, Poppins } from "next/font/google";
 import '../../styles/globals.css';
 
 import NavBar from "@/components/NavBar/NavBar";
@@ -8,7 +8,7 @@ import Sidebar from "@/components/Shared/Sidebar";
 import { AuthProvider } from "@/providers/AuthProvider";
 import QueryProvider from "@/providers/QueryProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+const opensans = Open_Sans({ subsets: ["latin"]});
 
 export const metadata: Metadata = {
   title: "OU Hub",
@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className}`}>
+      <body className={`${opensans.className}`}>
         <QueryProvider>
           <AuthProvider>
             <Sidebar />
