@@ -4,6 +4,8 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { HeartIcon, CircleArrowLeft, CircleArrowRight, Bookmark, Circle } from 'lucide-react';
 
+import { clubLinks } from '@/constants';
+
 const Home = () => {
   return (
     <main className='col-span-12 flex flex-col flex-grow overflow-y-auto max-w-screen mx-auto w-full h-full min-h-screen'>
@@ -23,10 +25,10 @@ const Home = () => {
             </div>
           </div>
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-8 gap-6'>
-            {Array(8).fill(0).map((_, idx) => (
-              <div key={idx} className='relative aspect-square w-full max-w-[164px] rounded-lg border border-gray-300 overflow-hidden'>
+            {clubLinks.map((club: any) => (
+              <div key={club.id} className='relative aspect-square w-full max-w-[164px] rounded-lg border border-gray-300 overflow-hidden'>
                 <Image
-                  src='/assets/images/ĐTĐB.png'
+                  src={club.logoImage}
                   alt='Avatar'
                   layout='fill'         
                   className='rounded-lg'

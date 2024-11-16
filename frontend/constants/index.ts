@@ -131,29 +131,45 @@ export const adminSideBar = [
     },
 ];
 
-export const bannerCarousel = [
+export const clubLinks = [
     {
         id: 1,
-        title: "NikoNiko Japanese Club",
-        imageUrl: "/assets/images/nikoniko.png", 
-        description: "This is the description for banner 1",
+        label: "Áo xanh OU",
+        logoImage: "/assets/images/clubs/áo xanh ou.jpg",
     },
     {
         id: 2,
-        title: "Passion Club - OU ",
-        imageUrl: "/assets/images/passion.png",
-        description: "This is the description for banner 2",
+        label: "CLB Marec Research",
+        logoImage: "/assets/images/clubs/CLB Marec Research.jpg",
     },
     {
         id: 3,
-        title: "CLB Truyền Thông Trẻ - YOUM ",
-        imageUrl: "/assets/images/youm.png",
-        description: "This is the description for banner 3",
+        label: "CLB YEP - Youth Empowerment Project OU",
+        logoImage: "/assets/images/clubs/yep.jpg",
     },
     {
         id: 4,
-        title: "OU Chess Club",
-        imageUrl: "/assets/images/ouc.jpg",
-        description: "This is the description for banner 3",
-    }
+        label: "O.Marketing",
+        logoImage: "/assets/images/clubs/O.Marketing.jpg",
+    },
+    {
+        id: 5,
+        label: "CLB Nhân sự nguồn",
+        logoImage: "/assets/images/clubs/nhân sự nguồn.jpg",
+    },
+    {
+        id: 6,
+        label: "NikoNiko Japanese Club",
+        logoImage: "/assets/images/clubs/NikoNiko Japanese Club.jpg",
+    },
+    {
+        id: 7,
+        label: "Văn hóa Thái Lan",
+        logoImage: "/assets/images/clubs/Văn hóa Thái Lan.jpg",
+    },
+    {
+        id: 8,
+        label: "CLB KỸ NĂNG PHÁP LÝ",
+        logoImage: "/assets/images/clubs/CLB KỸ NĂNG PHÁP LÝ.jpg",
+    },
 ];
