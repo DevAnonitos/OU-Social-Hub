@@ -8,9 +8,10 @@ import {
   SelectTrigger, 
   SelectValue 
 } from '../ui/select';
+import { Filter } from 'lucide-react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useGetAllCategories } from '@/lib/react-query/queries';
-import { formUrlQuery, removeKeysFromQuery } from '@/lib/utils'; // Import hook
+import { formUrlQuery, removeKeysFromQuery } from '@/lib/utils';
 
 const CategoryFilter = () => {
   const router = useRouter();
@@ -39,8 +40,11 @@ const CategoryFilter = () => {
 
   return (
     <Select onValueChange={(value: string) => onSelectCategory(value)}>
-      <SelectTrigger className='w-full bg-grey-50 h-[56px] placeholder:text-grey-500 rounded-full p-regular-16 px-5 py-3 border-[1px] border-gray-300 focus-visible:ring-transparent focus:ring-transparent'>
-        <SelectValue placeholder="Category" />
+      <SelectTrigger className='w-full flex items-center bg-grey-50 h-[56px] placeholder:text-grey-500 rounded-full p-regular-16 px-5 py-3 border-[1px] border-gray-300 focus-visible:ring-transparent focus:ring-transparent'>
+        <div className='flex items-center space-x-4'>
+          <Filter />
+          <SelectValue placeholder="Lọc theo tên tag" />
+        </div>
       </SelectTrigger>
       <SelectContent>
         <SelectItem value="All" className="py-3 cursor-pointer  focus:bg-grey-50 p-regular-14">

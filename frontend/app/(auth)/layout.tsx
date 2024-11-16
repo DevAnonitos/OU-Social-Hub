@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Open_Sans } from "next/font/google";
 import "../globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const opensans = Open_Sans({ subsets: ["latin"]});
 
 export const metadata: Metadata = {
   title: "OU Hub",
@@ -16,7 +16,7 @@ export default function AuthLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={opensans.className}>
         <main className="flex flex-col w-full h-full items-center justify-center min-h-screen overflow-hidden">
           {children}
         </main>

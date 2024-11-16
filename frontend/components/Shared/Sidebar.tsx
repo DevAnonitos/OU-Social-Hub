@@ -31,8 +31,8 @@ const Sidebar = () => {
               <Image
                 src={link.icon}
                 alt={link.label}
-                width={26}
-                height={26}
+                width={24}
+                height={24}
                 priority
                 quality={85}
                 className=""

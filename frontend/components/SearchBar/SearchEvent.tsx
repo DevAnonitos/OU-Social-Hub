@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { formUrlQuery, removeKeysFromQuery } from '@/lib/utils';
 
-const SearchEvent = ({ placeholder = "Search Title..." }: { placeholder?: string }) => {
+const SearchEvent = ({ placeholder = "Tìm kiếm bài viết mới nhất" }: { placeholder?: string }) => {
 
   const [query, setQuery] = useState("");
 
@@ -50,7 +50,7 @@ const SearchEvent = ({ placeholder = "Search Title..." }: { placeholder?: string
         type="text"
         placeholder={placeholder}
         onChange={(e) => setQuery(e.target.value)}
-        className="border-0 bg-grey-50 outline-offset-0 placeholder:text-grey-500 focus:border-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+        className="border-0 bg-grey-50 text-lg font-semibold outline-offset-0 placeholder:text-grey-500 focus:border-0 focus-visible:ring-0 focus-visible:ring-offset-0"
       />
     </div>
   )
