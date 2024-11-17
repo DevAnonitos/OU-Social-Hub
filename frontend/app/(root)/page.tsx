@@ -2,7 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { HeartIcon, CircleArrowLeft, CircleArrowRight, Bookmark, Circle } from 'lucide-react';
+import { HeartIcon, CircleArrowLeft, CircleArrowRight, Bookmark } from 'lucide-react';
 
 import { clubLinks } from '@/constants';
 
@@ -24,14 +24,16 @@ const Home = () => {
               </button>
             </div>
           </div>
-          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-8 gap-6'>
+          <div className='grid grid-flow-col auto-cols-[minmax(164px,1fr)] gap-6 overflow-x-auto scrollbar-hidden pb-2'>
             {clubLinks.map((club: any) => (
               <div key={club.id} className='relative aspect-square w-full max-w-[164px] rounded-lg border border-gray-300 overflow-hidden'>
                 <Image
-                  src={club.logoImage}
-                  alt='Avatar'
-                  layout='fill'         
-                  className='rounded-lg'
+                    src={club.logoImage}
+                    alt={club.label}
+                    layout='fill'
+                    className='rounded-lg'
+                    placeholder='blur'
+                    blurDataURL='https://via.placeholder.com/10x10' 
                 />
               </div>
             ))}
