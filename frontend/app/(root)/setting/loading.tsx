@@ -3,7 +3,7 @@ import LoaderSpinner from '@/components/Shared/LoaderSpinner';
 
 const Loading = () => {
   return (
-    <div>
+    <div className='flex justify-center items-center'>
       <LoaderSpinner />
     </div>
   );
