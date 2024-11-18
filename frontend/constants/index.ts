@@ -174,17 +174,67 @@ export const clubLinks = [
     },
     {
         id: 9,
-        label: "CLB KỸ NĂNG PHÁP LÝ",
-        logoImage: "https://res.cloudinary.com/dmngqyhll/image/upload/v1731832365/CLB_K%E1%BB%B8_N%C4%82NG_PH%C3%81P_L%C3%9D_zhrcp7.jpg",
+        label: "CEO Guitar Club",
+        logoImage: "https://res.cloudinary.com/dfdfeutqe/image/upload/v1731895512/OU%20Social%20Hub/Clubs/CEO_ee5ldn.jpg",
     },
     {
         id: 10,
-        label: "CLB KỸ NĂNG PHÁP LÝ",
-        logoImage: "https://res.cloudinary.com/dmngqyhll/image/upload/v1731832365/CLB_K%E1%BB%B8_N%C4%82NG_PH%C3%81P_L%C3%9D_zhrcp7.jpg",
+        label: "NGC - Night Guitar Club",
+        logoImage: "https://res.cloudinary.com/dfdfeutqe/image/upload/v1731895539/OU%20Social%20Hub/Clubs/NGC_wp3x8t.jpg",
     },
     {
         id: 11,
-        label: "CLB KỸ NĂNG PHÁP LÝ",
-        logoImage: "https://res.cloudinary.com/dmngqyhll/image/upload/v1731832365/CLB_K%E1%BB%B8_N%C4%82NG_PH%C3%81P_L%C3%9D_zhrcp7.jpg",
+        label: "Sự Kiện Xã Công Đông",
+        logoImage: "https://res.cloudinary.com/dfdfeutqe/image/upload/v1731895646/OU%20Social%20Hub/Clubs/XC%C4%90_qdzzee.jpg",
+    },
+    {
+        id: 12,
+        label: "Sinh viên 5 Tốt trường Đại học Mở TP. Hồ Chí Minh",
+        logoImage: "https://res.cloudinary.com/dfdfeutqe/image/upload/v1731895626/OU%20Social%20Hub/Clubs/SV5T_gke8tu.jpg",
+    },
+    {
+        id: 13,
+        label: "HappyU - CLB Kỹ Năng Và Giá Trị Sống",
+        logoImage: "https://res.cloudinary.com/dfdfeutqe/image/upload/v1731895522/OU%20Social%20Hub/Clubs/HappyU_k1kawh.jpg",
+    },
+    {
+        id: 14,
+        label: "CLB Open Marketing Group",
+        logoImage: "https://res.cloudinary.com/dfdfeutqe/image/upload/v1731895592/OU%20Social%20Hub/Clubs/OMG_faug2i.jpg",
+    },
+    {
+        id: 15,
+        label: "A&A Club",
+        logoImage: "https://res.cloudinary.com/dfdfeutqe/image/upload/v1731895489/OU%20Social%20Hub/Clubs/AA_yn3gkp.jpg",
+    },
+    {
+        id: 16,
+        label: "CLB - Lập Trình Trên Thiết Bị Di Động",
+        logoImage: "https://res.cloudinary.com/dfdfeutqe/image/upload/v1731895530/OU%20Social%20Hub/Clubs/MPC_yoj7pi.jpg",
+    },
+    {
+        id: 16,
+        label: "Passion Club",
+        logoImage: "https://res.cloudinary.com/dfdfeutqe/image/upload/v1731896421/OU%20Social%20Hub/Clubs/PASSION_fek3e5.jpg",
+    },
+    {
+        id: 17,
+        label: "OU Green Plus",
+        logoImage: "https://res.cloudinary.com/dfdfeutqe/image/upload/v1731895616/OU%20Social%20Hub/Clubs/OUG_bger6o.jpg",
+    },
+    {
+        id: 18,
+        label: "CLB Truyền Thông Trẻ - YOUM",
+        logoImage: "https://res.cloudinary.com/dfdfeutqe/image/upload/v1731895655/OU%20Social%20Hub/Clubs/YOUM_geygax.jpg",
+    },
+    {
+        id: 19,
+        label: "BEAT - Be A Team",
+        logoImage: "https://res.cloudinary.com/dfdfeutqe/image/upload/v1731895499/OU%20Social%20Hub/Clubs/BEAT_mfbqpc.jpg",
+    },
+    {
+        id: 20,
+        label: "N.I.M PHOTO CLUB",
+        logoImage: "https://res.cloudinary.com/dfdfeutqe/image/upload/v1731895580/OU%20Social%20Hub/Clubs/NIM_h6ylcp.jpg",
     },
 ];

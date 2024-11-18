@@ -5,40 +5,13 @@ import { Button } from '@/components/ui/button';
 import { HeartIcon, CircleArrowLeft, CircleArrowRight, Bookmark } from 'lucide-react';
 
 import { clubLinks } from '@/constants';
+import ClubSection from '@/components/Sections/ClubSection';
 
 const Home = () => {
   return (
     <main className='col-span-12 flex flex-col flex-grow overflow-y-auto max-w-screen mx-auto w-full h-full min-h-screen'>
       <div className='space-y-8 w-full h-full py-6'>
-        <section className='flex flex-col space-y-8'>
-          <div className='flex items-center justify-between'>
-            <h2 className='text-2xl font-bold'>
-              Câu lạc bộ - Đội nhóm OU
-            </h2>
-            <div className="flex gap-2">
-              <button className="p-2 rounded-full border">
-                <CircleArrowLeft />
-              </button>
-              <button className="p-2 rounded-full border">
-                <CircleArrowRight />
-              </button>
-            </div>
-          </div>
-          <div className='grid grid-flow-col auto-cols-[minmax(164px,1fr)] gap-6 overflow-x-auto scrollbar-hidden pb-2'>
-            {clubLinks.map((club: any) => (
-              <div key={club.id} className='relative aspect-square w-full max-w-[164px] rounded-lg border border-gray-300 overflow-hidden'>
-                <Image
-                    src={club.logoImage}
-                    alt={club.label}
-                    layout='fill'
-                    className='rounded-lg'
-                    placeholder='blur'
-                    blurDataURL='https://via.placeholder.com/10x10' 
-                />
-              </div>
-            ))}
-          </div>
-        </section>
+        <ClubSection />
         <section className='flex flex-col space-y-6'>
           <div className='flex items-center justify-between'>
             <h2 className='text-2xl font-bold'>Bài viết mới nhất</h2>
@@ -52,13 +25,14 @@ const Home = () => {
         className='bg-white rounded-lg shadow-md border border-gray-300 overflow-hidden'
       >
         {/* Hình ảnh */}
-        <div className='relative h-[194px] w-full flex items-center justify-center'>
+        <div className='relative h-[188px] w-full flex items-center justify-center'>
           {/* Overlay text or logo */}
           <div className='absolute inset-0 bg-black/40 flex justify-end items-start p-4'>
             <Image
               src={"/assets/images/ĐTĐB.png"}
               alt='Demo'
               layout='fill'    
+              loading="eager"
               objectFit='cover' 
               className=''
             />
@@ -105,7 +79,7 @@ const Home = () => {
   
     </div>
   </div>
-  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-12 gap-6">
+  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-12 gap-6 overflow-x-auto w-full">
     <Button>
       Tất cả
     </Button>
