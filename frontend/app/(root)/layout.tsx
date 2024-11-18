@@ -4,6 +4,7 @@ import '../../styles/globals.css';
 
 import NavBar from "@/components/NavBar/NavBar";
 import Sidebar from "@/components/Shared/Sidebar";
+import BottomBar from "@/components/Shared/BottomBar";
 
 import { AuthProvider } from "@/providers/AuthProvider";
 import QueryProvider from "@/providers/QueryProvider";
@@ -32,6 +33,7 @@ export default function RootLayout({
                 <main className="grid grid-cols-12 gap-6 px-8">
                   {children}
                 </main>
+                <BottomBar />
               </div>
             </div>
           </AuthProvider>
