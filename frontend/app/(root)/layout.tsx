@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Roboto, Lexend, Open_Sans, Poppins } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import '../../styles/globals.css';
 
 import NavBar from "@/components/NavBar/NavBar";
 import Sidebar from "@/components/Shared/Sidebar";
 import BottomBar from "@/components/Shared/BottomBar";
+import { Toaster } from "@/components/ui/toaster";
 
 import { AuthProvider } from "@/providers/AuthProvider";
 import QueryProvider from "@/providers/QueryProvider";
@@ -26,6 +27,7 @@ export default function RootLayout({
       <body className={`${opensans.className}`}>
         <QueryProvider>
           <AuthProvider>
+            <Toaster />
             <Sidebar />
             <NavBar />
             <div className="flex">

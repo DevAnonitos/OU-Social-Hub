@@ -41,7 +41,7 @@ export const categoriesLinks = [
     {
         id: 2,
         icon: "/assets/icons/book-open.svg",
-        route: "/search",
+        route: "/faculties",
         label: "Khoa",
     },
     {
