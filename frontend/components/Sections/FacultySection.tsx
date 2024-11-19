@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from '../ui/button';
 import Image from 'next/image';
+import { facultyLinks } from '@/constants';
 
 const FacultySection = () => {
   return (
@@ -16,11 +17,12 @@ const FacultySection = () => {
         </div>
       </div>
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-8 gap-6'>
-        {Array(8).fill(0).map((_, idx) => (
-          <div key={idx} className='relative aspect-square w-full max-w-[164px] rounded-lg border border-gray-300 overflow-hidden'>
+        {facultyLinks.map((faculty: any) => (
+          <div key={faculty.id} className='relative aspect-square w-full max-w-[164px] rounded-lg flex items-center justify-center border border-gray-300 overflow-hidden'>
             <Image
-              src='/assets/images/ĐTĐB.png'
-              alt='Avatar'
+              src={faculty.logoImage}
+              priority
+              alt={faculty.label}
               layout='fill'         
               className='rounded-lg'
             />

@@ -238,3 +238,73 @@ export const clubLinks = [
         logoImage: "https://res.cloudinary.com/dfdfeutqe/image/upload/v1731895580/OU%20Social%20Hub/Clubs/NIM_h6ylcp.jpg",
     },
 ];
+
+export const facultyLinks = [
+    {
+        id: 1,
+        label: "Đào tạo đặc biệt",
+        logoImage: "https://res.cloudinary.com/dfdfeutqe/image/upload/v1731983167/OU%20Social%20Hub/Faculities/%C4%90T%C4%90B_yaqxra.png",
+    },
+    {
+        id: 2,
+        label: "Công nghệ thông tin",
+        logoImage: "https://res.cloudinary.com/dfdfeutqe/image/upload/v1731983177/OU%20Social%20Hub/Faculities/CNTT_jyl3ad.jpg",
+    },
+    {
+        id: 3,
+        label: "Tài chính ngân hàng",
+        logoImage: "https://res.cloudinary.com/dfdfeutqe/image/upload/v1731983239/OU%20Social%20Hub/Faculities/TCNH_gce8lt.jpg",
+    },
+    {
+        id: 4,
+        label: "Ngôn ngữ",
+        logoImage: "https://res.cloudinary.com/dfdfeutqe/image/upload/v1731983232/OU%20Social%20Hub/Faculities/NN_ae8yj6.jpg",
+    },
+    {
+        id: 5,
+        label: "Quản trị kinh doanh",
+        logoImage: "https://res.cloudinary.com/dfdfeutqe/image/upload/v1731983284/OU%20Social%20Hub/Faculities/QTKD_mewhbm.jpg",
+    },
+    {
+        id: 6,
+        label: "Xã hội học - Công tác xã hội - Đông Nam Á",
+        logoImage: "https://res.cloudinary.com/dfdfeutqe/image/upload/v1731983249/OU%20Social%20Hub/Faculities/XCD_p9mgf5.jpg",
+    },
+    {
+        id: 7,
+        label: "Xây dựng",
+        logoImage: "https://res.cloudinary.com/dfdfeutqe/image/upload/v1731983314/OU%20Social%20Hub/Faculities/XD_xzx3ec.jpg",
+    },
+    {
+        id: 8,
+        label: "Công nghệ sinh học",
+        logoImage: "https://res.cloudinary.com/dfdfeutqe/image/upload/v1731984068/OU%20Social%20Hub/Faculities/CNSH_ojlzwq.jpg",
+    },
+];
+
+export const departmentLinks = [
+    {
+        id: 1,
+        label: "Phòng CTSV & TT",
+        tag: "ctsvtt",
+        linkUrl: "https://ou.edu.vn/osa/",
+    },
+    {
+        id: 2,
+        label: "Phòng quản lý đào tạo",
+        tag: "quanlydaotao",
+        linkUrl: "https://quanlydaotao.ou.edu.vn/",
+    },
+    {
+        id: 3,
+        label: "Phòng khảo thí",
+        tag: "khaothi",
+        linkUrl: "http://v1.ou.edu.vn/ttkt/Pages/default.aspx",
+    },
+    {
+        id: 4,
+        label: "Trạm y tế",
+        tag: "tramyte",
+        linkUrl: "http://v1.ou.edu.vn/tramyte/Pages/Default.aspx",
+    },
+];

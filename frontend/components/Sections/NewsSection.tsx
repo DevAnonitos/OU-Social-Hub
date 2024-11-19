@@ -16,7 +16,7 @@ const NewsSection = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Left side: News List */}
         <div className="col-span-2 space-y-4 bg-gray-100 border-[1px] border-gray-300 rounded-lg">
-          {Array(3).fill(0).map((_, idx) => (
+          {Array(4).fill(0).map((_, idx) => (
             <div
               key={idx}
               className="flex items-start space-x-4 p-4"

@@ -50,7 +50,7 @@ const ClubSection = () => {
             transform: `translateX(-${currentIndex * (164 + 24)}px)`,
           }}
         >
-          {clubLinks.map((club: any, index: number) => (
+          {clubLinks.map((club: any) => (
             <div
               key={club.id}
               className="relative aspect-square w-full max-w-[164px] rounded-lg border border-gray-300 overflow-hidden"
