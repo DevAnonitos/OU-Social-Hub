@@ -308,3 +308,26 @@ export const departmentLinks = [
         linkUrl: "http://v1.ou.edu.vn/tramyte/Pages/Default.aspx",
     },
 ];
+
+export const footerSocialLinks = [
+    {
+        id: 1,
+        label: "Facebook",
+        logoImage: "/assets/icons/facebook.svg",
+    },
+    {
+        id: 2,
+        label: "Instagram",
+        logoImage: "/assets/icons/instagram.svg",
+    },
+    {
+        id: 3,
+        label: "Discord",
+        logoImage: "/assets/icons/discord.svg",
+    },
+    {
+        id: 4,
+        label: "Youtube",
+        logoImage: "/assets/icons/youtube.svg",
+    },
+]
