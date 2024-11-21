@@ -35,7 +35,7 @@ export const categoriesLinks = [
     {
         id: 1,
         icon: "/assets/icons/department.svg",
-        route: "/",
+        route: "/departments",
         label: "Phòng ban",
     }, 
     {
@@ -47,7 +47,7 @@ export const categoriesLinks = [
     {
         id: 3,
         icon: "/assets/icons/club.svg",
-        route: "/create-event",
+        route: "/clubs",
         label: "Câu lạc bộ",
     },
     {
@@ -62,19 +62,19 @@ export const connectLinks = [
     {
         id: 1,
         icon: "/assets/icons/newspaper.svg",
-        route: "/",
+        route: "/news",
         label: "Tin tức",
     }, 
     {
         id: 2,
         icon: "/assets/icons/events.svg",
-        route: "/search",
+        route: "/events",
         label: "Sự kiện",
     },
     {
         id: 3,
         icon: "/assets/icons/share.svg",
-        route: "/create-event",
+        route: "/shares",
         label: "Chia sẻ",
     },
     {
