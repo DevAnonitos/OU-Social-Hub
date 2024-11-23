@@ -26,7 +26,7 @@ export const leftSideBarLinks = [
     {
         id: 5,
         icon: "/assets/icons/news.svg",
-        route: "/news",
+        route: "/posts",
         label: "Bài viết",
     },
 ];
@@ -80,7 +80,7 @@ export const connectLinks = [
     {
         id: 4,
         icon: "/assets/icons/group-user.svg",
-        route: "/explore",
+        route: "/members",
         label: "Thành viên",
     },
 ];
