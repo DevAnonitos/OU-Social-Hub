@@ -24,7 +24,7 @@ const NavBar = () => {
             <BellIcon />
           </div>
           <Button className='h-[40px]'>
-            <Link href="/sign-in">
+            <Link href="/sign-in" prefetch={true}>
               Đăng nhập
             </Link>
           </Button>

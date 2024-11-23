@@ -26,6 +26,7 @@ const Sidebar = () => {
             <Link 
               key={link.id}
               href={link.route}
+              prefetch={true}
               className={`flex items-center py-2.5 px-4 my-2 rounded-lg ${isActive ? "bg-white shadow-sm border-[1px] border-gray-300" : "hover:bg-gray-100"}`} 
             >
               <Image
@@ -58,6 +59,7 @@ const Sidebar = () => {
             <Link 
               key={link.id}
               href={link.route}
+              prefetch={true}
               className={`flex items-center py-2.5 px-4 my-2 rounded-lg hover:bg-gray-100`} 
             >
               <Image
@@ -90,6 +92,7 @@ const Sidebar = () => {
             <Link 
               key={link.id}
               href={link.route}
+              prefetch={true}
               className={`flex items-center py-2.5 px-4 my-2 rounded-lg hover:bg-gray-100`} 
             >
               <Image
