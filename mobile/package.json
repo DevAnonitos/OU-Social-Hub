@@ -2,6 +2,27 @@
   "name": "mobile",
   "main": "expo-router/entry",
   "version": "1.0.0",
+  "description": "Mobile app for OU Social Hub",
+  "author": "OU Social Hub Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ou-social-hub/mobile.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ou-social-hub/mobile/issues"
+  },
+  "homepage": "https://github.com/ou-social-hub/mobile#readme",
+  "keywords": [
+    "expo",
+    "react-native",
+    "ou-social",
+    "mobile-app",
+    "education"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "start": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
