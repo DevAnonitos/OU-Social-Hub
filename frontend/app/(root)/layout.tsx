@@ -1,31 +1,34 @@
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import '../../styles/globals.css';
+import { type ReactNode } from 'react';
 
+// Components
 import NavBar from "@/components/NavBar/NavBar";
 import Sidebar from "@/components/Shared/Sidebar";
 import BottomBar from "@/components/Shared/BottomBar";
 import { Toaster } from "@/components/ui/toaster";
 
+// Providers
 import { AuthProvider } from "@/providers/AuthProvider";
 import QueryProvider from "@/providers/QueryProvider";
 import ThemeProvider from "@/providers/ThemeProvider";
 
-const opensans = Open_Sans({ subsets: ["latin"]});
+const opensans = Open_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "OU Hub",
   description: "A centralized social media platform for the OU community hub, sharing news, events, and connecting students, faculty, and staff of Ho Chi Minh City Open University.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+interface RootLayoutProps {
+  children: ReactNode;
+}
+
+export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
   return (
     <html lang="en">
-      <body className={`${opensans.className}`}>
+      <body className={opensans.className}>
         <QueryProvider>
           <AuthProvider>
             <ThemeProvider>
@@ -46,4 +49,4 @@ export default function RootLayout({
       </body>
     </html>
   );
-};
+}

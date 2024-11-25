@@ -4,9 +4,36 @@ export type useDotButtonType = {
   onDotButtonClick: (index: number) => void;
 };
 
+export type DeleteConfirmProps = {
+  title: string;
+  description: string;
+  onConfirm: () => void;
+  onCancel: () => void;
+};
+
 export type DotButtonProps = {
   selected: boolean;
   onClick: () => void;
+};
+
+export type AvatarUserProps = {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  priority?: boolean;
+  quality?: number;
+  decoding?: 'async' | 'sync' | 'auto';
+  className?: string;
+};
+
+export type ProfileDropDownProps = {
+  userName: string;
+  userRole: string;
+  onAccountInfoClick: () => void;
+  onMyPostsClick: () => void;
+  onHelpFeedbackClick: () => void;
+  onLogoutClick: () => void;
 };
 
 export type UrlQueryParams = {
@@ -19,3 +46,4 @@ export type RemoveUrlQueryParams = {
   params: string
   keysToRemove: string[]
 };
+

@@ -3,7 +3,6 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 
-
 import ClubSection from '@/components/Sections/ClubSection';
 import PostSection from '@/components/Sections/PostSection';
 import TagSection from '@/components/Sections/TagSection';

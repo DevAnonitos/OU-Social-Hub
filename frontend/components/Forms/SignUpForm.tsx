@@ -133,7 +133,7 @@ const SignUpForm = () => {
             </Button>
             <p className="text-sm text-gray-500 text-start">
               Bạn đã có tài khoản?{" "}
-              <Link href="/sign-in">
+              <Link href="/sign-in" prefetch={true} scroll={true}>
                 <span className="text-blue-600 font-medium hover:underline">
                   Vui lòng đăng nhập.
                 </span>

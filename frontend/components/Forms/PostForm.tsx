@@ -7,6 +7,8 @@ import * as z from 'zod';
 import { eventFormSchema } from '@/lib/validator';
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useEditor, EditorContent } from '@tiptap/react';
+import StarterKit from '@tiptap/starter-kit';
 
 import DropDown from '../Shared/DropDown';
 
@@ -30,10 +32,21 @@ type EventFormProps = {
   userId: string
 };
 
-const EventForm = () => {
+const PostForm = () => {
 
   const [date, setDate] = React.useState<Date | undefined>(new Date());
   const [files, setFiles] = useState<File[]>([]);
+
+  const editor = useEditor({
+    extensions: [
+      StarterKit,
+    ],
+    content: '',
+    onUpdate: ({ editor }) => {
+      const html = editor.getHTML();
+      form.setValue('description', html);
+    },
+  });
 
   const router = useRouter();
   const { user } = useAuthStore();
@@ -62,6 +75,7 @@ const EventForm = () => {
       if (createEvent.status === 200) {
         console.log("Event created successfully:", createEvent.data);
         form.reset();
+        editor?.commands.setContent('');
         router.push('/');
       }
       console.log(createEvent);
@@ -73,10 +87,21 @@ const EventForm = () => {
   return (
     <Form {...form}>
       <form className='flex flex-col gap-5' onSubmit={form.handleSubmit(onSubmit)}>
-        
+        <FormField
+          control={form.control}
+          name="description"
+          render={({ field }) => (
+            <FormItem>
+              <FormControl>
+                <EditorContent editor={editor} className="min-h-[200px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background" />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
       </form>
     </Form>
   );
 };
 
-export default EventForm;
+export default PostForm;

@@ -6,6 +6,7 @@ import { useTheme } from 'next-themes';
 
 import SearchBar from '../SearchBar/SearchBar';
 import { Button } from '../ui/button';
+import ProfileDropDown from '../(User)/ProfileDropDown';
 import { SettingsIcon, MoonIcon, BellIcon, SunIcon } from 'lucide-react';
 import { useAuthStore } from '@/stores/useAuthStore';
 
@@ -20,6 +21,7 @@ const NavBar = () => {
         <div className='flex items-center space-x-4'>
           <div className='bg-gray-200 dark:bg-gray-800 w-10 h-10 flex items-center justify-center rounded-full cursor-pointer'>
             <SettingsIcon size={24} className="text-gray-700 dark:text-gray-300" />
+            {/* <ProfileDropDown /> */}
           </div>
           <div 
             className='bg-gray-200 dark:bg-gray-800 w-10 h-10 flex items-center justify-center rounded-full cursor-pointer'

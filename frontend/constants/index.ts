@@ -14,7 +14,7 @@ export const leftSideBarLinks = [
     {
         id: 3,
         icon: "/assets/icons/add.svg",
-        route: "/create-event",
+        route: "/create-post",
         label: "Đăng bài",
     },
     {
