@@ -9,6 +9,7 @@ import { Toaster } from "@/components/ui/toaster";
 
 import { AuthProvider } from "@/providers/AuthProvider";
 import QueryProvider from "@/providers/QueryProvider";
+import ThemeProvider from "@/providers/ThemeProvider";
 
 const opensans = Open_Sans({ subsets: ["latin"]});
 
@@ -27,17 +28,19 @@ export default function RootLayout({
       <body className={`${opensans.className}`}>
         <QueryProvider>
           <AuthProvider>
-            <Toaster />
-            <Sidebar />
-            <NavBar />
-            <div className="flex">
-              <div className="ml-[272px] mt-[64px] flex-1 overflow-y-auto">
-                <main className="grid grid-cols-12 gap-6 px-8">
-                  {children}
-                </main>
-                <BottomBar />
+            <ThemeProvider>
+              <Toaster />
+              <Sidebar />
+              <NavBar />
+              <div className="flex">
+                <div className="ml-[272px] mt-[64px] flex-1 overflow-y-auto">
+                  <main className="grid grid-cols-12 gap-6 px-8">
+                    {children}
+                  </main>
+                  <BottomBar />
+                </div>
               </div>
-            </div>
+            </ThemeProvider>
           </AuthProvider>
         </QueryProvider>
       </body>

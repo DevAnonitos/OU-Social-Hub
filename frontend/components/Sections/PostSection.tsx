@@ -34,7 +34,9 @@ const PostSection = () => {
                   layout='fill'
                   loading="eager"
                   objectFit='cover'
-                  className=''
+                  className='object-cover'
+                  decoding='async'
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 188px"
                 />
                 <button className='absolute top-4 right-3 p-1 rounded-full bg-white/70 hover:bg-white'>
                   <Bookmark className='text-gray-700' />

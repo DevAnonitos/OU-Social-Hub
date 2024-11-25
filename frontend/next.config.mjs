@@ -24,6 +24,7 @@ const nextConfig = {
   // },
   images: {
     // domains: ['utfs.io', 'res.cloudinary.com'],
+    minimumCacheTTL: 31536000,
     remotePatterns: [
       {
         protocol: 'https',
@@ -34,6 +35,7 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'res.cloudinary.com',
         port: '',
+        pathname: "/**",
       }
     ]
   }

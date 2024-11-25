@@ -59,9 +59,11 @@ const ClubSection = () => {
                 src={club.logoImage}
                 alt={club.label}
                 layout="fill"
+                decoding='async'
                 className="rounded-lg"
                 placeholder="blur"
                 blurDataURL="https://via.placeholder.com/10x10"
+                sizes="(max-width: 640px) 100vw, 164px"
               />
             </div>
           ))}

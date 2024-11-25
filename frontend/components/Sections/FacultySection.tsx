@@ -25,6 +25,9 @@ const FacultySection = () => {
               alt={faculty.label}
               layout='fill'         
               className='rounded-lg'
+              decoding='async'
+              quality={75}
+              sizes="(max-width: 640px) 100vw, 164px"
             />
           </div>
         ))}

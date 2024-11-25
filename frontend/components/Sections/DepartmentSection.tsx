@@ -26,7 +26,8 @@ const DepartmentSection = () => {
                 src={"https://res.cloudinary.com/dfdfeutqe/image/upload/v1731988609/OU%20Social%20Hub/OU_rdfqrj.jpg"}
                 width={64}
                 height={64}
-                quality={100}
+                quality={75}
+                decoding='async'
                 className="rounded-full border border-gray-300 object-cover aspect-ratio"
                 alt='OU'
               />

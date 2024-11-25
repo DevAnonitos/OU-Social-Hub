@@ -52,9 +52,9 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     checkAuth();
   }, [isAuthenticated, user, pathName, router, loading, isAuthorized]);
 
-  if (loading) {
-    return <LoaderSpinner />; 
-  }
+  // if (loading) {
+  //   return <LoaderSpinner />; 
+  // }
 
   if (!isAuthorized) {
     return null; 
