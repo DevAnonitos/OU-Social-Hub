@@ -330,4 +330,4 @@ export const footerSocialLinks = [
         label: "Youtube",
         logoImage: "/assets/icons/youtube.svg",
     },
-]
+];

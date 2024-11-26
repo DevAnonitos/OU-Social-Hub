@@ -30,5 +30,17 @@
 **/values.dev.yaml
 **/build
 **/dist
+**/logs
+**/tmp
+**/coverage
+**/test-results
+**/out
+**/target
+**/bin
+**/lib
+**/generated
+**/public/assets
+**/public/static
+**/public/uploads
 LICENSE
 README.md

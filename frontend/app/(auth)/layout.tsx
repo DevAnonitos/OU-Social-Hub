@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import "../globals.css";
 
+import { Toaster } from "@/components/ui/toaster";
+import QueryProvider from "@/providers/QueryProvider";
+
 const opensans = Open_Sans({ subsets: ["latin"]});
 
 export const metadata: Metadata = {
@@ -17,9 +20,12 @@ export default function AuthLayout({
   return (
     <html lang="en">
       <body className={opensans.className}>
-        <main className="flex flex-col w-full h-full items-center justify-center min-h-screen overflow-hidden">
-          {children}
-        </main>
+        <QueryProvider>
+          <Toaster />
+          <main className="flex flex-col w-full h-full items-center justify-center min-h-screen overflow-hidden">
+            {children}
+          </main>
+        </QueryProvider>
       </body>
     </html>
   );

@@ -19,10 +19,10 @@ const NavBar = () => {
       <div className='flex items-center w-full justify-between px-8'>
         <SearchBar />
         <div className='flex items-center space-x-4'>
-          <div className='bg-gray-200 dark:bg-gray-800 w-10 h-10 flex items-center justify-center rounded-full cursor-pointer'>
+          <Link prefetch={true} scroll={true} href="/settings" className='bg-gray-200 dark:bg-gray-800 w-10 h-10 flex items-center justify-center rounded-full cursor-pointer'>
             <SettingsIcon size={24} className="text-gray-700 dark:text-gray-300" />
             {/* <ProfileDropDown /> */}
-          </div>
+          </Link>
           <div 
             className='bg-gray-200 dark:bg-gray-800 w-10 h-10 flex items-center justify-center rounded-full cursor-pointer'
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
