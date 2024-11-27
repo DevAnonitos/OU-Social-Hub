@@ -44,7 +44,7 @@ const nextConfig = {
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
-    // Add markdown plugins here (nếu cần)
+  
   },
 });
 

@@ -103,6 +103,17 @@ const PostForm = () => {
             </FormItem>
           )}
         />
+        <div className='flex items-center justify-end gap-4'>
+          <Button variant='secondary' className='w-fit'>
+            Hủy
+          </Button>
+          <Button variant='outline' className='w-fit'>
+            Lưu nháp
+          </Button>
+          <Button type='submit' className='w-fit'>
+            Đăng bài viết
+          </Button>
+        </div>
       </form>
     </Form>
   );

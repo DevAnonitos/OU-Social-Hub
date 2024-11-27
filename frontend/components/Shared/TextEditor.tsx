@@ -23,7 +23,7 @@ const TextEditor = () => {
         class: 'prose prose-sm sm:prose w-full min-h-[350px] lg:prose-lg xl:prose-xl hover:border-none focus:border-none focus-visible:border-none focus-visible:ring-0 focus-visible:ring-offset-0',
       },
     },
-    content: '<p>Hello World!</p>',
+    content: '<p>Nhập nội dung bài viết tại đây</p>',
   });
 
   return (

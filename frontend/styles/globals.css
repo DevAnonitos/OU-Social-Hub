@@ -27,7 +27,7 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #555;  /* Đổi màu khi hover */
+  background-color: #555; 
 }
 
 ::-webkit-scrollbar-horizontal {
@@ -121,10 +121,6 @@
   .hidden {
     display: none;
   }
-
-  /* .bottombar_container {
-    @apply flex items-center justify-between gap-3 xs:gap-5;
-  } */
 
   .bottombar_link {
     @apply relative flex flex-col items-center gap-2 rounded-full p-3 sm:flex-1 sm:px-2 sm:py-2.5;

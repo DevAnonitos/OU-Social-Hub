@@ -14,7 +14,9 @@ const DepartmentSection = () => {
         </h2>
         <div className="flex gap-2">
           <Button>
-            Xem tất cả
+            <Link href='/departments' prefetch={true} scroll={true}>
+              Xem tất cả
+            </Link>
           </Button>
         </div>
       </div>
