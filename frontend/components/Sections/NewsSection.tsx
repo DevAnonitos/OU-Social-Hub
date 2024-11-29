@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '../ui/button';
+import NewsCard from '../Cards/NewsCard';
 
 const NewsSection = () => {
   return (

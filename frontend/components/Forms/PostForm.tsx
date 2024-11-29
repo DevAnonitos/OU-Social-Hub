@@ -1,14 +1,11 @@
 "use client";
 
-import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import Image from 'next/image';
 import * as z from 'zod';
-import { eventFormSchema } from '@/lib/validator';
+import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
+import { useRouter } from 'next/navigation';
+import { eventFormSchema } from '@/lib/validator';
 import { zodResolver } from "@hookform/resolvers/zod";
-
-import DropDown from '../Shared/DropDown';
 
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
@@ -19,9 +16,8 @@ import {
   FormField, 
   FormMessage, 
   FormItem, 
+  FormLabel,
 } from '../ui/form';
-import FileUploader from '../Shared/FileUploader';
-import DatePicker from '../Shared/DatePicker';
 import axios from 'axios';
 
 import TextEditor from '../Shared/TextEditor';
@@ -74,28 +70,74 @@ const PostForm = () => {
 
   return (
     <Form {...form}>
-      <form className='flex flex-col gap-5' onSubmit={form.handleSubmit(onSubmit)}>
-        <FormField
-          control={form.control}
-          name="title"
-          render={({ field }) => (
-            <FormItem>
-              <FormControl>
-                <Input 
-                  placeholder='Nhập tiêu đề bài viết tại đây...' 
-                  className='w-full flex items-center text-3xl border-none focus-visible:ring-0 focus-visible:ring-offset-0 p-0 placeholder:text-3xl font-bold'
-                  {...field} 
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+      <form className='flex flex-col gap-6' onSubmit={form.handleSubmit(onSubmit)}>
+        <div className='flex flex-col gap-6 md:flex-row'>
+          <FormField
+            control={form.control}
+            name="title"
+            render={({ field }) => (
+              <FormItem className='w-full'>
+                <FormLabel className='font-bold text-lg'>
+                  Tiêu đề bài viết
+                </FormLabel>
+                <FormControl>
+                  <Input 
+                    placeholder='Nhập tiêu đề bài viết tại đây...' 
+                    className='w-full flex items-center border-gray-300 border focus-visible:ring-0 focus-visible:ring-offset-0'
+                    {...field} 
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="title"
+            render={({ field }) => (
+              <FormItem className='w-full'>
+                <FormLabel className='font-bold text-lg'>
+                  Chủ đề bài viết
+                </FormLabel>
+                <FormControl>
+                  <Input 
+                    placeholder='Nhập tiêu đề bài viết tại đây...' 
+                    className='w-full flex items-center border-gray-300 border focus-visible:ring-0 focus-visible:ring-offset-0'
+                    {...field} 
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+        <div className='flex flex-col gap-6 md:flex-row'>
+          <FormField
+            control={form.control}
+            name="title"
+            render={({ field }) => (
+              <FormItem className='w-full'>
+                <FormLabel className='font-bold text-lg'>
+                  Mô tả bài viết
+                </FormLabel>
+                <FormControl>
+                  <Input 
+                    placeholder='Nhập mô tả bài viết' 
+                    className='border focus-visible:ring-0 border-gray-300 focus-visible:ring-offset-0'
+                    {...field} 
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
         <FormField
           control={form.control}
           name="description"
           render={({ field }) => (
             <FormItem>
+              <FormLabel className='font-bold text-lg'>Nội dung bài viết</FormLabel>
               <FormControl>
                 <TextEditor />
               </FormControl>
@@ -104,13 +146,13 @@ const PostForm = () => {
           )}
         />
         <div className='flex items-center justify-end gap-4'>
-          <Button variant='secondary' className='w-fit'>
-            Hủy
+          <Button variant='secondary' className='px-4 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-600'>
+            Hủy bài viết
           </Button>
-          <Button variant='outline' className='w-fit'>
-            Lưu nháp
+          <Button variant='outline' className='px-4 py-2 text-gray-700 border border-gray-300 rounded-md hover:bg-gray-100'>
+            Lưu bản nháp
           </Button>
-          <Button type='submit' className='w-fit'>
+          <Button type='submit' className='px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700'>
             Đăng bài viết
           </Button>
         </div>

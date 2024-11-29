@@ -25,7 +25,7 @@ const SearchPage = () => {
   ];
 
   return (
-    <div className='col-span-12 flex flex-grow overflow-y-auto max-w-screen mx-auto w-full h-full min-h-screen'>
+    <main className='col-span-12 flex flex-grow overflow-y-auto max-w-screen mx-auto w-full h-full min-h-screen'>
       <div className='space-y-8 w-full h-full py-6'>
         <div className='flex items-center gap-6 w-full'>
           <div className="flex-grow">
@@ -107,7 +107,7 @@ const SearchPage = () => {
 </section>
       <CustomPagination />
       </div>
-    </div>
+    </main>
   );
 };
 

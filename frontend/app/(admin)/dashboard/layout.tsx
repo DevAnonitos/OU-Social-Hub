@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../../globals.css";
 import AdminSideBar from "@/components/LeftSideBar/AdminSideBar";
-import AdminNavBar from "@/components/NavBar/AdminNavBar";
+import AdminNavBar from "@/components/(Admin)/AdminNavBar";
 
 import QueryProvider from "@/providers/QueryProvider";
 

@@ -5,7 +5,6 @@ import SearchBar from '../SearchBar/SearchBar';
 // import SignInModal from '../Modals/SignInModal';
 import { BellIcon } from "@radix-ui/react-icons";
 import { useAuthStore } from '@/stores/useAuthStore';
-import ProfileDropDown from '../Shared/ProfileDropDown';
 import NotificationDropDown from '../Notification/NotificationDropDown';
 
 const AdminNavBar = () => {
@@ -22,7 +21,7 @@ const AdminNavBar = () => {
         {isAuthenticated ? (
           <>
             {/* <NotificationDropDown /> */}
-            <ProfileDropDown />
+            
           </>
         ): (
           <>

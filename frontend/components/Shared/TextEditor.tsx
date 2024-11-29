@@ -17,6 +17,7 @@ const TextEditor = () => {
       Italic,
       Underline,
       Document,
+      Paragraph,
     ],
     editorProps: {
       attributes: {
@@ -29,7 +30,10 @@ const TextEditor = () => {
   return (
     <div className='w-full flex flex-col min-h-[350px]'>
       <ToolbarEditor editor={editor} />
-      <EditorContent editor={editor} />
+      <EditorContent 
+        className='focus:outline-none border border-gray-300' 
+        editor={editor} 
+      />
     </div>
   );
 };

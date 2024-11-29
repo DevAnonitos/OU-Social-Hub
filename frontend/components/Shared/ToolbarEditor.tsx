@@ -15,7 +15,7 @@ const ToolbarEditor = ({ editor }: ToolbarEditorProps) => {
   }
 
   return (
-    <div className="flex space-x-2">
+    <div className="flex items-center space-x-2">
       <Toggle
         pressed={editor.isActive('bold')}
         onPressedChange={() => editor.chain().focus().toggleBold().run()}

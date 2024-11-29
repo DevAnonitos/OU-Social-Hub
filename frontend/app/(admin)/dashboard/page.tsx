@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import GroupStats from '@/components/Shared/GroupStats';
 import EventsDataTable from '@/components/Tables/EventsDataTable';
 import UpComingEvent from '@/components/Shared/UpComingEvent';
-import EventChart from '@/components/Charts/EventChart';
+import EventChart from '@/components/(Admin)/Charts/EventChart';
 
 // const DynamicGroupStats = dynamic(() => import("@/components/Share/GroupStats"), {
 //   loading: () => <p>Loading...</p>

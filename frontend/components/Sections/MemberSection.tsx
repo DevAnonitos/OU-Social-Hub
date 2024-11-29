@@ -1,4 +1,5 @@
 import React from 'react';
+import UserCard from '../Cards/UserCard';
 
 const MemberSection = () => {
   return (

@@ -3,8 +3,11 @@ import Image from 'next/image';
 import { Button } from '../ui/button';
 import { HeartIcon, Bookmark } from 'lucide-react';
 import PostLoadingSkeleton from '../Shared/PostLoadingSkeleton';
+import { useToast } from '@/hooks/use-toast';
 
 const PostSection = () => {
+  const { toast } = useToast();
+
   return (
     <section className='flex flex-col space-y-6'>
       <div className='flex items-center justify-between'>
@@ -38,7 +41,12 @@ const PostSection = () => {
                   decoding='async'
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 188px"
                 />
-                <button className='absolute top-4 right-3 p-1 rounded-full bg-white/70 hover:bg-white'>
+                <button 
+                  className='absolute top-4 right-3 p-1 rounded-full bg-white/70 hover:bg-white'
+                  onClick={(e) => {
+                    
+                  }}
+                >
                   <Bookmark className='text-gray-700' />
                 </button>
               </div>

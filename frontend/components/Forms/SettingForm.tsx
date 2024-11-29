@@ -20,7 +20,7 @@ import {
 
 const SettingForm = () => {
   return (
-    <div>SettingForm</div>
+    <form>SettingForm</form>
   );
 };
 

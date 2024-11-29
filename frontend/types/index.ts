@@ -27,6 +27,13 @@ export type AvatarUserProps = {
   className?: string;
 };
 
+export type BreadcrumbProps = {
+  items: {
+    label: string;
+    href: string;
+  }[];
+}
+
 export type ProfileDropDownProps = {
   userName: string;
   userRole: string;

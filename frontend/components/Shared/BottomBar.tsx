@@ -55,10 +55,13 @@ const BottomBar = () => {
           <Link href='/terms' className='text-md text-gray-500 hover:text-gray-700 transition-colors'>Điều khoản dịch vụ</Link>
           <Link href='/cookies' className='text-md text-gray-500 hover:text-gray-700 transition-colors'>Chính sách cookie</Link>
         </div>
-        <div className='text-md text-gray-500'>
-          <p>&copy; 2023 OUHUB. All rights reserved.</p>
-          <p>Ngày cập nhật mới nhất: 01/01/2023</p>
-          <p>Tác giả: Nguyen Duc Gia Bao (DevAnonitos)</p>
+        <div className='text-md text-gray-500 space-y-2'>
+          <p>&copy; 2024 OUHUB. All rights reserved.</p>
+          <p>Cập nhật mới nhất: 29/11/2024</p>
+          <p>Được phát triển bởi <Link href='https://github.com/DevAnonitos' className='text-blue-500 hover:text-blue-700 transition-colors'>DevAnonitos</Link></p>
+          <p className='font-bold'>
+            OUHUB V1.0.0
+          </p>
         </div>
       </div>
     </div>

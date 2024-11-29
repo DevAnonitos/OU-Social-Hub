@@ -9,6 +9,7 @@ import Sidebar from "@/components/Shared/Sidebar";
 import BottomBar from "@/components/Shared/BottomBar";
 import { Toaster } from "@/components/ui/toaster";
 
+
 // Providers
 import { AuthProvider } from "@/providers/AuthProvider";
 import QueryProvider from "@/providers/QueryProvider";
@@ -36,8 +37,8 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
               <Sidebar />
               <NavBar />
               <div className="flex">
-                <div className="ml-[272px] mt-[64px] flex-1 overflow-y-auto">
-                  <main className="grid grid-cols-12 gap-6 px-8">
+                <div className="ml-[272px] mt-[64px] justify-center flex-1 overflow-y-auto">
+                  <main className="grid grid-cols-12 gap-6 px-8 items-center justify-center">
                     {children}
                   </main>
                   <BottomBar />

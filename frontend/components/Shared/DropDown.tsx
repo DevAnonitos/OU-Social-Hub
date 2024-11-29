@@ -24,8 +24,8 @@ import {
 import { Input } from "../ui/input";
 
 type DropDownProps = {
-  value?: string[]; // Expect an array of selected categories
-  onChangeHandler?: (value: string[]) => void; // Return array of selected values
+  value?: string[]; 
+  onChangeHandler?: (value: string[]) => void;
 };
 
 interface Category {
@@ -38,7 +38,6 @@ const DropDown = ({ value = [], onChangeHandler }: DropDownProps) => {
   const [newCategory, setNewCategory] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  // Fetch categories on mount
   useEffect(() => {
     const fetchCategories = async () => {
       try {

@@ -18,7 +18,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 const FeedbackForm = () => {
   return (
-    <div>FeedbackForm</div>
+    <form>FeedbackForm</form>
   );
 };
 
