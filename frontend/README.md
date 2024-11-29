@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# OUHUB FRONTEND
+
+## Introduction
+Welcome to the OUHUB Frontend project. This project is built using modern web technologies to provide a seamless user experience.
+
+## Technologies Used
+- React
+- Next.js
+- TypeScript
+- Tailwind CSS
+- React Query
+
+## Project Structure
+The project is organized into the following main directories:
+- `components`: Contains reusable UI components.
+- `lib`: Contains utility functions and configurations.
+- `pages`: Contains the Next.js page components.
+- `public`: Contains static assets like images and fonts.
+- `styles`: Contains global styles and Tailwind CSS configurations.
 
 ## Getting Started
+To get started with the project, follow these steps:
 
-First, run the development server:
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/ouhub-frontend.git
+   cd ouhub-frontend
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+4. **Open your browser:**
+   Navigate to `http://localhost:3000` to see the application in action.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Available Scripts
+In the project directory, you can run the following scripts:
 
-## Learn More
+- `npm run dev`: Runs the app in development mode.
+- `npm run build`: Builds the app for production.
+- `npm run start`: Starts the production server.
+- `npm run lint`: Runs the linter to check for code quality issues.
 
-To learn more about Next.js, take a look at the following resources:
+## Contributing
+We welcome contributions to the project. To contribute, please follow these steps:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/your-feature-name`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add some feature'`).
+5. Push to the branch (`git push origin feature/your-feature-name`).
+6. Open a pull request.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
 
-## Deploy on Vercel
+## Contact
+For any questions or feedback, please contact us at [email@example.com](mailto:email@example.com).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Happy coding!

@@ -8,7 +8,7 @@ import NavBar from "@/components/NavBar/NavBar";
 import Sidebar from "@/components/Shared/Sidebar";
 import BottomBar from "@/components/Shared/BottomBar";
 import { Toaster } from "@/components/ui/toaster";
-
+import ScrollToTop from "@/components/Shared/ScrollToTop";
 
 // Providers
 import { AuthProvider } from "@/providers/AuthProvider";
@@ -42,6 +42,7 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
                     {children}
                   </main>
                   <BottomBar />
+                  <ScrollToTop />
                 </div>
               </div>
             </ThemeProvider>

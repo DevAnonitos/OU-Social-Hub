@@ -52,7 +52,7 @@ const BottomBar = () => {
         </div>
         <div className='flex flex-col space-y-2'>
           <h4 className='font-bold text-lg'>Pháp lý</h4>
-          <Link href='/terms' className='text-md text-gray-500 hover:text-gray-700 transition-colors'>Điều khoản dịch vụ</Link>
+          <Link href='/terms-of-service' className='text-md text-gray-500 hover:text-gray-700 transition-colors'>Điều khoản dịch vụ</Link>
           <Link href='/cookies' className='text-md text-gray-500 hover:text-gray-700 transition-colors'>Chính sách cookie</Link>
         </div>
         <div className='text-md text-gray-500 space-y-2'>
