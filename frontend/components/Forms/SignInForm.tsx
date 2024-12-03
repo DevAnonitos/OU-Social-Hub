@@ -55,23 +55,7 @@ const SignInForm = () => {
   };
 
   const handleGoogleSignIn = async () => {
-    try {
-      const response = await fetch('http://localhost:4000/api/v1/auth/google', {
-        method: 'POST',
-      });
-
-      const data = await response.json()
-
-      window.location.href = "http://localhost:4000/api/v1/auth/google";
-
-      const { accessToken, refreshToken, id, username, role } = data;
-
-      setAuth(accessToken, refreshToken, { id, username, role });
-
-      router.push('/');
-    } catch (error: any) {
-      console.error("Error during Google sign-in:", error);
-    }
+    
   };
 
   return (
