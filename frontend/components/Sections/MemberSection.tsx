@@ -3,7 +3,10 @@ import UserCard from '../Cards/UserCard';
 
 const MemberSection = () => {
   return (
-    <div>MemberSection</div>
+    <div>
+      MemberSection
+      
+    </div>
   );
 };
 

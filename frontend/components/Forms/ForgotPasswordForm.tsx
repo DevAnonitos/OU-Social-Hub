@@ -17,8 +17,10 @@ import {
 
 const ForgotPasswordForm = () => {
   return (
-    <div>ForgotPasswordForm</div>
-  )
+    <form>
+      ForgotPasswordForm
+    </form>
+  );
 };
 
 export default ForgotPasswordForm;

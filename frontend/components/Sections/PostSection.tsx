@@ -25,7 +25,7 @@ const PostSection = () => {
           >
             {/* Hình ảnh */}
             <div
-              className='relative h-[188px] w-full flex items-center justify-center'
+              className='relative h-[192px] w-full flex items-center justify-center'
             >
               {/* Overlay text or logo */}
               <div 

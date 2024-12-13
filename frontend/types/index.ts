@@ -32,7 +32,7 @@ export type BreadcrumbProps = {
     label: string;
     href: string;
   }[];
-}
+};
 
 export type ProfileDropDownProps = {
   userName: string;
@@ -41,6 +41,34 @@ export type ProfileDropDownProps = {
   onMyPostsClick: () => void;
   onHelpFeedbackClick: () => void;
   onLogoutClick: () => void;
+};
+
+export type PostCardProps = {
+  idx: number;
+  imageSrc: string;
+  title: string;
+  author: string;
+  date: string;
+  onBookmarkClick: () => void;
+};
+
+export type UserCardProps = {
+  avatarImage: string;
+  userName: string;
+};
+
+export type NewsCardProps = {
+  title: string;
+  imageUrl: string;
+};
+
+export type PostDetailCardProps = {
+  title: string;
+  data: string;
+};
+
+export type ImageCardProps = {
+  
 };
 
 export type UrlQueryParams = {

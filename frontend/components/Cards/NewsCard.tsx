@@ -1,8 +1,15 @@
 import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { Button } from '../ui/button';
 
-const NewsCard = () => {
+import { NewsCardProps } from '@/types';
+
+const NewsCard = ({  }: NewsCardProps) => {
   return (
-    <div>NewsCard</div>
+    <div className=''>
+      NewsCard
+    </div>
   );
 };
 

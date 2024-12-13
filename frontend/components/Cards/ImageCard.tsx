@@ -1,7 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
 
-const ImageCard = () => {
+import { ImageCardProps } from '@/types';
+
+const ImageCard = ({  }: ImageCardProps) => {
   return (
     <div>ImageCard</div>
   );

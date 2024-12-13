@@ -102,6 +102,12 @@
 
 @layer utilities {
 
+  /* =========================================USER STYLES COMPONENTS=============================================== */
+
+  .container {
+
+  }
+
   .left_sidebar {
     @apply fixed flex flex-col left-0 top-20 inset-y-0 h-[calc(100vh-5rem)] w-[calc(100%/6)] min-h-screen border-r-[1px] border-slate-300 overflow-y-auto;
   }
@@ -138,10 +144,19 @@
     @apply flex lg:hidden px-4 py-3 items-center justify-center border-[1px] border-slate-400 mx-4 my-3 rounded-full;
   }
 
+  .postcard {
+
+  }
+
+  .usercard {
+    
+  }
+
   .event-carousel {
     @apply relative flex h-fit aspect-square w-full cursor-pointer flex-col justify-end rounded-xl border-none;
   }
 
+  /* =========================================ADMIN STYLES COMPONENTS=============================================== */
   .admin-left_sidebar {
     @apply fixed flex flex-col left-0 top-20 inset-y-0 h-[calc(100vh-5rem)] w-[calc(100%/6)] min-h-screen border-r-[1px] border-slate-300 overflow-y-auto;
   }

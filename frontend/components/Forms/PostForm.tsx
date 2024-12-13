@@ -9,7 +9,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
-import { Textarea } from '../ui/textarea';
 import { 
   Form, 
   FormControl, 
@@ -18,7 +17,6 @@ import {
   FormItem, 
   FormLabel,
 } from '../ui/form';
-import axios from 'axios';
 
 import TextEditor from '../Shared/TextEditor';
 
@@ -30,7 +28,6 @@ type EventFormProps = {
 
 const PostForm = () => {
 
-  const [date, setDate] = React.useState<Date | undefined>(new Date());
   const [files, setFiles] = useState<File[]>([]);
 
   const router = useRouter();
@@ -51,21 +48,7 @@ const PostForm = () => {
   });
 
   const onSubmit = async (values: z.infer<typeof eventFormSchema>) => {
-    try {
-      const createEvent = await axios.post("http://localhost:4000/api/v1/events/create", {
-        userId: user?.id,
-        event: {...values},
-      });
-
-      if (createEvent.status === 200) {
-        console.log("Event created successfully:", createEvent.data);
-        form.reset();
-        router.push('/');
-      }
-      console.log(createEvent);
-    } catch (error: any) {
-      console.log(error);
-    }
+    
   };
 
   return (
