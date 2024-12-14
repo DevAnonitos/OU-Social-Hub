@@ -1,0 +1,28 @@
+global:
+  scrape_interval: 10s 
+  scrape_timeout: 10s
+  evaluation_interval: 10s
+
+alerting:
+  alertmanagers: 
+    - static_configs:
+
+rules_files:
+  # Add rules file here
+
+scrape_configs:
+  - job_name: "prometheus"
+    scrape_interval: 5s
+    static_configs:
+      - targets: [""]
+
+  - job_name: "node_exporter"
+    scrape_interval: 10s
+    static_configs:
+      - targets: [""]
+
+  - job_name: "alertmanager"
+    static_configs:
+      - targets:
+        # Add Sefl hosting
+
