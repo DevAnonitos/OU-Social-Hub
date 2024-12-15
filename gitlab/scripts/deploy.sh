@@ -16,3 +16,8 @@ error() {
   echo "${date +'%Y-%m-%d %H:%M:%S'} [ERROR] $1"
   exit 1
 }
+
+log "Build Docker Image..."
+
+# Stage Deploy Success
+log "Deployment to successful!"
