@@ -4,9 +4,37 @@ services:
     ports:
       - "3000:3000"
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://0.0.0.0:3000"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    depends_on:
+      backend:
+        condition: service_healthy
+
+  mobile:
+    build: mobile/
+    restart: unless-stopped
 
   backend:
     build: backend/
     ports:
       - 4000:4000
     restart: unless-stopped
+    healthcheck:
+      test: ["executable", "arg"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  db_volume:
+  redis_volume:
+
+networks:
+  db:
+    driver: bridge
+  redis:
+    driver: bridge
+

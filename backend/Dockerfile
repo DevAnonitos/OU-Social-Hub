@@ -1,4 +1,6 @@
-FROM node:22-alpine
+FROM node:22-alpine as build-base
+
+LABEL authors="DevAnonitos"
 
 USER app
 
