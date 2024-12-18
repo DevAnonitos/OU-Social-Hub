@@ -2,9 +2,9 @@
 
 import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
-import GroupStats from '@/components/Shared/GroupStats';
+// import GroupStats from '@/components/Shared/GroupStats';
 import EventsDataTable from '@/components/Tables/EventsDataTable';
-import UpComingEvent from '@/components/Shared/UpComingEvent';
+// import UpComingEvent from '@/components/Shared/UpComingEvent';
 import EventChart from '@/components/(Admin)/Charts/EventChart';
 
 // const DynamicGroupStats = dynamic(() => import("@/components/Share/GroupStats"), {
@@ -27,10 +27,9 @@ const DashBoard = () => {
             Download full Report
           </h2>
         </section>
-        <GroupStats />
         <div className='flex flex-col sm:flex-row xl:gap-6 w-full justify-between gap-2'>
           <section className='w-full'>
-            <UpComingEvent />
+            
           </section>
           <section className='w-full'>
             <EventChart />

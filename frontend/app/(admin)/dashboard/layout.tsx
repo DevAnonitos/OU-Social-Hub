@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../../globals.css";
-import AdminSideBar from "@/components/LeftSideBar/AdminSideBar";
+// import AdminSideBar from "@/components/LeftSideBar/AdminSideBar";
 import AdminNavBar from "@/components/(Admin)/AdminNavBar";
 
 import QueryProvider from "@/providers/QueryProvider";
@@ -25,7 +25,7 @@ export default function RootLayout({
         <QueryProvider>
           <div className="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-12 h-full w-full overflow-y-auto">
             <div className="hidden sm:block sm:col-span-1 lg:col-span-2">
-              <AdminSideBar />
+              {/* <AdminSideBar /> */}
             </div>
             <div className="col-span-1 sm:col-span-3 lg:col-span-10 pt-20">
               {children}
