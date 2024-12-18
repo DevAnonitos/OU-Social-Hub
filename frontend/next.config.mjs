@@ -1,5 +1,12 @@
 import {withSentryConfig} from '@sentry/nextjs';
 import createMDX from "@next/mdx";
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+/** @type {import('next').NextConfig} */
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
@@ -14,16 +21,7 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  // async rewrites (){
-  //   return [
-  //     {
-  //       source: '/api/v1/:path*',
-  //       destination: `${process.env.NEXT_PUBLIC_API_URL}/api/v1/:path*`,
-  //     }
-  //   ]
-  // },
   images: {
-    // domains: ['utfs.io', 'res.cloudinary.com'],
     minimumCacheTTL: 31536000,
     remotePatterns: [
       {
@@ -38,7 +36,15 @@ const nextConfig = {
         pathname: "/**",
       }
     ]
-  }
+  },
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@': path.resolve(__dirname, './'),
+    };
+    return config;
+  },
+  output: 'standalone',
 };
 
 const withMDX = createMDX({

@@ -13,12 +13,12 @@ export const instance = axios.create({
 
 const refreshAccessToken = async() => {
   const { refreshToken, setAuth, clearAuth, user } = useAuthStore.getState();
-  const router = useRouter();
+  // const router = useRouter();
 
   if (!refreshToken) {
     console.error('Refresh token is null or undefined.');
     clearAuth();
-    router.push('/sign-in');
+    // router.push('/sign-in');
     return;
   }
 
@@ -41,7 +41,7 @@ const refreshAccessToken = async() => {
     console.error('Failed to refresh token:', error);
 
     clearAuth();
-    router.push('/sign-in');
+    // router.push('/sign-in');
     throw error;
   }
 };

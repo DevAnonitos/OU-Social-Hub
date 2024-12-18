@@ -1,46 +1,44 @@
 # Build base
-FROM node:22-alpine as build-base
+FROM node:22-alpine AS base
 LABEL author="DevAnonitos <nguyebao2810@gmail.com>" 
 
 WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install \
-  && npm cache clean --force
-
-COPY . .
+RUN npm ci
 
 # Build Images
-FROM node:22-alpine as build-image
+FROM node:22-alpine AS builder
 LABEL author="DevAnonitos <nguyebao2810@gmail.com>" 
 
 WORKDIR /app
 
-COPY --from=build-base /app/node_modules ./node_modules
+COPY --from=base /app/node_modules ./node_modules
 
 COPY . . 
 
-RUN curl -sf https://gobinaries.com/tj/node-prune | sh
-
-RUN npm run build \
-  && rm -rf node_modules \
-  && npm install --production \
-  && npm prune
+RUN npm run build 
 
 # Run Images
-FROM node:22-alpine as prod
+FROM node:22-alpine AS runner
 LABEL author="DevAnonitos <nguyebao2810@gmail.com>" 
 
 WORKDIR /app
 
-COPY --from=build-image /app/node_modules ./node_modules
-COPY --from=build-image /app/.next ./next
-COPY --from=build-image /app/public ./public
-COPY --from=build-image package*.json ./
+USER node
 
-RUN chmod -R 750 .next
+ENV NODE_ENV="production"
+
+ENV NEXT_TELEMETRY_DISABLED 1
+
+COPY --from=builder --chown=node:node /app/next.config.mjs ./
+COPY --from=builder --chown=node:node /app/public ./public
+
+COPY --from=builder --chown=node:node /app/.next/standalone ./
+COPY --from=builder --chown=node:node /app/.next/static ./.next/static
 
 EXPOSE 3003
 
-CMD npm run dev
+CMD ["node", "server.js"]
+
